@@ -38,9 +38,10 @@ export const Navbar = () => {
       {/* Main Navbar */}
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold">
+          <img src="/telemons.jpg" alt="Telemons Cable" className="w-30 h-10 mr-10" />
+          {/* <Link href="/" className="text-2xl font-bold">
             Telemons Cable
-          </Link>
+          </Link> */}
 
           {/* Navigation Links */}
           <nav className="hidden md:flex space-x-8">
