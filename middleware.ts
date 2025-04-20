@@ -13,24 +13,30 @@ export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
 
   // Define public routes that don't require authentication
-  const publicRoutes = ['/login', '/signup', '/auth/callback']
+  const publicRoutes = ['/', '/login', '/signup', '/auth/callback']
+  
+  // Define protected routes that require authentication
+  const protectedRoutes = ['/test', '/dashboard', '/profile']
   
   // Check if the current path is a public route
   const isPublicRoute = publicRoutes.some(route => pathname.startsWith(route))
+  
+  // Check if the current path is a protected route
+  const isProtectedRoute = protectedRoutes.some(route => pathname.startsWith(route))
   
   // Get the user's session
   const { data: { session } } = await supabase.auth.getSession()
   
   // If the user is not authenticated and trying to access a protected route,
-  // redirect them to the login page
-  if (!session && !isPublicRoute) {
-    const redirectUrl = new URL('/login', req.url)
+  // redirect them to the home page
+  if (!session && isProtectedRoute) {
+    const redirectUrl = new URL('/', req.url)
     return NextResponse.redirect(redirectUrl)
   }
   
-  // If the user is authenticated and trying to access a public route,
+  // If the user is authenticated and trying to access auth routes (login/signup),
   // redirect them to the dashboard
-  if (session && isPublicRoute && pathname !== '/auth/callback') {
+  if (session && (pathname === '/login' || pathname === '/signup')) {
     const redirectUrl = new URL('/test', req.url)
     return NextResponse.redirect(redirectUrl)
   }

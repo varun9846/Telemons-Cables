@@ -1,6 +1,6 @@
 'use client'
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import { User } from '@supabase/supabase-js'
 import { useSupabaseClient } from '@supabase/auth-helpers-react'
 import { toast } from 'react-hot-toast'
@@ -16,6 +16,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
   const router = useRouter()
+  const pathname = usePathname()
   const supabase = useSupabaseClient()
 
   useEffect(() => {
@@ -39,7 +40,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           router.push('/test')
         } else if (event === 'SIGNED_OUT') {
           // toast.success('Successfully signed out')
-          router.push('/login')
+          // Only redirect to home page on sign out
+          router.push('/')
         }
       }
     )
