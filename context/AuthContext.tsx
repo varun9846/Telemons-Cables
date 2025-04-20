@@ -1,8 +1,9 @@
 'use client'
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 import { User } from '@supabase/supabase-js'
+import { useSupabaseClient } from '@supabase/auth-helpers-react'
+import { toast } from 'react-hot-toast'
 
 interface AuthContextType {
   user: User | null
@@ -15,19 +16,38 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
   const router = useRouter()
+  const supabase = useSupabaseClient()
 
   useEffect(() => {
+    // Check for the current session
+    const checkSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession()
+      setUser(session?.user ?? null)
+      setLoading(false)
+    }
+
+    checkSession()
+
+    // Listen for auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
         setUser(session?.user ?? null)
         setLoading(false)
+        
+        if (event === 'SIGNED_IN') {
+          // toast.success('Successfully signed in')
+          router.push('/test')
+        } else if (event === 'SIGNED_OUT') {
+          // toast.success('Successfully signed out')
+          router.push('/login')
+        }
       }
     )
 
     return () => {
       subscription.unsubscribe()
     }
-  }, [])
+  }, [supabase, router])
 
   return (
     <AuthContext.Provider value={{ user, loading }}>

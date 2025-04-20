@@ -2,16 +2,16 @@
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { loginSchema } from '@/utils/validationSchemas'
-import { supabase } from '@/lib/supabase'
 import { useLoader } from '@/context/LoaderContext'
 import { toast } from 'react-hot-toast'
 import { FaGoogle } from 'react-icons/fa'
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 
+
 export const LoginForm = () => {
   const router = useRouter()
-  const supabaseClient = useSupabaseClient();
+  const supabase = useSupabaseClient();
   const { showLoader, hideLoader } = useLoader()
 
   const handleLogin = async (values: { email: string; password: string }) => {
@@ -38,6 +38,13 @@ export const LoginForm = () => {
       showLoader()
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
+        options: {
+          redirectTo: `${process.env.NEXT_PUBLIC_REDIRECT_URL}/auth/callback`,
+          queryParams: {
+            access_type: 'offline',
+            prompt: 'consent',
+          },
+        },
       })
       if (error) throw error
     } catch (error: any) {

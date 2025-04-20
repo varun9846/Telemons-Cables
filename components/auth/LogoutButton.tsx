@@ -1,24 +1,33 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import {supabase} from "@/lib/supabase";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { toast } from "react-hot-toast";
+import { useLoader } from "@/context/LoaderContext";
 
 const LogoutButton = () => {
   const router = useRouter();
+  const supabase = useSupabaseClient();
+  const { showLoader, hideLoader } = useLoader();
 
   const handleLogout = async () => {
-  const {error}=  await supabase.auth.signOut();
-    router.push("/");
-    if (error) {
-      console.log("Logout error", error);
+    try {
+      showLoader();
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+      toast.success("Logged out successfully");
+      router.push("/login");
+    } catch (error: any) {
+      toast.error(error.message);
+    } finally {
+      hideLoader();
     }
- 
   };
 
   return (
     <button
       onClick={handleLogout}
-      className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+      className="text-gray-700 hover:text-yellow-600 transition-colors"
     >
       Logout
     </button>

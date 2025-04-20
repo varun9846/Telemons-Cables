@@ -4,6 +4,7 @@ import "../styles/globals.css";
 import { Toaster } from 'react-hot-toast'
 import { LoaderProvider } from '@/context/LoaderContext'
 import { AuthProvider } from '@/context/AuthContext'
+import SupabaseProvider from '@/components/providers/SupabaseProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,12 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className={`${inter.className} min-h-full`}>
-        <AuthProvider>
-          <LoaderProvider>
-            {children}
-            <Toaster position="top-right" />
-          </LoaderProvider>
-        </AuthProvider>
+        <SupabaseProvider>
+          <AuthProvider>
+            <LoaderProvider>
+              {children}
+              <Toaster position="top-right" />
+            </LoaderProvider>
+          </AuthProvider>
+        </SupabaseProvider>
       </body>
     </html>
   );
