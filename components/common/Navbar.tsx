@@ -2,15 +2,17 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { supabase } from '@/lib/supabase'
 import { FaSearch, FaUser } from 'react-icons/fa'
 import { toast } from 'react-hot-toast'
 import { useLoader } from '@/context/LoaderContext'
 import { useAuth } from '@/context/AuthContext'
+import { useSupabaseClient } from '@supabase/auth-helpers-react'
 import LogoutButton from '../auth/LogoutButton'
+
 export const Navbar = () => {
   const router = useRouter()
   const { user } = useAuth()
+  const supabase = useSupabaseClient()
   const isAuthenticated = !!user
   const { showLoader, hideLoader } = useLoader()
   const [searchQuery, setSearchQuery] = useState('')
@@ -18,11 +20,12 @@ export const Navbar = () => {
   const handleLogout = async () => {
     try {
       showLoader()
-      await supabase.auth.signOut()
+      const { error } = await supabase.auth.signOut()
+      if (error) throw error
       toast.success('Logged out successfully')
-      router.push('/')
-    } catch (error) {
-      toast.error('Error logging out')
+      router.push('/login')
+    } catch (error: any) {
+      toast.error(error.message)
     } finally {
       hideLoader()
     }

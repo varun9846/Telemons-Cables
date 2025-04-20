@@ -2,14 +2,15 @@
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { signupSchema } from '@/utils/validationSchemas'
-import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 import { useLoader } from '@/context/LoaderContext'
 import { toast } from 'react-hot-toast'
 import { FaGoogle } from 'react-icons/fa'
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 export const SignupForm = () => {
   const router = useRouter()
+  const supabase = useSupabaseClient();
   const { showLoader, hideLoader } = useLoader()
 
   const handleSignup = async (values: { email: string; password: string }) => {
@@ -24,6 +25,27 @@ export const SignupForm = () => {
 
       toast.success('Check your email to confirm your account')
       router.push('/login')
+    } catch (error: any) {
+      toast.error(error.message)
+    } finally {
+      hideLoader()
+    }
+  }
+
+  const handleGoogleSignup = async () => {
+    try {
+      showLoader()
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: `${process.env.NEXT_PUBLIC_REDIRECT_URL}/auth/callback`,
+          queryParams: {
+            access_type: 'offline',
+            prompt: 'consent',
+          },
+        },
+      })
+      if (error) throw error
     } catch (error: any) {
       toast.error(error.message)
     } finally {
@@ -100,6 +122,16 @@ export const SignupForm = () => {
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
               >
                 Sign up
+              </button>
+            </div>
+
+            <div>
+              <button
+                type="button"
+                onClick={handleGoogleSignup}
+                className="group relative w-full flex justify-center py-2 px-4 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
+              >
+                <FaGoogle className="mr-2" /> Sign up with Google
               </button>
             </div>
           </Form>
