@@ -6,9 +6,12 @@ import { supabase } from '@/lib/supabase'
 import { FaSearch, FaUser } from 'react-icons/fa'
 import { toast } from 'react-hot-toast'
 import { useLoader } from '@/context/LoaderContext'
-
+import { useAuth } from '@/context/AuthContext'
+import LogoutButton from '../auth/LogoutButton'
 export const Navbar = () => {
   const router = useRouter()
+  const { user } = useAuth()
+  const isAuthenticated = !!user
   const { showLoader, hideLoader } = useLoader()
   const [searchQuery, setSearchQuery] = useState('')
 
@@ -27,14 +30,6 @@ export const Navbar = () => {
 
   return (
     <div className="bg-white shadow-md">
-      {/* Top Bar */}
-      <div className="bg-gray-800 text-white py-2 px-4 flex justify-end">
-        <div className="flex items-center space-x-4">
-          <Link href="/login" className="hover:text-yellow-500">Login</Link>
-          <Link href="/signup" className="hover:text-yellow-500">Sign Up</Link>
-        </div>
-      </div>
-
       {/* Main Navbar */}
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
@@ -61,6 +56,20 @@ export const Navbar = () => {
               className="pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:border-yellow-500"
             />
             <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+          </div>
+          <div className="flex items-center space-x-4">
+            {isAuthenticated ? (
+              <div>
+                <LogoutButton />
+              </div>
+            ) : (
+              <>
+                <div className="flex items-center space-x-4">
+                  <Link href="/login" className="hover:text-yellow-500">Login</Link>
+                  <Link href="/signup" className="hover:text-yellow-500">Sign Up</Link>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
