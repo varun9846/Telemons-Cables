@@ -7,7 +7,7 @@ const Test = () => {
   return (
     <ProtectedRoute>
       <MainLayout>
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 py-12 mt-16">
           <h1 className="text-4xl font-bold text-center">Welcome to Test Page</h1>
         </div>
       </MainLayout>
