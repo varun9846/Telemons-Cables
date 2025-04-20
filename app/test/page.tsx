@@ -2,7 +2,6 @@
 'use client'
 import { MainLayout } from '@/components/layout/MainLayout'
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute'
-import LogoutButton from "@/components/auth/LogoutButton";
 
 const Test = () => {
   return (
@@ -11,7 +10,6 @@ const Test = () => {
         <div className="container mx-auto px-4 py-12">
           <h1 className="text-4xl font-bold text-center">Welcome to Test Page</h1>
         </div>
-        <LogoutButton />
       </MainLayout>
     </ProtectedRoute>
   );
