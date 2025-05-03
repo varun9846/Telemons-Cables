@@ -1,0 +1,127 @@
+[
+    {
+      "title": "Structured Cabling Solutions",
+      "description": "High-performance copper and fiber optic cabling solutions for optimal signal integrity and high-speed data transmission.",
+      "iconType": "MdCable",
+      "iconColor": "text-blue-600",
+      "features": [
+        "Category 5e, 6, 6A, and 8 cables",
+        "Patch panels and keystone jacks",
+        "Single-mode and multi-mode fiber cables",
+        "Patch cords and connectors"
+      ],
+      "image": "/images/cables.jpg",
+      "detailedDescription": "Our structured cabling solutions provide reliable, high-speed network infrastructure for businesses of all sizes. With cutting-edge technology and premium materials, our cabling systems ensure optimal performance, minimal signal loss, and long-term reliability for your critical communications networks.",
+      "specifications": {
+        "Cable Types": "Cat5e, Cat6, Cat6A, Cat8, Fiber Optic",
+        "Compliance": "ANSI/TIA-568, ISO/IEC 11801, IEEE 802.3",
+        "Installation": "Professional installation services available",
+        "Warranty": "Limited lifetime warranty on all cabling products",
+        "Support": "24/7 technical support"
+      },
+      "additionalImages": [
+        "/images/cables.jpg",
+        "/images/datacenter.jpg"
+      ]
+    },
+    {
+      "title": "Data Center Infrastructure",
+      "description": "Comprehensive data center solutions designed for efficiency and scalability.",
+      "iconType": "FaServer",
+      "iconColor": "text-green-600",
+      "features": [
+        "Pre-terminated copper and fiber assemblies",
+        "High-density patch panels",
+        "MPO/MTP solutions",
+        "Intelligent cable management"
+      ],
+      "image": "/images/datacenter.jpg",
+      "detailedDescription": "Our data center infrastructure solutions are engineered to maximize efficiency, scalability, and performance. From custom racks and enclosures to intelligent power distribution and cooling systems, we provide everything needed to build and maintain a modern, high-performance data center.",
+      "specifications": {
+        "Design Services": "Custom data center design and planning",
+        "Cooling Solutions": "Precision cooling and airflow management",
+        "Power Efficiency": "Energy-efficient power distribution systems",
+        "Monitoring": "Real-time environmental and performance monitoring",
+        "Security": "Physical access controls and surveillance"
+      },
+      "additionalImages": [
+        "/images/datacenter.jpg",
+        "/images/racks.jpg"
+      ]
+    },
+    {
+      "title": "Racks and Enclosures",
+      "description": "Versatile rack solutions for diverse equipment configurations.",
+      "iconType": "MdStorage",
+      "iconColor": "text-purple-600",
+      "features": [
+        "Free-standing and wall-mounted racks",
+        "Robust construction",
+        "Effective cable management",
+        "Ventilation options"
+      ],
+      "image": "/images/racks.jpg",
+      "detailedDescription": "Our racks and enclosures are designed to provide secure, organized housing for your network and server equipment. With a variety of sizes and configurations available, our solutions can be customized to meet the specific needs of your environment while ensuring proper airflow, cable management, and equipment access.",
+      "specifications": {
+        "Types": "Floor-standing racks, wall-mount enclosures, open frame racks",
+        "Heights": "12U to 48U options available",
+        "Materials": "Steel construction with powder coat finish",
+        "Features": "Adjustable mounting rails, cable management, ventilation",
+        "Compliance": "EIA-310-D compliant"
+      },
+      "additionalImages": [
+        "/images/racks.jpg",
+        "/images/datacenter.jpg"
+      ]
+    },
+    {
+      "title": "Power Distribution Units",
+      "description": "Reliable power distribution solutions with advanced monitoring capabilities.",
+      "iconType": "FaPowerOff",
+      "iconColor": "text-red-600",
+      "features": [
+        "Intelligent and monitored units",
+        "Energy efficiency",
+        "Remote management",
+        "Various configurations"
+      ],
+      "image": "/images/pdu.jpg",
+      "detailedDescription": "Our power distribution units deliver reliable, clean power to your critical equipment while providing advanced monitoring and management capabilities. From basic rack PDUs to intelligent units with remote monitoring and outlet-level switching, our solutions help you manage power consumption, prevent downtime, and improve efficiency.",
+      "specifications": {
+        "Types": "Basic, Metered, Monitored, Switched, ATS PDUs",
+        "Monitoring": "Current, voltage, power, energy monitoring",
+        "Management": "Remote outlet switching, threshold alerts",
+        "Installation": "Horizontal or vertical mounting options",
+        "Compliance": "UL, CE, RoHS compliant"
+      },
+      "additionalImages": [
+        "/images/pdu.jpg",
+        "/images/datacenter.jpg"
+      ]
+    },
+    {
+      "title": "Tools and Accessories",
+      "description": "Comprehensive tools and accessories for installation and maintenance.",
+      "iconType": "FaTools",
+      "iconColor": "text-yellow-600",
+      "features": [
+        "Punch-down tools",
+        "Cable testers",
+        "Labeling systems",
+        "Faceplates and backboxes"
+      ],
+      "image": "/images/Tool.jpg",
+      "detailedDescription": "Our professional-grade tools and accessories are designed for efficient installation, maintenance, and troubleshooting of network infrastructure. From precision cable testers and crimping tools to comprehensive labeling systems, we provide everything technicians need to ensure reliable, standards-compliant installations.",
+      "specifications": {
+        "Cable Testers": "Copper and fiber certification testers",
+        "Installation Tools": "Crimpers, punch-down tools, cable strippers",
+        "Labeling": "Handheld and desktop labeling systems",
+        "Accessories": "Cable ties, J-hooks, mounting hardware",
+        "Quality": "Professional-grade durability and precision"
+      },
+      "additionalImages": [
+        "/images/Tool.jpg",
+        "/images/cables.jpg"
+      ]
+    }
+  ] 

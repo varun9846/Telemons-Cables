@@ -1,0 +1,192 @@
+[
+  {
+    "id": "tx6a-vari-matrix",
+    "title": "TX6A™ Cat 6A UTP Copper Cable with Vari-MaTriX Technology",
+    "partNumber": "PUP6AHD04BU-G",
+    "description": "Upgrade your building's network with our Cat 6A UTP copper cable with Vari-MaTriX technology. This cable safeguards against fire hazards and delivers best-in-class performance.",
+    "image": "/images/products/tx6a-vari-matrix.png",
+    "specifications": {
+      "performanceLevel": "Category 6A",
+      "cableConstruction": "U/UTP",
+      "conductorGauge": "23 AWG",
+      "conductorType": "Solid",
+      "overallLength": "305m",
+      "flammabilityRating": ["Plenum (CMP)", "Riser (CMR)"],
+      "availableColors": ["Blue", "Black", "Violet"]
+    },
+    "features": [
+      "Innovative Vari-MaTriX technology for alien crosstalk mitigation",
+      "Superior PoE performance for high-power devices",
+      "Improved cable fill and simplified installation",
+      "Best-in-class performance",
+      "Fire hazard protection"
+    ],
+    "detailedDescription": "The TX6A™ Category 6A UTP Copper Cable with Vari-MaTriX Technology represents our premium copper cabling solution. Designed for mission-critical applications, this cable provides exceptional alien crosstalk suppression while maintaining a smaller diameter for improved pathway fill and easier installation. Perfect for high-bandwidth applications and Power over Ethernet (PoE) installations.",
+    "additionalImages": [
+      "/images/products/cables/tx6a-vari-matrix-detail-1.jpg",
+      "/images/products/cables/tx6a-vari-matrix-detail-2.jpg"
+    ]
+  },
+  {
+    "id": "tx6a-utp",
+    "title": "TX6A™ Category 6A U/UTP Copper Cable",
+    "partNumber": "PUP6XHD04BU-G",
+    "description": "Improve cable fill and simplify upgrades with our Cat 6A U/UTP copper cable. It provides exceptional performance for PoE++ applications with best-in-class alien crosstalk mitigation.",
+    "image": "/images/products/tx6a-utp.jpg",
+    "specifications": {
+      "performanceLevel": "Category 6A",
+      "cableConstruction": "U/UTP",
+      "conductorGauge": "23 AWG",
+      "conductorType": "Solid",
+      "flammabilityRating": ["Plenum (CMP)", "Riser (CMR)", "Outside Plant"],
+      "euroClassFlameRating": "Fca",
+      "availableColors": ["Blue", "White", "Violet"]
+    },
+    "features": [
+      "Best-in-class alien crosstalk mitigation",
+      "Exceptional PoE++ performance",
+      "Improved cable fill",
+      "Simplified installation process",
+      "Multiple flammability ratings"
+    ],
+    "detailedDescription": "Our TX6A™ Category 6A U/UTP Copper Cable is designed for high-performance network applications. It features innovative design elements that minimize alien crosstalk while providing reliable high-speed connections for your infrastructure. The cable is available in multiple flammability ratings to suit various installation environments.",
+    "additionalImages": [
+      "/images/products/cables/tx6a-utp-detail-1.jpg",
+      "/images/products/cables/tx6a-utp-detail-2.jpg"
+    ]
+  },
+  {
+    "id": "tx6-utp",
+    "title": "TX6™ Category 6 U/UTP Copper Cable",
+    "partNumber": "PUP6C04BU-WZ",
+    "description": "Ensure top-tier network performance with our Cat 6 U/UTP copper cable, available in multiple colors for clear labeling.",
+    "image": "/images/products/tx6-utp.png",
+    "specifications": {
+      "performanceLevel": "Category 6",
+      "cableConstruction": "U/UTP",
+      "conductorGauge": "23 AWG",
+      "conductorType": "Solid",
+      "flammabilityRating": ["Plenum (CMP)", "Riser (CMR)", "Outside Plant"],
+      "availableColors": ["Blue", "White", "Black"]
+    },
+    "features": [
+      "Exceeds ANSI/TIA-568-C.2 Category 6 standards",
+      "Supports up to 1 Gbps applications",
+      "Easy installation with flexible design",
+      "Multiple jacket colors for easy identification",
+      "Available in plenum and riser ratings"
+    ],
+    "detailedDescription": "Our TX6™ Category 6 U/UTP Copper Cable provides reliable performance for standard enterprise network applications. Designed to exceed industry standards, this cable delivers consistent transmission characteristics across all pairs, ensuring reliable performance for your critical network infrastructure.",
+    "additionalImages": [
+      "/images/products/cables/tx6-utp-detail-1.jpg",
+      "/images/products/cables/tx6-utp-detail-2.jpg"
+    ]
+  },
+  {
+    "id": "tx6000-enhanced",
+    "title": "TX6000™ Enhanced Category 6 U/UTP Copper Cable",
+    "partNumber": "PUP6004BU-WLPZ",
+    "description": "Enhanced electrical headroom performance provides our enhanced Cat 6 U/UTP copper cable margin above industry standards and exceptional performance for PoE++ applications.",
+    "image": "/images/products/tx6000-enhanced.png",
+    "specifications": {
+      "performanceLevel": "Category 6",
+      "cableConstruction": "U/UTP",
+      "conductorGauge": "23 AWG",
+      "conductorType": "Solid",
+      "flammabilityRating": ["Plenum (CMP)", "Riser (CMR)"],
+      "availableColors": ["Blue", "White", "Violet"]
+    },
+    "features": [
+      "Enhanced electrical headroom performance",
+      "Margin above industry standards",
+      "Exceptional PoE++ performance",
+      "Multiple flammability ratings",
+      "Various color options"
+    ],
+    "detailedDescription": "The TX6000™ Enhanced Category 6 U/UTP Copper Cable is designed for demanding network applications. It features enhanced electrical headroom performance that provides margin above industry standards, making it ideal for PoE++ applications and future network upgrades.",
+    "additionalImages": [
+      "/images/products/cables/tx6000-enhanced-detail-1.jpg",
+      "/images/products/cables/tx6000-enhanced-detail-2.jpg"
+    ]
+  },
+  {
+    "id": "tx6-er",
+    "title": "TX6™ ER Category 6 U/UTP Copper Cable",
+    "partNumber": "PUP6C2204IG-WZ",
+    "description": "Optimize high-power applications with our ER category 6 cable. Its larger conductors reduce heat and improve performance, ensuring reliable connections in demanding environments.",
+    "image": "/images/products/tx6-er.png",
+    "specifications": {
+      "performanceLevel": "Category 6",
+      "cableConstruction": "U/UTP",
+      "conductorGauge": "22 AWG",
+      "conductorType": "Solid",
+      "availableColors": ["International Gray", "Green", "Yellow"]
+    },
+    "features": [
+      "Larger conductors for reduced heat",
+      "Improved performance in high-power applications",
+      "Reliable connections in demanding environments",
+      "Multiple color options",
+      "Enhanced durability"
+    ],
+    "detailedDescription": "The TX6™ ER Category 6 U/UTP Copper Cable is specifically designed for high-power applications. Its larger conductors reduce heat buildup and improve performance, making it ideal for demanding environments where reliable connections are crucial.",
+    "additionalImages": [
+      "/images/products/cables/tx6-er-detail-1.jpg",
+      "/images/products/cables/tx6-er-detail-2.jpg"
+    ]
+  },
+  {
+    "id": "tx6a-armor",
+    "title": "TX6A™ Jacketed Interlock Armor Category 6A U/UTP Copper Cable",
+    "partNumber": "PURCA6X04BU-CG",
+    "description": "Our jacketed interlock armor Category 6A U/UTP copper cable provides protection against mechanical stresses and installs faster and easier than EMT conduit and conventional wire.",
+    "image": "/images/products/tx6a-armor.png",
+    "specifications": {
+      "performanceLevel": "Category 6A",
+      "cableConstruction": "U/UTP",
+      "conductorGauge": "23 AWG",
+      "conductorType": "Solid",
+      "numberOfPairs": ["4", "8"],
+      "availableColors": ["Blue", "Gray"]
+    },
+    "features": [
+      "Jacketed interlock armor protection",
+      "Faster installation than EMT conduit",
+      "Protection against mechanical stresses",
+      "Multiple pair configurations",
+      "Easy to install"
+    ],
+    "detailedDescription": "The TX6A™ Jacketed Interlock Armor Category 6A U/UTP Copper Cable is designed for environments requiring additional mechanical protection. Its innovative design allows for faster installation than traditional EMT conduit while providing superior protection against physical damage.",
+    "additionalImages": [
+      "/images/products/cables/tx6a-armor-detail-1.jpg",
+      "/images/products/cables/tx6a-armor-detail-2.jpg"
+    ]
+  },
+  {
+    "id": "tx6a-utg20",
+    "title": "Utility Grade TX6A™ UTG20 Copper Cable with Vari-MaTriX Technology",
+    "partNumber": "PUR6AV04BU-UTG",
+    "description": "Our UTG20 copper cable with Vari-MaTriX technology delivers superior speed and minimal interference. Flame-retardant jacket ensures safety for various installations.",
+    "image": "/images/products/tx6a-utg20.png",
+    "specifications": {
+      "performanceLevel": "Category 6A",
+      "cableConstruction": "U/UTP",
+      "conductorGauge": "23 AWG",
+      "conductorType": "Solid",
+      "flammabilityRating": ["Riser (CMR)", "Plenum (CMP)"],
+      "availableColors": ["Blue", "International Gray", "White"]
+    },
+    "features": [
+      "Vari-MaTriX technology",
+      "Superior speed performance",
+      "Minimal interference",
+      "Flame-retardant jacket",
+      "Multiple color options"
+    ],
+    "detailedDescription": "The Utility Grade TX6A™ UTG20 Copper Cable with Vari-MaTriX Technology is designed for utility-grade applications. It combines superior speed performance with minimal interference, making it ideal for various installation environments. The flame-retardant jacket ensures safety and compliance with industry standards.",
+    "additionalImages": [
+      "/images/products/cables/tx6a-utg20-detail-1.jpg",
+      "/images/products/cables/tx6a-utg20-detail-2.jpg"
+    ]
+  }
+] 
