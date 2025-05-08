@@ -1,22 +1,22 @@
 [
   {
-    "title": "Copper Systems",
-    "description": "High-performance copper cabling solutions for reliable data transmission in enterprise and data center environments.",
+    "title": "Copper Cabling Systems",
+    "description": "Reliable copper cabling solutions engineered for consistent data transmission in enterprise and data center settings.",
     "iconType": "MdCable",
     "iconColor": "text-orange-500",
     "features": [
-      "Superior signal integrity and transmission performance",
-      "Easy installation with innovative design",
-      "100% factory tested for quality assurance",
-      "Compatible with industry standards"
+      "Enhanced signal clarity and transmission efficiency",
+      "Simplified installation with user-friendly design",
+      "Comprehensive factory testing ensures quality",
+      "Adheres to recognized industry standards"
     ],
     "image": "/images/products/copper-cables.jpg",
-    "detailedDescription": "Our copper cabling systems provide robust, reliable connectivity solutions for modern network infrastructure. From Category 6 to Category 6A, our copper cables are designed to meet the most demanding requirements of today's enterprise and data center environments.",
+    "detailedDescription": "Our copper cabling systems are designed to provide dependable connectivity for contemporary network infrastructures. Offering options from Category 6 to 6A, these cables meet the rigorous demands of modern enterprise and data center environments.",
     "specifications": {
       "Performance Level": "Category 6, 6A",
       "Cable Construction": "U/UTP, F/UTP, U/FTP, S/FTP",
       "Conductor Type": "Solid Copper",
-      "Flammability Rating": "Plenum (CMP), Riser (CMR), Outside Plant",
+      "Flammability Rating": "Plenum (CMP), Riser (CMR), Outdoor",
       "Standards Compliance": "ANSI/TIA-568-C.2, ISO/IEC 11801 Class E/EA"
     },
     "additionalImages": [
@@ -25,19 +25,19 @@
     ]
   },
   {
-    "title": "Bulk Copper Cable",
-    "description": "High-quality bulk copper cabling options for enterprise and data center applications.",
+    "title": "Bulk Copper Cabling",
+    "description": "Premium bulk copper cables tailored for enterprise and data center applications.",
     "iconType": "MdCable",
     "iconColor": "text-amber-600",
     "features": [
-      "Category 6 & 6A options",
-      "U/UTP, F/UTP, and shielded constructions",
-      "Plenum, riser, and outdoor ratings",
-      "Best-in-class alien crosstalk mitigation",
-      "Various jacket colors for easy identification"
+      "Options available in Category 6 and 6A",
+      "Variety of constructions: U/UTP, F/UTP, shielded",
+      "Suitable for plenum, riser, and outdoor use",
+      "Effective reduction of alien crosstalk",
+      "Multiple jacket colors for easy identification"
     ],
     "image": "/images/products/bulk-copper.jpg",
-    "detailedDescription": "Our bulk copper cable solutions offer exceptional performance for demanding network applications. Available in various configurations, these cables feature innovative designs that minimize crosstalk and interference while providing reliable high-speed connections for your infrastructure.",
+    "detailedDescription": "Our bulk copper cables are crafted to deliver high performance for demanding network applications. With various configurations, these cables minimize interference and crosstalk, ensuring reliable high-speed connections.",
     "specifications": {
       "Cable Types": "Category 5e, 6, 6A",
       "Conductor Gauge": "22, 23, 24 AWG",
@@ -52,18 +52,18 @@
   },
   {
     "title": "TX6A™ Category 6A UTP Copper Cable",
-    "description": "High-performance Category 6A UTP copper cable with innovative Vari-MaTriX Technology for superior alien crosstalk suppression.",
+    "description": "Advanced Category 6A UTP cable featuring Vari-MaTriX Technology for superior crosstalk suppression.",
     "iconType": "MdCable",
     "iconColor": "text-blue-500",
     "features": [
-      "Innovative Vari-MaTriX technology for alien crosstalk mitigation",
-      "Superior PoE performance for high-power devices",
-      "Improved cable fill and simplified installation",
+      "Vari-MaTriX technology enhances crosstalk mitigation",
+      "Optimized for high-power PoE applications",
+      "Compact design simplifies installation",
       "Available in plenum (CMP) and riser (CMR) ratings",
       "Multiple color options for organizational flexibility"
     ],
     "image": "/images/products/cat6a-cable.jpg",
-    "detailedDescription": "The TX6A™ Category 6A UTP Copper Cable with Vari-MaTriX Technology represents our premium copper cabling solution. Designed for mission-critical applications, this cable provides exceptional alien crosstalk suppression while maintaining a smaller diameter for improved pathway fill and easier installation. Perfect for high-bandwidth applications and Power over Ethernet (PoE) installations.",
+    "detailedDescription": "The TX6A™ Category 6A UTP Copper Cable incorporates Vari-MaTriX Technology, offering exceptional alien crosstalk suppression while maintaining a smaller diameter for improved pathway fill and easier installation. Ideal for high-bandwidth and Power over Ethernet (PoE) applications.",
     "specifications": {
       "Part Number": "PUP6AHD04BU-G",
       "Performance Level": "Category 6A",
@@ -81,18 +81,18 @@
   },
   {
     "title": "TX6™ Category 6 UTP Copper Cable",
-    "description": "Reliable Category 6 UTP cabling solution for standard enterprise network applications.",
+    "description": "Dependable Category 6 UTP cable designed for standard enterprise networking needs.",
     "iconType": "MdCable",
     "iconColor": "text-green-500",
     "features": [
       "Exceeds ANSI/TIA-568-C.2 Category 6 standards",
-      "Supports up to 1 Gbps applications",
-      "Easy installation with flexible design",
+      "Supports data rates up to 1 Gbps",
+      "Flexible design for easy installation",
       "Multiple jacket colors for easy identification",
       "Available in plenum and riser ratings"
     ],
     "image": "/images/products/cat6-cable.jpg",
-    "detailedDescription": "Our TX6™ Category 6 UTP Copper Cable provides reliable performance for standard enterprise network applications. Designed to exceed industry standards, this cable delivers consistent transmission characteristics across all pairs, ensuring reliable performance for your critical network infrastructure.",
+    "detailedDescription": "The TX6™ Category 6 UTP Copper Cable offers reliable performance for standard enterprise network applications. Designed to surpass industry standards, it ensures consistent transmission characteristics across all pairs.",
     "specifications": {
       "Part Number": "PUP6C04BU-WZ",
       "Performance Level": "Category 6",
@@ -100,7 +100,7 @@
       "Conductor Gauge": "23 AWG",
       "Conductor Type": "Solid",
       "Overall Length": "305m (1000ft)",
-      "Flammability Rating": "Plenum (CMP), Riser (CMR), Outside Plant",
+      "Flammability Rating": "Plenum (CMP), Riser (CMR), Outdoor",
       "Available Colors": "Blue, White, Black, Yellow, Green, Red, Gray"
     },
     "additionalImages": [
@@ -110,18 +110,18 @@
   },
   {
     "title": "Patch Cords",
-    "description": "High-quality patch cables for reliable connectivity between network devices.",
+    "description": "High-quality patch cords ensuring reliable connections between network devices.",
     "iconType": "FaNetworkWired",
     "iconColor": "text-yellow-500",
     "features": [
-      "Available in Category 5e, 6, and 6A performance levels",
-      "UTP and shielded options",
-      "Variety of lengths from 1ft to 50ft",
+      "Available in Category 5e, 6, and 6A",
+      "Options include UTP and shielded constructions",
+      "Lengths ranging from 1ft to 50ft",
       "Multiple colors for easy identification",
-      "100% performance tested at the factory"
+      "Each cord undergoes rigorous performance testing"
     ],
     "image": "/images/products/patch-cords.jpg",
-    "detailedDescription": "Our patch cords provide reliable connectivity between network equipment. Available in various performance levels, lengths, and colors, these cables are designed for durability and consistent performance in any network environment. Each patch cord is 100% tested at the factory to ensure compliance with industry standards.",
+    "detailedDescription": "Our patch cords provide dependable connectivity between network equipment. Available in various categories, lengths, and colors, these cords are designed for durability and consistent performance, meeting industry standards.",
     "specifications": {
       "Performance Levels": "Category 5e, 6, 6A",
       "Cable Type": "UTP, F/UTP, S/FTP",
@@ -135,5 +135,4 @@
       "/images/products/patch-cords-detail-2.jpg"
     ]
   }
-
-] 
+]
