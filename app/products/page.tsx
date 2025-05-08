@@ -280,7 +280,7 @@ export default function ProductsPage() {
   const navigateToProduct = (category: ProductCategory) => {
     // Create a URL-friendly version of the title
     const urlFriendlyTitle = category.title.toLowerCase().replace(/\s+/g, '-');
-    router.push(`/products#${urlFriendlyTitle}`); // Use router.push for SPA navigation
+    router.push(`/products/${urlFriendlyTitle}`); // Use router.push for SPA navigation
     setActiveCategory(category.title);
     setDetailedView(true);
     // Scroll to the top of the detailed view container after a short delay
@@ -637,16 +637,7 @@ export default function ProductsPage() {
 
           {/* Main Content */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            {/* <div className="text-center mb-16">
-              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">
-                {'Our'} <span className="text-blue-600">Products</span>
-              </h1>
-              <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-500 leading-relaxed">
-                {
-                  'Comprehensive suite of networking and data communication solutions designed for the modern infrastructure.'}
-              </p>
-            </div> */}
-
+           
             {/* Product Navigation - Only show if not in filtered view or in copper systems view */}
             {(!filterTitle || filterTitle === 'Products & Enterprises') && (
               <div className="flex overflow-x-auto space-x-2 pb-4 mb-16 scrollbar-thin scrollbar-thumb-gray-300">

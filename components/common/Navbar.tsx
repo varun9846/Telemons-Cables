@@ -25,16 +25,14 @@ interface ProductSubMenuItem {
 const productMenuItems: ProductMenuItem[] = [
   { 
     name: 'Copper Systems', 
-    href: '/products#copper-systems',
+    href: '/products',
     subItems: [
-      // { name: 'Bulk Copper Cable', href: '/products#bulk-copper-cable' },
-      { name: 'Enterprise Data Center Copper Cable', href: '/products#data-center-copper-cable' }
-      // { name: 'Patch Cords', href: '/products#patch-cords' },
+      { name: 'Enterprise Data Center Copper Cable', href: '/products/data-center-copper-cable' }
     ]
   },
   {
-    name: 'Products & Enterprises',
-    href: '/products#products-enterprises',
+    name: 'Connectors,Products & Enterprises',
+    href: '/products/products-enterprises',
   }
   // { 
   //   name: 'Fiber Optic Systems', 
