@@ -8,6 +8,7 @@ import { MdCable, MdStorage } from 'react-icons/md';
 import { Footer } from '@/components/common/Footer';
 import { Navbar } from '@/components/common/Navbar';
 import EnterpriseCables from '@/components/products/EnterpriseCables'
+import { useRouter } from 'next/navigation';
 
 // Product category interface for type safety
 interface ProductCategory {
@@ -76,6 +77,7 @@ export default function ProductsPage() {
   const [enterpriseCables, setEnterpriseCables] = useState<EnterpriseCable[]>([]);
   const [selectedDefaultCategory, setSelectedDefaultCategory] = useState<any | null>(null);
   const [showDefaultCategories, setShowDefaultCategories] = useState(false);
+  const router = useRouter(); // Next.js router for SPA navigation
 
   // Fetch enterprise cables data
   const fetchEnterpriseCables = useCallback(async () => {
@@ -278,7 +280,7 @@ export default function ProductsPage() {
   const navigateToProduct = (category: ProductCategory) => {
     // Create a URL-friendly version of the title
     const urlFriendlyTitle = category.title.toLowerCase().replace(/\s+/g, '-');
-    window.location.hash = urlFriendlyTitle;
+    router.push(`/products#${urlFriendlyTitle}`); // Use router.push for SPA navigation
     setActiveCategory(category.title);
     setDetailedView(true);
     // Scroll to the top of the detailed view container after a short delay
@@ -298,9 +300,9 @@ export default function ProductsPage() {
     // If we're in a filtered view, go back to that filter
     if (filterTitle) {
       const filterHash = filterTitle.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, '-');
-      window.location.hash = filterHash;
+      router.push(`/products#${filterHash}`); // Use router.push for SPA navigation
     } else {
-      window.location.hash = '';
+      router.push('/products'); // Use router.push for SPA navigation
     }
     setDetailedView(false);
   };
