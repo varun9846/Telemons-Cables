@@ -14,6 +14,7 @@ interface Market {
   title: string;
   description: string;
   image: string;
+  imageHeader: string;
   features: string[];
   solutions: string[];
   detailedDescription: string;
@@ -119,7 +120,7 @@ export default function MarketDetailPage() {
           <div className="flex flex-col md:flex-row md:space-x-8">
             <div className="md:w-1/2 relative aspect-[4/3] mb-6 md:mb-0">
               <Image
-                src={market.image}
+                src={market.imageHeader}
                 alt={market.title}
                 fill
                 className="object-cover rounded-lg"
