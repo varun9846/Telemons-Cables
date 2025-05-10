@@ -1,127 +1,138 @@
 [
   {
-    "title": "Structured Cabling Solutions",
-    "description": "High-performance copper and fiber optic cabling solutions for optimal signal integrity and high-speed data transmission.",
+    "title": "Copper Cabling Systems",
+    "description": "Reliable copper cabling solutions engineered for consistent data transmission in enterprise and data center settings.",
     "iconType": "MdCable",
-    "iconColor": "text-blue-600",
+    "iconColor": "text-orange-500",
     "features": [
-      "Category 5e, 6, 6A, and 8 cables",
-      "Patch panels and keystone jacks",
-      "Single-mode and multi-mode fiber cables",
-      "Patch cords and connectors"
+      "Enhanced signal clarity and transmission efficiency",
+      "Simplified installation with user-friendly design",
+      "Comprehensive factory testing ensures quality",
+      "Adheres to recognized industry standards"
     ],
-    "image": "/images/cables.jpg",
-    "detailedDescription": "Our structured cabling solutions provide reliable, high-speed network infrastructure for businesses of all sizes. With cutting-edge technology and premium materials, our cabling systems ensure optimal performance, minimal signal loss, and long-term reliability for your critical communications networks.",
+    "image": "/images/products/copper-cables.jpg",
+    "detailedDescription": "Our copper cabling systems are designed to provide dependable connectivity for contemporary network infrastructures. Offering options from Category 6 to 6A, these cables meet the rigorous demands of modern enterprise and data center environments.",
     "specifications": {
-      "Cable Types": "Cat5e, Cat6, Cat6A, Cat8, Fiber Optic",
-      "Compliance": "ANSI/TIA-568, ISO/IEC 11801, IEEE 802.3",
-      "Installation": "Professional installation services available",
-      "Warranty": "Limited lifetime warranty on all cabling products",
-      "Support": "24/7 technical support"
+      "Performance Level": "Category 6, 6A",
+      "Cable Construction": "U/UTP, F/UTP, U/FTP, S/FTP",
+      "Conductor Type": "Solid Copper",
+      "Flammability Rating": "Plenum (CMP), Riser (CMR), Outdoor",
+      "Standards Compliance": "ANSI/TIA-568-C.2, ISO/IEC 11801 Class E/EA"
     },
     "additionalImages": [
-      "/images/cables.jpg",
-      "/images/datacenter.jpg"
+      "/images/products/copper-cables-detail-1.jpg",
+      "/images/products/copper-cables-detail-2.jpg"
     ]
   },
   {
-    "title": "Data Center Infrastructure",
-    "description": "Comprehensive data center solutions designed for efficiency and scalability.",
-    "iconType": "FaServer",
-    "iconColor": "text-green-600",
+    "title": "Bulk Copper Cabling",
+    "description": "Premium bulk copper cables tailored for enterprise and data center applications.",
+    "iconType": "MdCable",
+    "iconColor": "text-amber-600",
     "features": [
-      "Pre-terminated copper and fiber assemblies",
-      "High-density patch panels",
-      "MPO/MTP solutions",
-      "Intelligent cable management"
+      "Options available in Category 6 and 6A",
+      "Variety of constructions: U/UTP, F/UTP, shielded",
+      "Suitable for plenum, riser, and outdoor use",
+      "Effective reduction of alien crosstalk",
+      "Multiple jacket colors for easy identification"
     ],
-    "image": "/images/datacenter.jpg",
-    "detailedDescription": "Our data center infrastructure solutions are engineered to maximize efficiency, scalability, and performance. From custom racks and enclosures to intelligent power distribution and cooling systems, we provide everything needed to build and maintain a modern, high-performance data center.",
+    "image": "/images/products/bulk-copper.jpg",
+    "detailedDescription": "Our bulk copper cables are crafted to deliver high performance for demanding network applications. With various configurations, these cables minimize interference and crosstalk, ensuring reliable high-speed connections.",
     "specifications": {
-      "Design Services": "Custom data center design and planning",
-      "Cooling Solutions": "Precision cooling and airflow management",
-      "Power Efficiency": "Energy-efficient power distribution systems",
-      "Monitoring": "Real-time environmental and performance monitoring",
-      "Security": "Physical access controls and surveillance"
+      "Cable Types": "Category 5e, 6, 6A",
+      "Conductor Gauge": "22, 23, 24 AWG",
+      "Environment": "Indoor, Indoor/Outdoor, Outdoor",
+      "Available Lengths": "305m (1000ft) standard reels",
+      "Jacket Colors": "Blue, White, Yellow, Green, Black, Red, Orange, Violet"
     },
     "additionalImages": [
-      "/images/datacenter.jpg",
-      "/images/racks.jpg"
+      "/images/products/bulk-copper-detail-1.jpg",
+      "/images/products/bulk-copper-detail-2.jpg"
     ]
   },
   {
-    "title": "Racks and Enclosures",
-    "description": "Versatile rack solutions for diverse equipment configurations.",
-    "iconType": "MdStorage",
-    "iconColor": "text-purple-600",
+    "title": "TX6A™ Category 6A UTP Copper Cable",
+    "description": "Advanced Category 6A UTP cable featuring Vari-MaTriX Technology for superior crosstalk suppression.",
+    "iconType": "MdCable",
+    "iconColor": "text-blue-500",
     "features": [
-      "Free-standing and wall-mounted racks",
-      "Robust construction",
-      "Effective cable management",
-      "Ventilation options"
+      "Vari-MaTriX technology enhances crosstalk mitigation",
+      "Optimized for high-power PoE applications",
+      "Compact design simplifies installation",
+      "Available in plenum (CMP) and riser (CMR) ratings",
+      "Multiple color options for organizational flexibility"
     ],
-    "image": "/images/racks.jpg",
-    "detailedDescription": "Our racks and enclosures are designed to provide secure, organized housing for your network and server equipment. With a variety of sizes and configurations available, our solutions can be customized to meet the specific needs of your environment while ensuring proper airflow, cable management, and equipment access.",
+    "image": "/images/products/cat6a-cable.jpg",
+    "detailedDescription": "The TX6A™ Category 6A UTP Copper Cable incorporates Vari-MaTriX Technology, offering exceptional alien crosstalk suppression while maintaining a smaller diameter for improved pathway fill and easier installation. Ideal for high-bandwidth and Power over Ethernet (PoE) applications.",
     "specifications": {
-      "Types": "Floor-standing racks, wall-mount enclosures, open frame racks",
-      "Heights": "12U to 48U options available",
-      "Materials": "Steel construction with powder coat finish",
-      "Features": "Adjustable mounting rails, cable management, ventilation",
-      "Compliance": "EIA-310-D compliant"
+      "Part Number": "PUP6AHD04BU-G",
+      "Performance Level": "Category 6A",
+      "Cable Construction": "U/UTP",
+      "Conductor Gauge": "23 AWG",
+      "Conductor Type": "Solid",
+      "Overall Length": "305m (1000ft)",
+      "Flammability Rating": "Plenum (CMP), Riser (CMR)",
+      "Available Colors": "Blue, Red, White, Yellow, Green, Orange, Violet"
     },
     "additionalImages": [
-      "/images/racks.jpg",
-      "/images/datacenter.jpg"
+      "/images/products/cat6a-cable-detail-1.jpg",
+      "/images/products/cat6a-cable-detail-2.jpg"
     ]
   },
   {
-    "title": "Power Distribution Units",
-    "description": "Reliable power distribution solutions with advanced monitoring capabilities.",
-    "iconType": "FaPowerOff",
-    "iconColor": "text-red-600",
+    "title": "TX6™ Category 6 UTP Copper Cable",
+    "description": "Dependable Category 6 UTP cable designed for standard enterprise networking needs.",
+    "iconType": "MdCable",
+    "iconColor": "text-green-500",
     "features": [
-      "Intelligent and monitored units",
-      "Energy efficiency",
-      "Remote management",
-      "Various configurations"
+      "Exceeds ANSI/TIA-568-C.2 Category 6 standards",
+      "Supports data rates up to 1 Gbps",
+      "Flexible design for easy installation",
+      "Multiple jacket colors for easy identification",
+      "Available in plenum and riser ratings"
     ],
-    "image": "/images/pdu.jpg",
-    "detailedDescription": "Our power distribution units deliver reliable, clean power to your critical equipment while providing advanced monitoring and management capabilities. From basic rack PDUs to intelligent units with remote monitoring and outlet-level switching, our solutions help you manage power consumption, prevent downtime, and improve efficiency.",
+    "image": "/images/products/cat6-cable.jpg",
+    "detailedDescription": "The TX6™ Category 6 UTP Copper Cable offers reliable performance for standard enterprise network applications. Designed to surpass industry standards, it ensures consistent transmission characteristics across all pairs.",
     "specifications": {
-      "Types": "Basic, Metered, Monitored, Switched, ATS PDUs",
-      "Monitoring": "Current, voltage, power, energy monitoring",
-      "Management": "Remote outlet switching, threshold alerts",
-      "Installation": "Horizontal or vertical mounting options",
-      "Compliance": "UL, CE, RoHS compliant"
+      "Part Number": "PUP6C04BU-WZ",
+      "Performance Level": "Category 6",
+      "Cable Construction": "U/UTP",
+      "Conductor Gauge": "23 AWG",
+      "Conductor Type": "Solid",
+      "Overall Length": "305m (1000ft)",
+      "Flammability Rating": "Plenum (CMP), Riser (CMR), Outdoor",
+      "Available Colors": "Blue, White, Black, Yellow, Green, Red, Gray"
     },
     "additionalImages": [
-      "/images/pdu.jpg",
-      "/images/datacenter.jpg"
+      "/images/products/cat6-cable-detail-1.jpg",
+      "/images/products/cat6-cable-detail-2.jpg"
     ]
   },
   {
-    "title": "Tools and Accessories",
-    "description": "Comprehensive tools and accessories for installation and maintenance.",
-    "iconType": "FaTools",
-    "iconColor": "text-yellow-600",
+    "title": "Patch Cords",
+    "description": "High-quality patch cords ensuring reliable connections between network devices.",
+    "iconType": "FaNetworkWired",
+    "iconColor": "text-yellow-500",
     "features": [
-      "Punch-down tools",
-      "Cable testers",
-      "Labeling systems",
-      "Faceplates and backboxes"
+      "Available in Category 5e, 6, and 6A",
+      "Options include UTP and shielded constructions",
+      "Lengths ranging from 1ft to 50ft",
+      "Multiple colors for easy identification",
+      "Each cord undergoes rigorous performance testing"
     ],
-    "image": "/images/Tool.jpg",
-    "detailedDescription": "Our professional-grade tools and accessories are designed for efficient installation, maintenance, and troubleshooting of network infrastructure. From precision cable testers and crimping tools to comprehensive labeling systems, we provide everything technicians need to ensure reliable, standards-compliant installations.",
+    "image": "/images/products/patch-cords.jpg",
+    "detailedDescription": "Our patch cords provide dependable connectivity between network equipment. Available in various categories, lengths, and colors, these cords are designed for durability and consistent performance, meeting industry standards.",
     "specifications": {
-      "Cable Testers": "Copper and fiber certification testers",
-      "Installation Tools": "Crimpers, punch-down tools, cable strippers",
-      "Labeling": "Handheld and desktop labeling systems",
-      "Accessories": "Cable ties, J-hooks, mounting hardware",
-      "Quality": "Professional-grade durability and precision"
+      "Performance Levels": "Category 5e, 6, 6A",
+      "Cable Type": "UTP, F/UTP, S/FTP",
+      "Available Lengths": "1ft to 50ft (0.3m to 15m)",
+      "Conductor Type": "Stranded",
+      "Boot Type": "Standard, Snagless",
+      "Jacket Material": "PVC, Low-Smoke Zero-Halogen (LSZH)"
     },
     "additionalImages": [
-      "/images/Tool.jpg",
-      "/images/cables.jpg"
+      "/images/products/patch-cords-detail-1.jpg",
+      "/images/products/patch-cords-detail-2.jpg"
     ]
   }
-] 
+]

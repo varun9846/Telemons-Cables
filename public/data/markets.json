@@ -1,0 +1,334 @@
+{
+  "markets": [
+    {
+      "id": "commercial-real-estate",
+      "title": "Commercial Real Estate",
+      "description": "Integrated network infrastructure solutions for contemporary commercial spaces",
+      "image": "/images/markets/commercial-real-estate.jpg",
+      "imageHeader": "/images/markets/commercial-real-estate-2.jpg",
+      "features": [
+        "Optimized structured cabling systems",
+        "Energy-saving technologies",
+        "Expandable network frameworks",
+        "Smart building compatibility",
+        "Technologies designed for future scalability"
+      ],
+      "solutions": [
+        "Integrated Building Management Systems",
+        "Advanced Security and Access Controls",
+        "HVAC Automation",
+        "Energy Usage Optimization",
+        "Internet of Things (IoT) Integration"
+      ],
+      "detailedDescription": "Our solutions for commercial real estate offer robust and scalable network infrastructures tailored for modern buildings. We focus on delivering energy-efficient systems that seamlessly integrate with smart technologies, ensuring readiness for future advancements.",
+      "specifications": {
+        "Cable Types": "Category 6A, Category 7, Fiber Optic",
+        "Network Speed": "Supports up to 10Gbps",
+        "Coverage": "Comprehensive building-wide coverage",
+        "Certification": "UL Listed, ETL Verified",
+        "Warranty": "25-year comprehensive warranty"
+      },
+      "additionalImages": [
+        "/images/markets/commercial-real-estate-1.jpg",
+        "/images/markets/commercial-real-estate-2.jpg"
+      ]
+    },
+    {
+      "id": "construction",
+      "title": "Construction",
+      "description": "Robust and dependable cabling solutions for construction environments",
+      "image": "/images/markets/construction.jpg",
+      "imageHeader": "/images/markets/construction-1.jpg",
+      "features": [
+        "Durable cable constructions",
+        "Solutions resistant to environmental factors",
+        "Simplified installation processes",
+        "Cost-effective implementation",
+        "Long-lasting performance"
+      ],
+      "solutions": [
+        "Temporary Networking for Construction Sites",
+        "Permanent Infrastructure Installations",
+        "Safety and Monitoring Systems",
+        "Communication Network Setups",
+        "Project Coordination Tools"
+      ],
+      "detailedDescription": "Our construction-focused solutions provide sturdy and reliable cabling systems suitable for both temporary setups and permanent installations. We ensure consistent connectivity throughout the construction phases.",
+      "specifications": {
+        "Cable Types": "Industrial Grade Category 6, Fiber Optic",
+        "Durability": "Rated IP67 for environmental protection",
+        "Installation": "Quick-connect mechanisms",
+        "Safety": "Compliant with OSHA standards",
+        "Warranty": "15-year limited warranty"
+      },
+      "additionalImages": [
+        "/images/markets/construction-1.jpg",
+        "/images/markets/construction-2.jpg"
+      ]
+    },
+    {
+      "id": "education",
+      "title": "Education",
+      "description": "Cutting-edge networking solutions tailored for educational institutions",
+      "image": "/images/markets/education.jpg",
+      "imageHeader": "/images/markets/education-1.jpg",
+      "features": [
+        "High-capacity bandwidth support",
+        "Facilitation of interactive learning tools",
+        "Secure and reliable network infrastructures",
+        "Adaptable solutions for growth",
+        "Budget-friendly deployment options"
+      ],
+      "solutions": [
+        "Digital Learning Platform Integration",
+        "Campus-wide Wireless Connectivity",
+        "Advanced Security Systems",
+        "Administrative Network Solutions",
+        "Research Facility Networking"
+      ],
+      "detailedDescription": "Our educational solutions deliver robust network infrastructures designed to meet the demands of modern learning environments. We support digital initiatives with dependable, high-speed connectivity.",
+      "specifications": {
+        "Cable Types": "Category 6A, Category 7, Fiber Optic",
+        "Network Speed": "Up to 10Gbps",
+        "Coverage": "Complete campus coverage",
+        "Security": "Enhanced encryption protocols",
+        "Warranty": "20-year limited warranty"
+      },
+      "additionalImages": [
+        "/images/markets/education-1.jpg",
+        "/images/markets/education-2.jpg"
+      ]
+    },
+    {
+      "id": "financial",
+      "title": "Financial",
+      "description": "Secure and dependable network solutions for financial sectors",
+      "image": "/images/markets/finance.jpg",
+      "imageHeader": "/images/markets/financial-2.jpg",
+      "features": [
+        "Infrastructure with high-security measures",
+        "Low-latency connectivity solutions",
+        "Redundant system architectures",
+        "Compliance with regulatory standards",
+        "Round-the-clock reliability"
+      ],
+      "solutions": [
+        "Trading Floor Networking",
+        "Data Center Connectivity",
+        "Branch Office Networks",
+        "Security and Surveillance Systems",
+        "Regulatory Compliance Infrastructure"
+      ],
+      "detailedDescription": "Our financial industry solutions provide secure, high-performance network infrastructures essential for critical operations. We ensure adherence to industry regulations while delivering exceptional reliability.",
+      "specifications": {
+        "Cable Types": "Category 7, Category 8, Fiber Optic",
+        "Network Speed": "Supports up to 40Gbps",
+        "Security": "Comprehensive end-to-end encryption",
+        "Compliance": "Meets PCI DSS and SOX standards",
+        "Warranty": "25-year comprehensive warranty"
+      },
+      "additionalImages": [
+        "/images/markets/financial-1.jpg",
+        "/images/markets/financial-2.jpg"
+      ]
+    },
+    {
+      "id": "food-beverage",
+      "title": "Food & Beverage",
+      "description": "Tailored network solutions for the food and beverage industry",
+      "image": "/images/markets/food-beverage.jpg",
+      "imageHeader": "/images/markets/food-beverage.jpg",
+      "features": [
+        "Designs compliant with hygiene standards",
+        "Solutions resistant to temperature variations",
+        "Ease of maintenance",
+        "Sanitization-friendly components",
+        "Robust construction for durability"
+      ],
+      "solutions": [
+        "Production Process Monitoring",
+        "Inventory Control Systems",
+        "Quality Assurance Mechanisms",
+        "Safety and Compliance Systems",
+        "Supply Chain Management Tools"
+      ],
+      "detailedDescription": "Our solutions for the food and beverage sector offer specialized network infrastructures designed to withstand challenging environments. We ensure consistent connectivity while adhering to strict hygiene and safety protocols.",
+      "specifications": {
+        "Cable Types": "Industrial Grade Category 6, Fiber Optic",
+        "Protection": "Rated IP69K for high-pressure washdowns",
+        "Materials": "Constructed with food-grade materials",
+        "Temperature Range": "Operates between -40°C to 85°C",
+        "Warranty": "15-year limited warranty"
+      },
+      "additionalImages": [
+        "/images/markets/food-beverage-1.jpg",
+        "/images/markets/food-beverage-2.jpg"
+      ]
+    },
+    {
+      "id": "government-it",
+      "title": "Government IT",
+      "description": "Secure and compliant networking solutions for government entities",
+      "image": "/images/markets/government.jpg",
+      "imageHeader": "/images/markets/government.jpg",
+      "features": [
+        "High-security infrastructure designs",
+        "Readiness for regulatory compliance",
+        "Scalable networking solutions",
+        "Redundant system configurations",
+        "Reliability for long-term operations"
+      ],
+      "solutions": [
+        "Secure Government Networks",
+        "Data Center Implementations",
+        "Emergency Response Systems",
+        "Public Service Networking",
+        "Defense Infrastructure Support"
+      ],
+      "detailedDescription": "Our government IT solutions provide secure and compliant network infrastructures tailored for public sector requirements. We ensure strict adherence to security standards while delivering dependable connectivity.",
+      "specifications": {
+        "Cable Types": "Category 7, Category 8, Fiber Optic",
+        "Security": "FIPS 140-2 compliant systems",
+        "Compliance": "Aligned with FedRAMP and NIST guidelines",
+        "Certification": "UL Listed, ETL Verified",
+        "Warranty": "25-year comprehensive warranty"
+      },
+      "additionalImages": [
+        "/images/markets/government-it-1.jpg",
+        "/images/markets/government-it-2.jpg"
+      ]
+    },
+    {
+      "id": "healthcare",
+      "title": "Healthcare",
+      "description": "Dependable networking solutions for healthcare facilities",
+      "image": "/images/markets/healthcare.jpg",
+      "imageHeader": "/images/markets/healthcare.jpg",
+      "features": [
+        "Solutions meeting medical-grade standards",
+        "Compliance with HIPAA regulations",
+        "Ease of sanitization",
+        "Reliable connectivity for critical systems",
+        "Technologies designed for future scalability"
+      ],
+      "solutions": [
+        "Patient Monitoring Networks",
+        "Medical Imaging Connectivity",
+        "Electronic Health Record Systems",
+        "Telemedicine Infrastructure",
+        "Hospital Management Networking"
+      ],
+      "detailedDescription": "Our healthcare solutions offer reliable network infrastructures designed for medical environments. We ensure compliance with healthcare regulations while providing essential connectivity for patient care.",
+      "specifications": {
+        "Cable Types": "Medical Grade Category 6A, Fiber Optic",
+        "Compliance": "Adheres to HIPAA and FDA standards",
+        "Protection": "Rated IP67 for environmental resistance",
+        "Materials": "Constructed with medical-grade materials",
+        "Warranty": "20-year limited warranty"
+      },
+      "additionalImages": [
+        "/images/markets/healthcare-1.jpg",
+        "/images/markets/healthcare-2.jpg"
+      ]
+    },
+    {
+      "id": "oil-gas",
+      "title": "Oil & Gas",
+      "description": "Resilient networking solutions tailored for the oil and gas sector",
+      "image": "/images/markets/oil-gas.jpg",
+      "imageHeader": "/images/markets/oil-gas.jpg",
+      "features": [
+        "Certified for hazardous environments",
+        "Withstands extreme temperatures",
+        "Resistant to chemical exposure",
+        "Explosion-proof configurations available",
+        "Engineered for long-term durability"
+      ],
+      "solutions": [
+        "Pipeline Surveillance",
+        "Refinery Automation",
+        "Safety and Emergency Systems",
+        "Remote Site Connectivity",
+        "Asset Tracking and Management"
+      ],
+      "detailedDescription": "Our networking solutions for the oil and gas industry are engineered to operate reliably in challenging conditions. They ensure consistent connectivity in extreme environments while adhering to stringent safety standards.",
+      "specifications": {
+        "Cable Types": "Industrial Grade Cat6, Fiber Optic",
+        "Protection": "IP68 rated",
+        "Temperature Range": "-60°C to 150°C",
+        "Certifications": "ATEX, IECEx",
+        "Warranty": "15-year warranty"
+      },
+      "additionalImages": [
+        "/images/markets/oil-gas-1.jpg",
+        "/images/markets/oil-gas-2.jpg"
+      ]
+    },
+    {
+      "id": "transportation",
+      "title": "Transportation",
+      "description": "Durable networking solutions for transportation infrastructures",
+      "image": "/images/markets/transportation.jpg",
+      "imageHeader": "/images/markets/transportation-1.jpg",
+      "features": [
+        "Resistant to vibrations",
+        "Designed for all-weather conditions",
+        "Supports high-speed data transfer",
+        "Simplified maintenance procedures",
+        "Built for long-term reliability"
+      ],
+      "solutions": [
+        "Traffic Control Systems",
+        "Vehicle Monitoring",
+        "Safety and Alert Mechanisms",
+        "Passenger Information Displays",
+        "Fleet Coordination"
+      ],
+      "detailedDescription": "Our transportation networking solutions are crafted to provide robust connectivity in dynamic environments. They support critical transportation systems, ensuring reliability and compliance with industry standards.",
+      "specifications": {
+        "Cable Types": "Industrial Grade Cat6, Fiber Optic",
+        "Protection": "IP67 rated",
+        "Vibration Standard": "IEC 60068-2-6",
+        "Temperature Range": "-40°C to 85°C",
+        "Warranty": "15-year warranty"
+      },
+      "additionalImages": [
+        "/images/markets/transportation-1.jpg",
+        "/images/markets/transportation-2.jpg"
+      ]
+    },
+    {
+      "id": "warehouse-automation",
+      "title": "Warehouse Automation",
+      "description": "Cutting-edge networking solutions for automated warehouse operations",
+      "image": "/images/markets/warehouse-automation.jpg",
+      "imageHeader": "/images/markets/warehouse-automation-1.jpg",
+      "features": [
+        "High-speed data connectivity",
+        "Ready for IoT integration",
+        "Scalable infrastructure",
+        "Seamless system integration",
+        "Designed for future technological advancements"
+      ],
+      "solutions": [
+        "Automated Storage Solutions",
+        "Robotic Control Systems",
+        "Inventory Tracking",
+        "Safety Monitoring",
+        "Logistics and Supply Chain Management"
+      ],
+      "detailedDescription": "Our warehouse automation networking solutions provide a robust infrastructure to support modern logistics operations. They ensure reliable connectivity for automated systems and are designed to accommodate future growth.",
+      "specifications": {
+        "Cable Types": "Cat6A, Cat7, Fiber Optic",
+        "Network Speed": "Up to 10Gbps",
+        "Coverage": "Comprehensive facility coverage",
+        "Integration": "IoT-compatible",
+        "Warranty": "20-year warranty"
+      },
+      "additionalImages": [
+        "/images/markets/warehouse-automation-1.jpg",
+        "/images/markets/warehouse-automation-2.jpg"
+      ]
+    }
+  ]
+}

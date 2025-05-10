@@ -1,13 +1,78 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { FaSearch, FaUser, FaBars } from 'react-icons/fa'
+import { FaSearch, FaUser, FaBars, FaChevronDown } from 'react-icons/fa'
 import { toast } from 'react-hot-toast'
 import { useLoader } from '@/context/LoaderContext'
 import { useAuth } from '@/context/AuthContext'
 import { useSupabaseClient } from '@supabase/auth-helpers-react'
 import LogoutButton from '../auth/LogoutButton'
+
+// Product menu interface
+interface ProductMenuItem {
+  name: string;
+  href: string;
+  subItems?: ProductSubMenuItem[];
+}
+
+interface ProductSubMenuItem {
+  name: string;
+  href: string;
+}
+
+// Product menu data
+const productMenuItems: ProductMenuItem[] = [
+  { 
+    name: 'Copper Systems', 
+    href: '/products',
+    subItems: [
+      { name: 'Enterprise Data Center Copper Cable', href: '/products/data-center-copper-cable' }
+    ]
+  },
+  {
+    name: 'Connectors,Products & Enterprises',
+    href: '/products/products-enterprises',
+  }
+  // { 
+  //   name: 'Fiber Optic Systems', 
+  //   href: '/products#fiber-optic-systems',
+  //   subItems: [
+  //     { name: 'Fiber Cables', href: '/products#fiber-cables' },
+  //     { name: 'Fiber Connectors', href: '/products#fiber-connectors' },
+  //     { name: 'Fiber Management', href: '/products#fiber-management' },
+  //   ]
+  // },
+  // { 
+  //   name: 'Grounding & Bonding', 
+  //   href: '/products#grounding-bonding',
+  //   subItems: [
+  //     { name: 'Grounding Cables', href: '/products#grounding-cables' },
+  //     { name: 'Bonding Components', href: '/products#bonding-components' },
+  //     { name: 'Earthing Solutions', href: '/products#earthing-solutions' },
+  //   ]
+  // },
+];
+
+// Market menu interface
+interface MarketMenuItem {
+  name: string;
+  href: string;
+}
+
+// Market menu data
+const marketMenuItems: MarketMenuItem[] = [
+  { name: 'Commercial Real Estate', href: '/markets/commercial-real-estate' },
+  { name: 'Construction', href: '/markets/construction' },
+  { name: 'Education', href: '/markets/education' },
+  { name: 'Financial', href: '/markets/financial' },
+  { name: 'Food & Beverage', href: '/markets/food-beverage' },
+  { name: 'Government IT', href: '/markets/government-it' },
+  { name: 'Healthcare', href: '/markets/healthcare' },
+  { name: 'Oil & Gas', href: '/markets/oil-gas' },
+  { name: 'Transportation', href: '/markets/transportation' },
+  { name: 'Warehouse Automation', href: '/markets/warehouse-automation' }
+];
 
 export const Navbar = () => {
   const router = useRouter()
@@ -17,6 +82,67 @@ export const Navbar = () => {
   const { showLoader, hideLoader } = useLoader()
   const [searchQuery, setSearchQuery] = useState('')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  
+  // State for dropdown menus
+  const [isProductsOpen, setIsProductsOpen] = useState(false)
+  const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null)
+  const [isMarketsOpen, setIsMarketsOpen] = useState(false)
+  
+  // Refs for handling hover behavior
+  const productsMenuRef = useRef<HTMLDivElement>(null)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const marketsMenuRef = useRef<HTMLDivElement>(null)
+
+  // Handle mouse events for dropdown
+  const handleProductsMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    setIsProductsOpen(true)
+  }
+
+  const handleProductsMouseLeave = () => {
+    // Add a small delay before closing the menu to allow movement to submenu
+    timeoutRef.current = setTimeout(() => {
+      if (!activeSubMenu) {
+        setIsProductsOpen(false)
+      }
+    }, 100)
+  }
+
+  // Handle category hover
+  const handleCategoryMouseEnter = (categoryName: string) => {
+    setActiveSubMenu(categoryName)
+  }
+
+  const handleCategoryMouseLeave = () => {
+    setActiveSubMenu(null)
+  }
+
+  // Handle mouse events for markets dropdown
+  const handleMarketsMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    setIsMarketsOpen(true)
+  }
+
+  const handleMarketsMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsMarketsOpen(false)
+    }, 100)
+  }
+
+  // Handle menu close when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (productsMenuRef.current && !productsMenuRef.current.contains(event.target as Node)) {
+        setIsProductsOpen(false)
+        setActiveSubMenu(null)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   const handleLogout = async () => {
     try {
@@ -30,6 +156,13 @@ export const Navbar = () => {
     } finally {
       hideLoader()
     }
+  }
+
+  // Navigate to product category
+  const navigateToCategory = (href: string) => {
+    router.push(href)
+    setIsProductsOpen(false)
+    setActiveSubMenu(null)
   }
 
   return (
@@ -53,12 +186,85 @@ export const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/products" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">
-              Products
-            </Link>
-            <Link href="/markets" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">
-              Markets
-            </Link>
+            {/* Products Dropdown */}
+            <div 
+              ref={productsMenuRef}
+              className="relative"
+              onMouseEnter={handleProductsMouseEnter}
+              onMouseLeave={handleProductsMouseLeave}
+            >
+              <button className="flex items-center text-gray-600 hover:text-yellow-600 font-medium transition-colors">
+                Products
+                <FaChevronDown className={`ml-1 h-3 w-3 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {/* Main Dropdown Menu */}
+              {isProductsOpen && (
+                <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50 py-2">
+                  {productMenuItems.map((item) => (
+                    <div 
+                      key={item.name}
+                      className="relative"
+                      onMouseEnter={() => handleCategoryMouseEnter(item.name)}
+                      onMouseLeave={handleCategoryMouseLeave}
+                    >
+                      <button 
+                        className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-600 flex justify-between items-center"
+                        onClick={() => navigateToCategory(item.href)}
+                      >
+                        {item.name}
+                        {item.subItems && <FaChevronDown className="h-3 w-3" />}
+                      </button>
+                      
+                      {/* Submenu */}
+                      {activeSubMenu === item.name && item.subItems && (
+                        <div className="absolute left-full top-0 w-64 bg-white rounded-md shadow-lg z-50 py-2">
+                          {item.subItems.map((subItem) => (
+                            <button
+                              key={subItem.name}
+                              className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-600"
+                              onClick={() => navigateToCategory(subItem.href)}
+                            >
+                              {subItem.name}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Markets Dropdown */}
+            <div 
+              ref={marketsMenuRef}
+              className="relative"
+              onMouseEnter={handleMarketsMouseEnter}
+              onMouseLeave={handleMarketsMouseLeave}
+            >
+              <button className="flex items-center text-gray-600 hover:text-yellow-600 font-medium transition-colors">
+                Markets
+                <FaChevronDown className={`ml-1 h-3 w-3 transition-transform ${isMarketsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {/* Markets Dropdown Menu */}
+              {isMarketsOpen && (
+                <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50 py-2">
+                  {marketMenuItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-600"
+                      onClick={() => setIsMarketsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link href="/solutions" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">
               Solutions
             </Link>
@@ -105,11 +311,74 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation Menu */}
+        {/* Mobile Navigation Menu with Products Dropdown */}
         <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} pb-4`}>
           <div className="flex flex-col space-y-3">
-            <Link href="/products" className="text-gray-600 hover:text-yellow-600 py-2">Products</Link>
-            <Link href="/markets" className="text-gray-600 hover:text-yellow-600 py-2">Markets</Link>
+            {/* Mobile Products Dropdown */}
+            <div className="py-2">
+              <button 
+                onClick={() => setIsProductsOpen(!isProductsOpen)}
+                className="flex items-center justify-between w-full text-gray-600 hover:text-yellow-600"
+              >
+                <span>Products</span>
+                <FaChevronDown className={`h-3 w-3 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isProductsOpen && (
+                <div className="pl-4 mt-2 space-y-2">
+                  {productMenuItems.map((item) => (
+                    <div key={item?.name} className="space-y-2">
+                      <Link href={item?.href} className="block text-gray-600 hover:text-yellow-600 py-1">
+                        {item?.name}
+                      </Link>
+                      {item?.subItems && (
+                        <div className="pl-4 space-y-2">
+                          {item?.subItems?.map((subItem) => (
+                            <Link 
+                              key={subItem?.name} 
+                              href={subItem?.href}
+                              className="block text-gray-500 hover:text-yellow-600 py-1 text-sm"
+                            >
+                              {subItem?.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+            
+            {/* Mobile Markets Dropdown */}
+            <div className="py-2">
+              <button 
+                onClick={() => setIsMarketsOpen(!isMarketsOpen)}
+                className="flex items-center justify-between w-full text-gray-600 hover:text-yellow-600"
+              >
+                <span>Markets</span>
+                <FaChevronDown className={`h-3 w-3 transition-transform ${isMarketsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isMarketsOpen && (
+                <div className="pl-4 mt-2 space-y-2">
+                  {marketMenuItems.map((item) => (
+                    <Link 
+                      key={item.name} 
+                      href={item.href}
+                      className="block text-gray-600 hover:text-yellow-600 py-1"
+                      onClick={() => {
+                        setIsMarketsOpen(false);
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            
             <Link href="/solutions" className="text-gray-600 hover:text-yellow-600 py-2">Solutions</Link>
             <Link href="/resources" className="text-gray-600 hover:text-yellow-600 py-2">Resources</Link>
             
