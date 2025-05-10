@@ -54,6 +54,26 @@ const productMenuItems: ProductMenuItem[] = [
   // },
 ];
 
+// Market menu interface
+interface MarketMenuItem {
+  name: string;
+  href: string;
+}
+
+// Market menu data
+const marketMenuItems: MarketMenuItem[] = [
+  { name: 'Commercial Real Estate', href: '/markets/commercial-real-estate' },
+  { name: 'Construction', href: '/markets/construction' },
+  { name: 'Education', href: '/markets/education' },
+  { name: 'Financial', href: '/markets/financial' },
+  { name: 'Food & Beverage', href: '/markets/food-beverage' },
+  { name: 'Government IT', href: '/markets/government-it' },
+  { name: 'Healthcare', href: '/markets/healthcare' },
+  { name: 'Oil & Gas', href: '/markets/oil-gas' },
+  { name: 'Transportation', href: '/markets/transportation' },
+  { name: 'Warehouse Automation', href: '/markets/warehouse-automation' }
+];
+
 export const Navbar = () => {
   const router = useRouter()
   const { user } = useAuth()
@@ -66,10 +86,12 @@ export const Navbar = () => {
   // State for dropdown menus
   const [isProductsOpen, setIsProductsOpen] = useState(false)
   const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null)
+  const [isMarketsOpen, setIsMarketsOpen] = useState(false)
   
   // Refs for handling hover behavior
   const productsMenuRef = useRef<HTMLDivElement>(null)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const marketsMenuRef = useRef<HTMLDivElement>(null)
 
   // Handle mouse events for dropdown
   const handleProductsMouseEnter = () => {
@@ -93,6 +115,18 @@ export const Navbar = () => {
 
   const handleCategoryMouseLeave = () => {
     setActiveSubMenu(null)
+  }
+
+  // Handle mouse events for markets dropdown
+  const handleMarketsMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    setIsMarketsOpen(true)
+  }
+
+  const handleMarketsMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsMarketsOpen(false)
+    }, 100)
   }
 
   // Handle menu close when clicking outside
@@ -202,9 +236,35 @@ export const Navbar = () => {
               )}
             </div>
 
-            <Link href="/markets" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">
-              Markets
-            </Link>
+            {/* Markets Dropdown */}
+            <div 
+              ref={marketsMenuRef}
+              className="relative"
+              onMouseEnter={handleMarketsMouseEnter}
+              onMouseLeave={handleMarketsMouseLeave}
+            >
+              <button className="flex items-center text-gray-600 hover:text-yellow-600 font-medium transition-colors">
+                Markets
+                <FaChevronDown className={`ml-1 h-3 w-3 transition-transform ${isMarketsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {/* Markets Dropdown Menu */}
+              {isMarketsOpen && (
+                <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50 py-2">
+                  {marketMenuItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-600"
+                      onClick={() => setIsMarketsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link href="/solutions" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">
               Solutions
             </Link>
@@ -290,7 +350,35 @@ export const Navbar = () => {
               )}
             </div>
             
-            <Link href="/markets" className="text-gray-600 hover:text-yellow-600 py-2">Markets</Link>
+            {/* Mobile Markets Dropdown */}
+            <div className="py-2">
+              <button 
+                onClick={() => setIsMarketsOpen(!isMarketsOpen)}
+                className="flex items-center justify-between w-full text-gray-600 hover:text-yellow-600"
+              >
+                <span>Markets</span>
+                <FaChevronDown className={`h-3 w-3 transition-transform ${isMarketsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isMarketsOpen && (
+                <div className="pl-4 mt-2 space-y-2">
+                  {marketMenuItems.map((item) => (
+                    <Link 
+                      key={item.name} 
+                      href={item.href}
+                      className="block text-gray-600 hover:text-yellow-600 py-1"
+                      onClick={() => {
+                        setIsMarketsOpen(false);
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            
             <Link href="/solutions" className="text-gray-600 hover:text-yellow-600 py-2">Solutions</Link>
             <Link href="/resources" className="text-gray-600 hover:text-yellow-600 py-2">Resources</Link>
             
