@@ -33,7 +33,39 @@ const productMenuItems: ProductMenuItem[] = [
   {
     name: 'Connectors,Products & Enterprises',
     href: '/products/products-enterprises',
-  }
+  },
+  {
+    name: 'Copper Patch Panels & Frames',
+    href: '/products/copper-patch-panels-frames',
+  },
+  {
+    name: 'Keystone Jacks & Shutters',
+    href: '/products/keystone-jacks-shutters',
+  },
+  {
+    name: 'Modules & Faceplates',
+    href: '/products/modules-faceplates',
+  },
+  {
+    name: 'Backboxes & Floorboxes',
+    href: '/products/backboxes-floorboxes',
+  },
+  {
+    name: 'Telephone Networking',
+    href: '/products/telephone-networking',
+  },
+  {
+    name: 'Cable Management',
+    href: '/products/cable-management',
+  },
+  {
+    name: 'Tools',
+    href: '/products/tools',
+  },
+  {
+    name: 'Accessories',
+    href: '/products/accessories',
+  },
   // { 
   //   name: 'Fiber Optic Systems', 
   //   href: '/products#fiber-optic-systems',

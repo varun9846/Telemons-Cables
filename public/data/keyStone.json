@@ -1,0 +1,447 @@
+[
+    {
+      "id": "100-181",
+      "title": "Excel Cat6A FTP Screened Low Profile Keystone Jack Toolless Silver",
+      "partNumber": "100-181",
+      "description": "High-performance Cat6A screened keystone jack with tool-less termination for easy installation.",
+      "image": "/images/keystone-jacks/cat6a-screened-silver.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "Yes",
+        "category": "6A (IEC)",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes",
+        "performanceLevel": "Category 6A",
+        "cableConstruction": "FTP Screened",
+        "conductorGauge": "23 AWG",
+        "conductorType": "Solid",
+        "overallLength": "28mm",
+        "flammabilityRating": "UL94V-0",
+        "availableColors": ["Silver"]
+      },
+      "features": [ 
+        "Tool-less termination for quick installation",
+        "Screened design for enhanced performance",
+        "Low profile design for space efficiency",
+        "Compatible with standard keystone faceplates",
+        "Supports high-speed data transmission",
+        "360 degree Shielding protects against alien crosstalk",
+        "3rd Party ISO11801 2nd Edition verification"
+      ],
+      "detailedDescription": "The Excel Cat6A FTP Screened Low Profile Keystone Jack offers superior performance with its tool-less termination system and screened design. Perfect for high-speed network applications requiring reliable connectivity. The low profile design allows for multiple cable entry directions and fits in standard depth back boxes.",
+      "additionalImages": [
+        "/images/products/keystone-jacks/cat6a-screened-silver-detail-1.jpg",
+        "/images/products/keystone-jacks/cat6a-screened-silver-detail-2.jpg"
+      ]
+    },
+    {
+      "id": "100-181-24",
+      "title": "Excel Cat6A FTP Screened Low Profile Keystone Jack Toolless Silver (Box 24)",
+      "partNumber": "100-181-24",
+      "description": "Bulk pack of 24 Cat6A screened keystone jacks with tool-less termination.",
+      "image": "/images/keystone-jacks/cat6a-screened-low-twenty-four-box.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "Yes",
+        "category": "6A (IEC)",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes"
+      },
+      "features": [
+        "24 pieces per box",
+        "Tool-less termination system",
+        "Screened design for enhanced performance",
+        "Low profile design",
+        "Cost-effective bulk packaging"
+      ],
+      "detailedDescription": "This bulk pack of 24 Cat6A screened keystone jacks provides a cost-effective solution for large installations. Each jack features tool-less termination and screened design for optimal performance."
+    },
+    {
+      "id": "100-973-24",
+      "title": "Excel Cat6A FTP Screened Low Profile Keystone Jack Toolless Silver (24-Pack)",
+      "partNumber": "100-973-24",
+      "description": "Excel Cat6A FTP Screened Low Profile Keystone Jack Toolless Silver (24-Pack)",
+      "image": "/images/keystone-jacks/cat6a-screened-low-twenty-four-pack.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "Yes",
+        "category": "6A (IEC)",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes"
+      },
+      "features": [],
+      "detailedDescription": ""
+    },
+    {
+      "id": "100-185",
+      "title": "Excel Cat6A STP Screened Angled Keystone Jack Toolless Silver",
+      "partNumber": "100-185",
+      "description": "High-performance Cat6A screened angled keystone jack with tool-less termination for optimized cable management.",
+      "image": "/images/keystone-jacks/cat6a-stp-screened-angled-silver.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "Yes",
+        "category": "6A (IEC)",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes",
+        "performanceLevel": "Category 6A",
+        "cableConstruction": "STP Screened",
+        "conductorGauge": "23 AWG",
+        "conductorType": "Solid",
+        "overallLength": "28mm",
+        "flammabilityRating": "UL94V-0",
+        "availableColors": ["Silver"]
+      },
+      "features": [
+        "Angled design for better cable management",
+        "Tool-less termination system",
+        "High quality zinc die cast housing",
+        "Low profile design - just 28mm overall depth",
+        "Supports 10 Gigabit Ethernet application",
+        "360 degree Shielding protects against alien crosstalk",
+        "3rd Party ISO11801 2nd Edition verification"
+      ],
+      "detailedDescription": "The Excel Cat6A STP Screened Angled Keystone Jack is designed for high-density frames and optimized cable management. The angled design allows for natural cable routing to the left or right of the panel, reducing the need for horizontal patch cable management bars. Manufactured in high-quality zinc die cast housing with butterfly style tool-less IDC termination points.",
+      "additionalImages": [
+        "/images/products/keystone-jacks/cat6a-screened-angled-silver-detail-1.jpg",
+        "/images/products/keystone-jacks/cat6a-screened-angled-silver-detail-2.jpg"
+      ]
+    },
+    {
+      "id": "100-185-24",
+      "title": "Excel Cat6A STP Screened Angled Keystone Jack Toolless Silver (Box 24)",
+      "partNumber": "100-185-24",
+      "description": "Excel Cat6A STP Screened Angled Keystone Jack Toolless Silver (Box 24)",
+      "image": "/images/keystone-jacks/cat6-stp-screened-angled-silver-box-twenty-four.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "Yes",
+        "category": "6A (IEC)",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes"
+      },
+      "features": [],
+      "detailedDescription": ""
+    },
+    {
+      "id": "100-182-BK",
+      "title": "Excel Cat6A UTP Unscreened Low Profile Keystone Jack Toolless Black",
+      "partNumber": "100-182-BK",
+      "description": "Cat6A unscreened keystone jack with tool-less termination in black finish.",
+      "image": "/images/keystone-jacks/cat6a-utp-unscreened-low-profile-black.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "No",
+        "category": "6A (IEC)",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes",
+        "performanceLevel": "Category 6A",
+        "cableConstruction": "UTP Unscreened",
+        "conductorGauge": "23 AWG",
+        "conductorType": "Solid",
+        "overallLength": "28mm",
+        "flammabilityRating": "UL94V-0",
+        "availableColors": ["Black"]
+      },
+      "features": [
+        "Tool-less termination",
+        "Black finish for modern aesthetics",
+        "Low profile design",
+        "Compatible with standard faceplates",
+        "Suitable for round cables",
+        "ISO, EN & TIA compliant",
+        "Delta 3rd party verified"
+      ],
+      "detailedDescription": "The Excel Cat6A UTP Unscreened Keystone Jack combines performance with style in a black finish. Its tool-less termination system makes installation quick and easy. The low profile design allows for multiple cable entry directions and fits in standard depth back boxes.",
+      "additionalImages": [
+        "/images/products/keystone-jacks/cat6a-unscreened-black-detail-1.jpg",
+        "/images/products/keystone-jacks/cat6a-unscreened-black-detail-2.jpg"
+      ]
+    },
+    {
+      "id": "100-182-BK-24",
+      "title": "Excel Cat6A UTP Unscreened Low Profile Keystone Jack Toolless Black (Box 24)",
+      "partNumber": "100-182-BK-24",
+      "description": "Excel Cat6A UTP Unscreened Low Profile Keystone Jack Toolless Black (Box 24)",
+      "image": "/images/keystone-jacks/cat6-utp-unscreened-low-profile-black-box-twenty-four.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "No",
+        "category": "6A (IEC)",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes"
+      },
+      "features": [],
+      "detailedDescription": ""
+    },
+    {
+      "id": "100-156",
+      "title": "Excel Cat6A UTP Unscreened Keystone Jack IDC Punch Down White",
+      "partNumber": "100-156",
+      "description": "Excel Cat6A UTP Unscreened Keystone Jack IDC Punch Down White",
+      "image": "/images/keystone-jacks/cat6-utp-unscreened-low-profile-white.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "No",
+        "category": "6A (IEC)",
+        "requiresTerminationTool": "Yes",
+        "suitableForRoundCable": "Yes"
+      },
+      "features": [],
+      "detailedDescription": ""
+    },
+    {
+      "id": "100-182-WT-24",
+      "title": "Excel Cat6A UTP Unscreened Low Profile Keystone Jack Toolless White (Box 24)",
+      "partNumber": "100-182-WT-24",
+      "description": "Excel Cat6A UTP Unscreened Low Profile Keystone Jack Toolless White (Box 24)",
+      "image": "/images/keystone-jacks/cat6-utp-unscreened-low-profile-white-box-twenty-four.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "No",
+        "category": "6A (IEC)",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes"
+      },
+      "features": [],
+      "detailedDescription": ""
+    },
+    {
+      "id": "100-179-24",
+      "title": "Excel Cat6A FTP Screened Keystone Jack Toolless Silver (Box 24)",
+      "partNumber": "100-179-24",
+      "description": "Excel Cat6A FTP Screened Keystone Jack Toolless Silver (Box 24)",
+      "image": "/images/keystone-jacks/cat6a-ftp-screened-keystone-jack-toolless-silver-box-twenty-four.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "Yes",
+        "category": "6A (IEC)",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes"
+      },
+      "features": [],
+      "detailedDescription": ""
+    },
+    {
+      "id": "100-215-BK",
+      "title": "Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless Black",
+      "partNumber": "100-215-BK",
+      "description": "Cat6 unscreened keystone jack with tool-less termination in black finish.",
+      "image": "/images/keystone-jacks/cat6-utp-unscreened-low-profile-keystone-jack-toolless-black.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "No",
+        "category": "6",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes",
+        "performanceLevel": "Category 6",
+        "cableConstruction": "UTP Unscreened",
+        "conductorGauge": "23 AWG",
+        "conductorType": "Solid",
+        "overallLength": "28mm",
+        "flammabilityRating": "UL94V-0",
+        "availableColors": ["Black"]
+      },
+      "features": [
+        "Tool-less termination system",
+        "Black finish",
+        "Low profile design",
+        "Compatible with standard faceplates",
+        "Suitable for round cables",
+        "ISO, EN & TIA compliant",
+        "Delta 3rd party verified"
+      ],
+      "detailedDescription": "This Cat6 unscreened keystone jack offers reliable performance with the convenience of tool-less termination. Its black finish and low profile design make it suitable for modern installations. The low profile design allows for multiple cable entry directions and fits in standard depth back boxes.",
+      "additionalImages": [
+        "/images/products/keystone-jacks/cat6-unscreened-black-detail-1.jpg",
+        "/images/products/keystone-jacks/cat6-unscreened-black-detail-2.jpg"
+      ]
+    },
+    {
+      "id": "100-215-BK-24",
+      "title": "Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless Black (Box 24)",
+      "partNumber": "100-215-BK-24",
+      "description": "Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless Black (Box 24)",
+      "image": "/images/keystone-jacks/cat6-utp-unscreened-low-profile-keystone-jack-toolless-black-box-twenty-four.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "No",
+        "category": "6",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes"
+      },
+      "features": [],
+      "detailedDescription": ""
+    },
+    {
+      "id": "100-215-WT-24",
+      "title": "Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White (Box 24)",
+      "partNumber": "100-215-WT-24",
+      "description": "Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White (Box 24)",
+      "image": "/images/keystone-jacks/cat6-utp-unscreened-low-profile-keystone-jack-toolless-white-box-twenty-four.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "No",
+        "category": "6",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes"
+      },
+      "features": [],
+      "detailedDescription": ""
+    },
+    {
+      "id": "100-212-24",
+      "title": "Excel Cat6 UTP Unscreened Keystone Jack Toolless Black (Box 24)",
+      "partNumber": "100-212-24",
+      "description": "Excel Cat6 UTP Unscreened Keystone Jack Toolless Black (Box 24)",
+      "image": "/images/keystone-jacks/cat6-utp-unscreened-keystone-jack-toolless-black-box-twenty-four.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "No",
+        "category": "6",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes"
+      },
+      "features": [],
+      "detailedDescription": ""
+    },
+    {
+      "id": "100-011",
+      "title": "Excel Cat6 UTP Unscreened Keystone Jack IDC Punch Down White",
+      "partNumber": "100-011",
+      "description": "Cat6 unscreened keystone jack with IDC punch down termination in white finish.",
+      "image": "/images/keystone-jacks/cat6-utp-unscreened-keystone-jack-idc-punchdown-white.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "No",
+        "category": "6",
+        "requiresTerminationTool": "110 Punchdown Tool",
+        "suitableForRoundCable": "Yes",
+        "performanceLevel": "Category 6",
+        "cableConstruction": "UTP Unscreened",
+        "conductorGauge": "23 AWG",
+        "conductorType": "Solid",
+        "overallLength": "28mm",
+        "flammabilityRating": "UL94V-0",
+        "availableColors": ["White"]
+      },
+      "features": [
+        "IDC punch down termination",
+        "White finish",
+        "Compatible with standard faceplates",
+        "Suitable for round cables",
+        "Reliable performance",
+        "ISO, EN & TIA compliant",
+        "Delta 3rd party verified"
+      ],
+      "detailedDescription": "This Cat6 keystone jack features IDC punch down termination for secure connections. The white finish makes it suitable for various installation environments. The jack is housed in a high-quality fire retardant plastic cast housing.",
+      "additionalImages": [
+        "/images/products/keystone-jacks/cat6-punchdown-white-detail-1.jpg",
+        "/images/products/keystone-jacks/cat6-punchdown-white-detail-2.jpg"
+      ]
+    },
+    {
+      "id": "100-210-24",
+      "title": "Excel Cat6 FTP Screened Keystone Jack Toolless Silver (Box 24)",
+      "partNumber": "100-210-24",
+      "description": "Excel Cat6 FTP Screened Keystone Jack Toolless Silver (Box 24)",
+      "image": "/images/keystone-jacks/cat6-ftp-screened-keystone-jack-toolless-silver-box-twenty-four.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "Yes",
+        "category": "6",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes"
+      },
+      "features": [],
+      "detailedDescription": ""
+    },
+    {
+      "id": "100-213",
+      "title": "Excel Cat6 UTP Unscreened Angled Keystone Jack Toolless Black",
+      "partNumber": "100-213",
+      "description": "Angled Cat6 unscreened keystone jack with tool-less termination in black finish.",
+      "image": "/images/keystone-jacks/cat6-utp-unscreened-angled-keystone-jack-toolless-black.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "No",
+        "category": "6",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes",
+        "performanceLevel": "Category 6",
+        "cableConstruction": "UTP Unscreened",
+        "conductorGauge": "23 AWG",
+        "conductorType": "Solid",
+        "overallLength": "28mm",
+        "flammabilityRating": "UL94V-0",
+        "availableColors": ["Black"]
+      },
+      "features": [
+        "Angled design for better cable management",
+        "Tool-less termination",
+        "Black finish",
+        "Compatible with standard faceplates",
+        "Suitable for round cables",
+        "ISO, EN & TIA compliant",
+        "Delta 3rd party verified"
+      ],
+      "detailedDescription": "The angled design of this Cat6 keystone jack helps with cable management while maintaining high performance. Features tool-less termination for easy installation. The angled design allows for natural cable routing to the left or right of the panel.",
+      "additionalImages": [
+        "/images/products/keystone-jacks/cat6-angled-black-detail-1.jpg",
+        "/images/products/keystone-jacks/cat6-angled-black-detail-2.jpg"
+      ]
+    },
+    {
+      "id": "100-972",
+      "title": "Excel Cat6 FTP Screened Low Profile Keystone Jack Toolless Silver",
+      "partNumber": "100-972",
+      "description": "Cat6 screened keystone jack with tool-less termination in silver finish.",
+      "image": "/images/keystone-jacks/cat6-ftp-screened-low-profile-keystone-jack-toolless-silver.jpg",
+      "specifications": {
+        "model": "Jack",
+        "connectorType": "RJ45 8(8)",
+        "shielded": "Yes",
+        "category": "6",
+        "requiresTerminationTool": "No",
+        "suitableForRoundCable": "Yes",
+        "performanceLevel": "Category 6",
+        "cableConstruction": "FTP Screened",
+        "conductorGauge": "23 AWG",
+        "conductorType": "Solid",
+        "overallLength": "28mm",
+        "flammabilityRating": "UL94V-0",
+        "availableColors": ["Silver"]
+      },
+      "features": [
+        "Screened design for enhanced performance",
+        "Tool-less termination",
+        "Silver finish",
+        "Low profile design",
+        "Compatible with standard faceplates",
+        "ISO, EN & TIA compliant",
+        "Delta 3rd party verified"
+      ],
+      "detailedDescription": "This Cat6 screened keystone jack offers enhanced performance with its screened design and tool-less termination system. The silver finish provides a professional appearance. The low profile design allows for multiple cable entry directions and fits in standard depth back boxes.",
+      "additionalImages": [
+        "/images/products/keystone-jacks/cat6-screened-silver-detail-1.jpg",
+        "/images/products/keystone-jacks/cat6-screened-silver-detail-2.jpg"
+      ]
+    }
+  ]

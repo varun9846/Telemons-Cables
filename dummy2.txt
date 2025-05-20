@@ -1,450 +1,342 @@
-'use client'
-
-import Image from 'next/image';
-import { useState, useEffect, useCallback } from 'react';
-import axios from 'axios';
-import { FaNetworkWired, FaServer, FaTools, FaPowerOff, FaArrowLeft } from 'react-icons/fa';
-import { MdCable, MdStorage } from 'react-icons/md';
-import { Footer } from '@/components/common/Footer';
-import { Navbar } from '@/components/common/Navbar';
-
-// Product category interface for type safety
-interface ProductCategory {
-  title: string;
-  description: string;
-  iconType: string;
-  iconColor: string;
-  features: string[];
-  image: string;
-  detailedDescription: string;
-  specifications: { [key: string]: string };
-  additionalImages: string[];
-}
-
-// Helper function to render the icon based on type
-const renderIcon = (iconType: string, iconColor: string) => {
-  // Map of icon types to their components
-  const iconMap: { [key: string]: JSX.Element } = {
-    'MdCable': <MdCable className={`w-10 h-10 ${iconColor}`} />,
-    'FaServer': <FaServer className={`w-10 h-10 ${iconColor}`} />,
-    'MdStorage': <MdStorage className={`w-10 h-10 ${iconColor}`} />,
-    'FaPowerOff': <FaPowerOff className={`w-10 h-10 ${iconColor}`} />,
-    'FaTools': <FaTools className={`w-10 h-10 ${iconColor}`} />
-  };
-
-  return iconMap[iconType] || null;
-};
-
-export default function ProductsPage() {
-  // State for product categories data
-  const [productCategories, setProductCategories] = useState<ProductCategory[]>([]);
-  const [activeCategory, setActiveCategory] = useState<string>('');
-  // State to track if we're in detailed view mode (via hash)
-  const [detailedView, setDetailedView] = useState<boolean>(false);
-  // Loading state
-  const [loading, setLoading] = useState<boolean>(true);
-
-  // Fetch product categories data from JSON file
-  const fetchProductData = useCallback(async () => {
-    try {
-      const response = await axios.get('/data/productCategories.json');
-      if (response.status !== 200) {
-        throw new Error(`Failed to fetch product data: ${response.status}`);
-      }
-      const data = response.data;
-      setProductCategories(data);
-
-      // Set initial active category
-      if (data.length > 0) {
-        setActiveCategory(data[0].title);
-      }
-
-      setLoading(false);
-    } catch (error) {
-      console.error('Error fetching product data:', error);
-      setLoading(false);
-    }
-  }, []);
-
-
-  useEffect(() => {
-    fetchProductData();
-  }, []);
-
-  // Find the active category object
-  const activeCategoryObj = productCategories.find(cat => cat.title === activeCategory) || (productCategories.length > 0 ? productCategories[0] : null);
-
-  // Effect to handle hash changes for product navigation
-  useEffect(() => {
-    // Function to handle hash change and set the active product
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '');
-
-      // If hash exists and matches a product title (URL encoded)
-      if (hash && productCategories.length > 0) {
-        // Decode the URL-encoded hash to match product titles
-        const decodedHash = decodeURIComponent(hash);
-        const matchingProduct = productCategories.find(
-          cat => cat.title.toLowerCase().replace(/\s+/g, '-') === decodedHash
-        );
-
-        if (matchingProduct) {
-          setActiveCategory(matchingProduct.title);
-          setDetailedView(true);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keystone Data - Complete Fields</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .table-container {
+            max-width: 100%;
+            overflow-x: auto;
         }
-      } else {
-        setDetailedView(false);
-      }
-    };
-
-    // Only set up hash change handling if products are loaded
-    if (!loading && productCategories.length > 0) {
-      // Call once on mount
-      handleHashChange();
-
-      // Add event listener for hash changes
-      window.addEventListener('hashchange', handleHashChange);
-
-      // Cleanup listener on unmount
-      return () => {
-        window.removeEventListener('hashchange', handleHashChange);
-      };
-    }
-  }, [loading, productCategories]);
-
-  // Function to navigate to a product's detailed view
-  const navigateToProduct = (category: ProductCategory) => {
-    // Create a URL-friendly version of the title
-    const urlFriendlyTitle = category.title.toLowerCase().replace(/\s+/g, '-');
-    window.location.hash = urlFriendlyTitle;
-    setActiveCategory(category.title);
-    setDetailedView(true);
-    // Scroll to the top of the detailed view container after a short delay
-    setTimeout(() => {
-      const detailedViewContainer = document.querySelector('.pt-20'); // Or a more specific selector if needed
-      if (detailedViewContainer) {
-        detailedViewContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        // Fallback to scrolling to the very top of the window
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }, 100); // Adjust the delay if needed
-  };
-
-  // Function to go back to products list
-  const goBackToProducts = () => {
-    window.location.hash = '';
-    setDetailedView(false);
-  };
-
-  // Display loading state if products are not yet loaded
-  if (loading || !activeCategoryObj) {
-    return (
-      <div className="min-h-screen bg-gray-50 font-inter flex items-center justify-center">
-        <Navbar />
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading products...</p>
+        th, td {
+            white-space: nowrap;
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        td.description, td.key-features, td.keypoints {
+            white-space: pre-wrap;
+            max-width: 400px;
+        }
+        @media (max-width: 768px) {
+            th, td {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex justify-center p-4">
+    <div class="w-full max-w-screen-xl bg-white rounded-lg shadow-lg p-6">
+        <h1 class="text-2xl font-bold text-center mb-6">Keystone Data - Objects with All Fields Populated</h1>
+        <div class="table-container">
+            <table class="w-full border-collapse bg-white">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="border p-2 text-left text-sm font-semibold">web-scraper-order</th>
+                        <th class="border p-2 text-left text-sm font-semibold">web-scraper-start-url</th>
+                        <th class="border p-2 text-left text-sm font-semibold">Links</th>
+                        <th class="border p-2 text-left text-sm font-semibold">Links-href</th>
+                        <th class="border p-2 text-left text-sm font-semibold">Title</th>
+                        <th class="border p-2 text-left text-sm font-semibold">Part Code</th>
+                        <th class="border p-2 text-left text-sm font-semibold">Description</th>
+                        <th class="border p-2 text-left text-sm font-semibold">Keypoints</th>
+                        <th class="border p-2 text-left text-sm font-semibold">Image-src</th>
+                        <th class="border p-2 text-left text-sm font-semibold">pages</th>
+                        <th class="border p-2 text-left text-sm font-semibold">pages-href</th>
+                        <th class="border p-2 text-left text-sm font-semibold">Key Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718540-21</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Cat6A IP68 External Outdoor Field Chord Inline Coupler</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-151-EXS</td>
+                        <td class="border p-2 text-sm">Excel Cat6A IP68 External Outdoor Field Chord Inline Coupler</td>
+                        <td class="border p-2 text-sm">100-151-EXS</td>
+                        <td class="border p-2 text-sm description">Excel Cat6A IP68 external outdoor field chord inline coupler. The Excel range of Category 6A through couplers provides RJ45 in/out connections, allowing channels to be extended where required. This coupler is housed in an IP68 rated cover assembly that allows existing pre-terminated cables to be joined together in an outside enviorment or where water proofing is neccassary.</td>
+                        <td class="border p-2 text-sm keypoints">External field patch lead coupler \nCategory 6A FTP\n180 degree configuration\nSuitable for both screened and unscreened systems</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-151-EXS_1_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Standard RJ45 connection both ends\nMaintains channel performance\nCIBSE TM65 Embodied Carbon: 1.062 kg CO2e</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718546-22</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Euromod Angled Shutter For Keystone Jack Black</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-175-BK</td>
+                        <td class="border p-2 text-sm">Excel Euromod Angled Shutter For Keystone Jack Black</td>
+                        <td class="border p-2 text-sm">100-175-BK</td>
+                        <td class="border p-2 text-sm description">A range of mounting options are available for the Excel Keystone Tool‐less Jacks that allow them to be installed in a number of situations. This flexibility results in the ability to have the same jacks terminating the cable in the patch panel and at the outlet.</td>
+                        <td class="border p-2 text-sm keypoints">Euromod size\nAngled design optimises space whilst ensuring minimal stress to installed cables\nAvailable in black/white</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-175-BK_01_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Compatible with a range of faceplates\nLabelling field</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718546-23</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Euromod Angled Shutter For Keystone Jack Black</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-175-BK</td>
+                        <td class="border p-2 text-sm">Excel Euromod Angled Shutter For Keystone Jack Black</td>
+                        <td class="border p-2 text-sm">100-175-BK</td>
+                        <td class="border p-2 text-sm description">These shutters are available in the Euro Module size of 25 x 50 mm. They come with windows and labels fitted to complete the installation. Blanking plates available in half and single size are available in the Euro Module size to configure single or triple outlets.</td>
+                        <td class="border p-2 text-sm keypoints">Euromod size\nAngled design optimises space whilst ensuring minimal stress to installed cables\nAvailable in black/white</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-175-BK_01_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Compatible with a range of faceplates\nLabelling field</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718552-24</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm Black</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-020-BK</td>
+                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm Black</td>
+                        <td class="border p-2 text-sm">100-020-BK</td>
+                        <td class="border p-2 text-sm description">A range of mounting options are available for the Excel Keystone Tool‐less Jacks that allow them to be installed in a number of situations. This flexibility results in the ability to have the same jacks terminating the cable in the patch panel and at the outlet.</td>
+                        <td class="border p-2 text-sm keypoints">Angled design optimises space whilst ensuring minimal stress to installed cables\nAvailable in black/white\n25x50 mm angled shutter\nCompatible with a range of faceplates</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-020-BK (3)_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Labelling field\n25 Year system warranty\nCIBSE TM65 Embodied Carbon: 0.122 kg CO2e</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718552-25</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm Black</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-020-BK</td>
+                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm Black</td>
+                        <td class="border p-2 text-sm">100-020-BK</td>
+                        <td class="border p-2 text-sm description">These shutters are available in the Euro Module size of 25 x 50 mm. They come with windows and labels fitted to complete the installation. Blanking plates available in half and single size are available in the Euro Module size to configure single or triple outlets.</td>
+                        <td class="border p-2 text-sm keypoints">Angled design optimises space whilst ensuring minimal stress to installed cables\nAvailable in black/white\n25x50 mm angled shutter\nCompatible with a range of faceplates</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-020-BK (3)_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Labelling field\n25 Year system warranty\nCIBSE TM65 Embodied Carbon: 0.122 kg CO2e</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718558-26</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Cat6A STP Screened Angled Keystone Jack Toolless Silver (Box 24)</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-185-24</td>
+                        <td class="border p-2 text-sm">Excel Cat6A STP Screened Angled Keystone Jack Toolless Silver (Box 24)</td>
+                        <td class="border p-2 text-sm">100-185-24</td>
+                        <td class="border p-2 text-sm description">100-185-24 Excel Cat6a STP Screened Angled Keystone Jack Toolless Silver, available as part of our range of excel cat6a keystone jacks for RJ45 network connections. 
+A toolless termination angled RJ45 socket suitable for mounting in a range of patch panels. The angled design of the socket face makes this product ideal for high density frames. Traditional horizontal patch cable management bars can be removed or reduced in number as the leads follow a natural route to the left or right of the panel and the cabinets vertical management. 
+This angled keystone jack is manufactured in a high quality zinc die cast housing, with butterfly style Toolless IDC termination points.</td>
+                        <td class="border p-2 text-sm keypoints">High quality angled die cast housing\nToolless termination design\nLow profile design - just 28mm overall depth\nSupports 10 Gigabit Ethernet application</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-185-24_1_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">360 degree Shielding protects against alien crosstalk\n3rd Party ISO11801 2nd Edition verification\nCIBSE TM65 Embodied Carbon: 6.329 kg CO2e</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718565-27</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Plus Flat Shutter For Keystone Jack 25 x 50 mm White</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-014</td>
+                        <td class="border p-2 text-sm">Excel Plus Flat Shutter For Keystone Jack 25 x 50 mm White</td>
+                        <td class="border p-2 text-sm">100-014</td>
+                        <td class="border p-2 text-sm description">A range of mounting options are available for the Excel Keystone Tool‐less Jacks that allow them to be installed in a number of situations. This flexibility results in the ability to have the same jacks terminating the cable in the patch panel and at the outlet.</td>
+                        <td class="border p-2 text-sm keypoints">Excel plus\nChoice of colours\n25x50 mm flat shutter\nSnap fit</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-014_01_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Compatible with a range of faceplates\nLabelling field\nCIBSE TM65 Embodied Carbon: 0.123 kg CO2e</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718565-28</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Plus Flat Shutter For Keystone Jack 25 x 50 mm White</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-014</td>
+                        <td class="border p-2 text-sm">Excel Plus Flat Shutter For Keystone Jack 25 x 50 mm White</td>
+                        <td class="border p-2 text-sm">100-014</td>
+                        <td class="border p-2 text-sm description">These shutters are available in the Euro Module size of 25 x 50 mm. They come with windows and labels fitted to complete the installation. Blanking plates available in half and single size are available in the Euro Module size to configure single or triple outlets.</td>
+                        <td class="border p-2 text-sm keypoints">Excel plus\nChoice of colours\n25x50 mm flat shutter\nSnap fit</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/44014_01_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Compatible with a range of faceplates\nLabelling field\nCIBSE TM65 Embodied Carbon: 0.123 kg CO2e</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718571-29</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Keystone Blanks Black (24 Pack)</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-187-BK</td>
+                        <td class="border p-2 text-sm">Excel Keystone Blanks Black (24 Pack)</td>
+                        <td class="border p-2 text-sm">100-187-BK</td>
+                        <td class="border p-2 text-sm description">Excel Keystone Blanks are fitted in the same way as the keystone jacks the blanks can be used to populate unoccupied ports for a more aesthetic finish.</td>
+                        <td class="border p-2 text-sm keypoints">Choice of colour\nCompatible with a choice of keystone panels</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-187-BK Excel Keystone Blanks (24 Pack) - Black_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Supplied in packs of 24</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718571-30</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Keystone Blanks Black (24 Pack)</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-187-BK</td>
+                        <td class="border p-2 text-sm">Excel Keystone Blanks Black (24 Pack)</td>
+                        <td class="border p-2 text-sm">100-187-BK</td>
+                        <td class="border p-2 text-sm description">Available in two colours so that the blanks can either blend in with the panel colour or delibrately stand out, whether fitted to the Black or Chrome coloured Excel Keystone Panel Frames.</td>
+                        <td class="border p-2 text-sm keypoints">Choice of colour\nCompatible with a choice of keystone panels</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-187-BK Excel Keystone Blanks (24 Pack) - Black_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Supplied in packs of 24</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718571-31</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Keystone Blanks Black (24 Pack)</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-187-BK</td>
+                        <td class="border p-2 text-sm">Excel Keystone Blanks Black (24 Pack)</td>
+                        <td class="border p-2 text-sm">100-187-BK</td>
+                        <td class="border p-2 text-sm description"> </td>
+                        <td class="border p-2 text-sm keypoints">Choice of colour\nCompatible with a choice of keystone panels</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-187-BK Excel Keystone Blanks (24 Pack) - Black_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Supplied in packs of 24</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718577-32</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White (Box 24)</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-215-WT-24</td>
+                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White (Box 24)</td>
+                        <td class="border p-2 text-sm">100-215-WT-24</td>
+                        <td class="border p-2 text-sm description">100-215-WT-24 Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White Box 24, available as part of our range of excel Cat6 keystone jacks for RJ45 network connections.
+The Excel Cat6 Low Profile Unscreened Keystone Jack, is a reduced size toolless termination RJ45 socket. The reduced size allows for multiple cable entry directions to be accommodated when this jack is mounted in a standard depth back box. This permits many mounting options including flush shutters at the outlet as well as more common angled shutter used with keystone jacks.</td>
+                        <td class="border p-2 text-sm keypoints">ISO, EN & TIA compliant\nToolless termination design\nLow profile design - 28mm overall depth\nUL94V-0 fire retardant plastic</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-215-WTnew_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Supports Gigabit Ethernet\nDelta 3rd party verified\nCIBSE TM65 Embodied Carbon: 1.319 kg CO2e</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718577-33</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White (Box 24)</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-215-WT-24</td>
+                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White (Box 24)</td>
+                        <td class="border p-2 text-sm">100-215-WT-24</td>
+                        <td class="border p-2 text-sm description">The low profile design allows this jack to fit in the Excel 0.5U 24 Port Patch Panel resulting in a maximum port density of 48 per 1U. The socket itself is housed in a high quality fire retardant plastic cast housing, which opens at the rear in a butterfly manner to reveal the IDC termination points.</td>
+                        <td class="border p-2 text-sm keypoints">ISO, EN & TIA compliant\nToolless termination design\nLow profile design - 28mm overall depth\nUL94V-0 fire retardant plastic</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-215-WTnew_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Supports Gigabit Ethernet\nDelta 3rd party verified\nCIBSE TM65 Embodied Carbon: 1.319 kg CO2e</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718583-34</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm White</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-020</td>
+                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm White</td>
+                        <td class="border p-2 text-sm">100-020</td>
+                        <td class="border p-2 text-sm description">A range of mounting options are available for the Excel Keystone Tool‐less Jacks that allow them to be installed in a number of situations. This flexibility results in the ability to have the same jacks terminating the cable in the patch panel and at the outlet.</td>
+                        <td class="border p-2 text-sm keypoints">Angled design optimises space whilst ensuring minimal stress to installed cables\nAvailable in black/white\n25x50 mm angled shutter\nCompatible with a range of faceplates</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-020_01_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Labelling field\n25 Year system warranty\nCIBSE TM65 Embodied Carbon: 0.120 kg CO2e</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718583-35</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm White</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-020</td>
+                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm White</td>
+                        <td class="border p-2 text-sm">100-020</td>
+                        <td class="border p-2 text-sm description">These shutters are available in the Euro Module size of 25 x 50 mm. They come with windows and labels fitted to complete the installation. Blanking plates available in half and single size are available in the Euro Module size to configure single or triple outlets.</td>
+                        <td class="border p-2 text-sm keypoints">Angled design optimises space whilst ensuring minimal stress to installed cables\nAvailable in black/white\n25x50 mm angled shutter\nCompatible with a range of faceplates</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-020_01_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Labelling field\n25 Year system warranty\nCIBSE TM65 Embodied Carbon: 0.120 kg CO2e</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718589-36</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Cat5e RJ45-RJ45 In-line connector White</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/23-0035</td>
+                        <td class="border p-2 text-sm">Excel Cat5e RJ45-RJ45 In-line connector White</td>
+                        <td class="border p-2 text-sm">23-0035</td>
+                        <td class="border p-2 text-sm description">Through couplers are ideal for the extension of existing cabling installations, offering a straight through RJ45 to RJ45 connection whilst maintaining Category 5e performance.</td>
+                        <td class="border p-2 text-sm keypoints">Category 5e\nRJ45-RJ45 Socket</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/23-0035_1_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">25 Year system warranty\nCIBSE TM65 Embodied Carbon: 0.235 kg CO2e</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718596-37</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-215-WT</td>
+                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White</td>
+                        <td class="border p-2 text-sm">100-215-WT</td>
+                        <td class="border p-2 text-sm description">100-215-WT Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White, available as part of our range of excel Cat6 keystone jacks for RJ45 network connections. 
+The Excel Cat6 Low Profile Unscreened Keystone Jack, is a reduced size toolless termination RJ45 socket. The reduced size allows for multiple cable entry directions to be accommodated when this jack is mounted in a standard depth back box. This permits many mounting options including flush shutters at the outlet as well as more common angled shutter used with keystone jacks.</td>
+                        <td class="border p-2 text-sm keypoints">ISO, EN & TIA compliant\nToolless termination design\nLow profile design - 28mm overall depth\nUL94V-0 fire retardant plastic</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-215-WTnew_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Supports Gigabit Ethernet\nDelta 3rd party verified\nCIBSE TM65 Embodied Carbon: 0.057 kg CO2e</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718596-38</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-215-WT</td>
+                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White</td>
+                        <td class="border p-2 text-sm">100-215-WT</td>
+                        <td class="border p-2 text-sm description">The low profile design allows this jack to fit in the Excel 0.5U 24 Port Patch Panel resulting in a maximum port density of 48 per 1U. The socket itself is housed in a high quality fire retardant plastic cast housing, which opens at the rear in a butterfly manner to reveal the IDC termination points.</td>
+                        <td class="border p-2 text-sm keypoints">ISO, EN & TIA compliant\nToolless termination design\nLow profile design - 28mm overall depth\nUL94V-0 fire retardant plastic</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-215-WTnew_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Supports Gigabit Ethernet\nDelta 3rd party verified\nCIBSE TM65 Embodied Carbon: 0.057 kg CO2e</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718602-39</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless Black</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-215-BK</td>
+                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless Black</td>
+                        <td class="border p-2 text-sm">100-215-BK</td>
+                        <td class="border p-2 text-sm description">100-215-BK Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless Black, available as part of our range of excel Cat6 keystone jacks for RJ45 network connections.
+ The Excel Cat6 Low Profile Unscreened Keystone Jack, is a reduced size toolless termination RJ45 socket. The reduced size allows for multiple cable entry directions to be accommodated when this jack is mounted in a standard depth back box. This permits many mounting options including flush shutters at the outlet as well as more common angled shutter used with keystone jacks.</td>
+                        <td class="border p-2 text-sm keypoints">ISO, EN & TIA compliant\nToolless termination design\nLow profile design - 28mm overall depth\nUL94V-0 fire retardant plastic</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-215-BK_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Supports Gigabit Ethernet\nDelta 3rd party verified\nCIBSE TM65 Embodied Carbon: 0.057 kg CO2e</td>
+                    </tr>
+                    <tr>
+                        <td class="border p-2 text-sm">1747718602-40</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
+                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless Black</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-215-BK</td>
+                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless Black</td>
+                        <td class="border p-2 text-sm">100-215-BK</td>
+                        <td class="border p-2 text-sm description">The low profile design allows this jack to fit in the Excel 0.5U 24 Port Patch Panel resulting in a maximum port density of 48 per 1U. The socket itself is housed in a high quality fire retardant plastic cast housing, which opens at the rear in a butterfly manner to reveal the IDC termination points.</td>
+                        <td class="border p-2 text-sm keypoints">ISO, EN & TIA compliant\nToolless termination design\nLow profile design - 28mm overall depth\nUL94V-0 fire retardant plastic</td>
+                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-215-BK_800px.jpg</td>
+                        <td class="border p-2 text-sm">2</td>
+                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
+                        <td class="border p-2 text-sm key-features">Supports Gigabit Ethernet\nDelta 3rd party verified\nCIBSE TM65 Embodied Carbon: 0.057 kg CO2e</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen bg-gray-50 font-inter">
-      {/* Navbar */}
-      <Navbar />
-
-      {detailedView ? (
-        // Detailed Product View
-        <div className="pt-20 pb-16">
-          {/* Product Details Component */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Back Button */}
-            <button
-              onClick={goBackToProducts}
-              className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
-            >
-              <FaArrowLeft />
-              <span>Back to Products</span>
-            </button>
-
-            {/* Hero Section */}
-            <div className="relative h-[400px] rounded-xl overflow-hidden mb-12">
-              <Image
-                src={activeCategoryObj.image}
-                alt={activeCategoryObj.title}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-              <div className="absolute bottom-10 left-10 text-white">
-                <div className="flex items-center space-x-3 mb-2">
-                  <div className="p-2 bg-white bg-opacity-20 backdrop-blur-sm rounded-lg">
-                    {renderIcon(activeCategoryObj.iconType, activeCategoryObj.iconColor)}
-                  </div>
-                  <h1 className="text-4xl font-bold">{activeCategoryObj.title}</h1>
-                </div>
-                <p className="text-lg max-w-2xl">{activeCategoryObj.description}</p>
-              </div>
-            </div>
-
-            {/* Main Content Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-              {/* Left Column - Specifications */}
-              <div className="lg:col-span-2">
-                <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Product Overview</h2>
-                  <p className="text-gray-700 mb-8 leading-relaxed">
-                    {activeCategoryObj.detailedDescription}
-                  </p>
-
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Key Features</h3>
-                  <ul className="space-y-3 mb-8">
-                    {activeCategoryObj.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start text-gray-700">
-                        <svg
-                          className="h-5 w-5 text-green-400 mr-2 flex-shrink-0 mt-0.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-base">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Specifications</h3>
-                  <div className="bg-gray-50 rounded-lg p-6">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {activeCategoryObj.specifications &&
-                        Object.entries(activeCategoryObj.specifications).map(([key, value], idx) => (
-                          <div key={idx} className="border-b border-gray-200 pb-3">
-                            <h4 className="font-medium text-gray-900">{key}</h4>
-                            <p className="text-gray-600 mt-1">{value}</p>
-                          </div>
-                        ))
-                      }
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column - Additional Images & CTA */}
-              <div>
-                <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Product Gallery</h3>
-                  <div className="space-y-4">
-                    {activeCategoryObj.additionalImages?.map((img, idx) => (
-                      <div key={idx} className="relative h-48 rounded-lg overflow-hidden">
-                        <Image
-                          src={img}
-                          alt={`${activeCategoryObj.title} - Image ${idx + 1}`}
-                          fill
-                          className="object-cover hover:scale-105 transition-transform duration-300"
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Contact Box */}
-                <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl shadow-lg p-6 text-white">
-                  <h3 className="text-xl font-semibold mb-4">Interested in this product?</h3>
-                  <p className="mb-6">Contact our sales team for pricing, availability, and customized solutions.</p>
-                  <button className="w-full bg-white text-blue-700 py-3 px-4 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-                    Request Quote
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Related Products */}
-            <div className="mt-16">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">Related Products</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {productCategories
-                  .filter(cat => cat.title !== activeCategoryObj.title)
-                  .slice(0, 3)
-                  .map((category, index) => (
-                    <article
-                      key={index}
-                      className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-blue-200 border border-transparent"
-                    >
-                      <div className="relative aspect-[4/3]">
-                        <Image
-                          src={category.image}
-                          alt={category.title}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-                        <div className="absolute bottom-4 left-4 right-4">
-                          <h3 className="text-lg md:text-xl font-bold text-white">{category.title}</h3>
-                        </div>
-                      </div>
-                      <div className="p-6">
-                        <p className="text-gray-600 mb-4 text-base leading-relaxed line-clamp-2">{category.description}</p>
-                        <button
-                          onClick={() => navigateToProduct(category)}
-                          className="px-4 py-2 bg-blue-100 text-blue-900 rounded-lg hover:bg-blue-200 transition-colors font-medium"
-                        >
-                          View Details
-                        </button>
-                      </div>
-                    </article>
-                  ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      ) : (
-        // Main Products List View
-        <>
-          {/* Hero Section */}
-          <section className="relative h-[400px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center">
-            <div className="absolute inset-0 bg-black opacity-40"></div>
-            <div className="relative z-10 text-center px-4 animate-fade-in">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                Explore Our <span className="text-blue-300">Networking Solutions</span>
-              </h1>
-              <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                Discover high-performance products designed for modern infrastructure.
-              </p>
-            </div>
-          </section>
-
-          {/* Main Content */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div className="text-center mb-16">
-              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">
-                Our <span className="text-blue-600">Products</span>
-              </h1>
-              <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-500 leading-relaxed">
-                Comprehensive suite of networking and data communication solutions designed for the modern infrastructure.
-              </p>
-            </div>
-
-            {/* Product Navigation */}
-            <div className="flex overflow-x-auto space-x-2 pb-4 mb-16 scrollbar-thin scrollbar-thumb-gray-300">
-              {productCategories?.map((category, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveCategory(category?.title)}
-                  className={`flex items-center px-4 py-2 rounded-lg text-base font-medium transition-all duration-300 ${activeCategory === category?.title
-                    ? 'bg-blue-100 text-blue-900 border-b-2 border-blue-600'
-                    : 'text-gray-600 hover:bg-gray-100'
-                    }`}
-                  aria-label={`Select ${category?.title}`}
-                >
-                  <span className="mr-2">{renderIcon(category.iconType, category.iconColor)}</span>
-                  <span>{category?.title}</span>
-                </button>
-              ))}
-            </div>
-
-            {/* Active Category Display */}
-            <div className="bg-white rounded-xl shadow-xl overflow-hidden">
-              <div className="md:flex">
-                {/* Category Image */}
-                <div className="md:w-1/2 relative aspect-[4/3] md:aspect-auto">
-                  <Image
-                    src={activeCategoryObj?.image}
-                    alt={activeCategoryObj?.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-
-                {/* Category Details */}
-                <div className="md:w-1/2 p-10">
-                  <div className="flex items-center mb-6">
-                    <div className="mr-4">{renderIcon(activeCategoryObj.iconType, activeCategoryObj.iconColor)}</div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-                      {activeCategoryObj?.title}
-                    </h2>
-                  </div>
-
-                  <p className="text-gray-600 mb-8 text-base md:text-lg leading-relaxed">
-                    {activeCategoryObj?.description}
-                  </p>
-
-                  <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-4">Key Features:</h3>
-                  <ul className="space-y-3">
-                    {activeCategoryObj?.features?.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start text-gray-700">
-                        <svg
-                          className="h-5 w-5 text-green-400 mr-2 flex-shrink-0 mt-0.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className="text-base">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-10">
-                    <button
-                      onClick={() => navigateToProduct(activeCategoryObj)}
-                      className="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-lg text-lg font-medium"
-                    >
-                      View Details
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* All Products Section */}
-            <div className="mt-24">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Browse All Products</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-                {productCategories?.map((category, index) => (
-                  <article
-                    key={index}
-                    className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-blue-200 border border-transparent"
-                  >
-                    <div className="relative aspect-[4/3]">
-                      <Image
-                        src={category?.image}
-                        alt={category?.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <h3 className="text-lg md:text-xl font-bold text-white">{category?.title}</h3>
-                      </div>
-                    </div>
-                    <div className="p-6">
-                      <p className="text-gray-600 mb-4 text-base leading-relaxed">{category?.description}</p>
-                      <button
-                        onClick={() => navigateToProduct(category)}
-                        className="px-4 py-2 bg-blue-100 text-blue-900 rounded-lg hover:bg-blue-200 transition-colors font-medium"
-                      >
-                        View Details
-                      </button>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-        </>
-      )}
-
-      <Footer />
     </div>
-  );
-}
+</body>
+</html>

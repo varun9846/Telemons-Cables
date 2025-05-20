@@ -1,0 +1,195 @@
+{
+  "title": "Copper Patch Panels & Frames",
+  "description": "High-performance patch panels and frames designed for enterprise and data center environments, ensuring reliable network connectivity and easy maintenance.",
+  "iconType": "MdGridOn",
+  "iconColor": "text-blue-600",
+  "features": [
+    "Available in 24 and 48 port configurations",
+    "Tool-less IDC termination for quick and easy installation",
+    "Compatible with all major network equipment brands",
+    "Durable steel construction for long-term reliability",
+    "Clear port labeling and color-coding for easy identification",
+    "Supports high-speed data transmission up to 10Gbps",
+    "Compliant with industry standards for optimal performance"
+  ],
+  "image": "/images/products/patch-panels.jpg",
+  "detailedDescription": "Our copper patch panels and frames provide reliable termination points for structured cabling systems. Designed for easy installation and maintenance, these panels ensure optimal performance and organization in network infrastructure. The tool-less IDC termination system allows for quick and efficient installation, while the durable construction ensures long-term reliability. Each panel features clear port labeling and color-coding for easy identification and management of network connections.",
+  "specifications": {
+    "Port Configurations": "24 ports, 48 ports",
+    "Performance Level": "Category 5e, 6, 6A",
+    "Mounting": "Rack mountable (1U, 2U)",
+    "Termination": "Tool-less IDC",
+    "Material": "Steel construction with powder coating",
+    "Standards Compliance": "ANSI/TIA-568-C.2, ISO/IEC 11801",
+    "Data Rate": "Up to 10Gbps",
+    "Operating Temperature": "-10°C to +60°C",
+    "Humidity": "5% to 95% (non-condensing)",
+    "Cable Management": "Built-in cable management features"
+  },
+  "additionalImages": [
+    "/images/products/patch-panels-detail-1.jpg",
+    "/images/products/patch-panels-detail-2.jpg",
+    "/images/products/patch-panels-detail-3.jpg"
+  ],
+  "productVariants": [
+    {
+      "name": "24-Port Category 6 Patch Panel",
+      "partNumber": "PP-24-CAT6",
+      "description": "24-port Category 6 patch panel with tool-less IDC termination",
+      "specifications": {
+        "Ports": "24",
+        "Performance": "Category 6",
+        "Mounting": "1U rack mount",
+        "Termination": "Tool-less IDC"
+      }
+    },
+    {
+      "name": "48-Port Category 6A Patch Panel",
+      "partNumber": "PP-48-CAT6A",
+      "description": "48-port Category 6A patch panel with tool-less IDC termination",
+      "specifications": {
+        "Ports": "48",
+        "Performance": "Category 6A",
+        "Mounting": "2U rack mount",
+        "Termination": "Tool-less IDC"
+      }
+    }
+  ],
+  "frames": [
+    {
+      "name": "Excel Unloaded 24 Port Keystone Patch Panel Frame 1U Black",
+      "partCode": "100-095",
+      "outlets": 24,
+      "category": "Keystone Jack Dependent",
+      "rackUnits": "1U",
+      "colour": "Black",
+      "mounting": "19 Inch",
+      "shielded": false,
+      "height": "44mm",
+      "description": "Unloaded 24 port keystone patch panel frame, suitable for 24 outlets/modules, 1U rack mount, black.",
+      "image": "/images/patch-panels/keystone-patch-panel-frame-one-u-black.jpg"
+    },
+    {
+      "name": "Excel Cat6 24 Port Unscreened Patch Panel 1U LSA Punch Down Cable Management Black",
+      "partCode": "100-304",
+      "ports": 24,
+      "connector": "RJ45 8(8)",
+      "shielded": false,
+      "category": "6",
+      "connectionType": "LSA",
+      "rackUnits": "1U",
+      "colour": "Black",
+      "mounting": "19 Inch",
+      "description": "Cat6 24 port unscreened patch panel, LSA punch down, cable management, 1U rack mount, black.",
+      "image": "/images/patch-panels/cat6a-24-port-unscreened-patch-panel-one-u-lsa-punch-down-cable-management-black.jpg"
+    },
+    {
+      "name": "Excel Unloaded 24 Port Screened Keystone Patch Panel Frame 1U Black",
+      "partCode": "100-755",
+      "outlets": 24,
+      "category": "Keystone Jack Dependent",
+      "rackUnits": "1U",
+      "colour": "Black",
+      "mounting": "19 Inch",
+      "shielded": true,
+      "height": "44mm",
+      "description": "Unloaded 24 port screened keystone patch panel frame, suitable for 24 outlets/modules, 1U rack mount, black.",
+      "image": "/images/patch-panels/unloaded-24-port-screened-keystone-patch-panel-frame-one-u-black.jpg"
+    },
+    {
+      "name": "Excel Cat6 24 Port Unscreened Patch Panel 1U LSA Punch Down Right Angled Black",
+      "partCode": "100-302",
+      "ports": 24,
+      "connector": "RJ45 8(8)",
+      "shielded": false,
+      "category": "6",
+      "connectionType": "LSA",
+      "rackUnits": "1U",
+      "colour": "Black",
+      "mounting": "19 Inch",
+      "description": "Cat6 24 port unscreened patch panel, LSA punch down, right angled, 1U rack mount, black.",
+      "image": "/images/patch-panels/cat6-24-port-unscreened-patch-panel-one-u-lsa-punch-down-right-angled-black.jpg"
+    },
+    {
+      "name": "Excel Cat5e 24 Port Unscreened Patch Panel 1U LSA Punch Down Black",
+      "partCode": "100-726",
+      "ports": 24,
+      "connector": "RJ45 8(8)",
+      "shielded": false,
+      "category": "5E",
+      "connectionType": "LSA",
+      "rackUnits": "1U",
+      "colour": "Black",
+      "mounting": "19 Inch",
+      "description": "Cat5e 24 port unscreened patch panel, LSA punch down, 1U rack mount, black.",
+      "image": "/images/patch-panels/cat5e-24-port-unscreened-patch-panel-one-u-lsa-punch-down-black.jpg"
+    },
+    {
+      "name": "Excel Unloaded 24 Port Keystone Patch Panel Frame 1U Chrome",
+      "partCode": "100-028",
+      "outlets": 24,
+      "category": "Keystone Jack Dependent",
+      "rackUnits": "1U",
+      "colour": "Other",
+      "mounting": "19 Inch",
+      "shielded": false,
+      "height": "44mm",
+      "description": "Unloaded 24 port keystone patch panel frame, suitable for 24 outlets/modules, 1U rack mount, chrome.",
+      "image": "/images/patch-panels/unloaded-24-port-keystone-patch-panel-frame-one-u-chrome.jpg"
+    },
+    {
+      "name": "Excel Cat6A 24 Port Screened Patch Panel 1U LSA Punch Down Black",
+      "partCode": "100-032",
+      "ports": 24,
+      "connector": "RJ45 8(8)",
+      "shielded": true,
+      "category": "6A (IEC)",
+      "connectionType": "LSA",
+      "rackUnits": "1U",
+      "colour": "Black",
+      "mounting": "19 Inch",
+      "description": "Cat6A 24 port screened patch panel, LSA punch down, 1U rack mount, black.",
+      "image": "/images/patch-panels/cat6a-24-port-screened-patch-panel-one-u-lsa-punch-down-black.jpg"
+    },
+    {
+      "name": "Excel Unloaded 24 Port Keystone Patch Panel Frame Angled 1U Black",
+      "partCode": "100-023",
+      "outlets": 24,
+      "category": "Keystone Jack Dependent",
+      "rackUnits": "1U",
+      "colour": "Black",
+      "mounting": "19 Inch",
+      "shielded": true,
+      "height": "44mm",
+      "description": "Unloaded 24 port keystone patch panel frame, angled, suitable for 24 outlets/modules, 1U rack mount, black.",
+      "image": "/images/patch-panels/unloaded-24-port-keystone-patch-panel-frame-angled-one-u-black.jpg"
+    },
+    {
+      "name": "Excel Unloaded 24 Port Keystone Patch Panel Frame 0.5U Chrome",
+      "partCode": "100-041",
+      "outlets": 24,
+      "category": "Keystone Jack Dependent",
+      "rackUnits": "0.5U",
+      "colour": "Other",
+      "mounting": "19 Inch",
+      "shielded": false,
+      "height": "22mm",
+      "description": "Unloaded 24 port keystone patch panel frame, suitable for 24 outlets/modules, 0.5U rack mount, chrome.",
+      "image": "/images/patch-panels/unloaded-24-port-keystone-patch-panel-frame-0-5u-chrome.jpg"
+    },
+    {
+      "name": "Excel Cat5e 24 Port Unscreened Patch Panel Right-Angled 1U Black",
+      "partCode": "100-460",
+      "ports": 24,
+      "connector": "RJ45 8(8)",
+      "shielded": false,
+      "category": "5E",
+      "connectionType": "LSA",
+      "rackUnits": "1U",
+      "colour": "Black",
+      "mounting": "19 Inch",
+      "description": "Cat5e 24 port unscreened patch panel, right-angled, LSA punch down, 1U rack mount, black.",
+      "image": "/images/patch-panels/cat5e-24-port-unscreened-patch-panel-one-u-lsa-punch-down-right-angled-black.jpg"
+    }
+  ]
+} 
