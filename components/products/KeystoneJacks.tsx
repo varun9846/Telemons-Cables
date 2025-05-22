@@ -2,32 +2,7 @@ import React, { useState } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import Image from 'next/image';
 import KeystoneDetail from './KeystoneDetail';
-
-interface KeystoneJack {
-  id: string;
-  title: string;
-  partNumber: string;
-  description: string;
-  image: string;
-  specifications: {
-    model: string;
-    connectorType: string;
-    shielded: string;
-    category: string;
-    requiresTerminationTool: string;
-    suitableForRoundCable: string;
-    performanceLevel: string;
-    cableConstruction: string;
-    conductorGauge: string;
-    conductorType: string;
-    overallLength: string;
-    flammabilityRating: string;
-    availableColors: string[];
-  };
-  features: string[];
-  detailedDescription: string;
-  additionalImages: string[];
-}
+import { KeystoneJack } from '@/types/keystone';
 
 interface KeystoneJacksProps {
   jacks: KeystoneJack[];
@@ -106,6 +81,27 @@ const KeystoneJacks: React.FC<KeystoneJacksProps> = ({ jacks }) => {
                   <li><b>Shielded:</b> {jack.specifications.shielded}</li>
                   <li><b>Termination Tool Required:</b> {jack.specifications.requiresTerminationTool}</li>
                   <li><b>Suitable for Round Cable:</b> {jack.specifications.suitableForRoundCable}</li>
+                  {jack.specifications.performanceLevel && (
+                    <li><b>Performance Level:</b> {jack.specifications.performanceLevel}</li>
+                  )}
+                  {jack.specifications.cableConstruction && (
+                    <li><b>Cable Construction:</b> {jack.specifications.cableConstruction}</li>
+                  )}
+                  {jack.specifications.conductorGauge && (
+                    <li><b>Conductor Gauge:</b> {jack.specifications.conductorGauge}</li>
+                  )}
+                  {jack.specifications.conductorType && (
+                    <li><b>Conductor Type:</b> {jack.specifications.conductorType}</li>
+                  )}
+                  {jack.specifications.overallLength && (
+                    <li><b>Overall Length:</b> {jack.specifications.overallLength}</li>
+                  )}
+                  {jack.specifications.flammabilityRating && (
+                    <li><b>Flammability Rating:</b> {jack.specifications.flammabilityRating}</li>
+                  )}
+                  {jack.specifications.availableColors && jack.specifications.availableColors.length > 0 && (
+                    <li><b>Available Colors:</b> {jack.specifications.availableColors.join(', ')}</li>
+                  )}
                 </ul>
               </div>
             )}

@@ -1,33 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { FaArrowLeft } from 'react-icons/fa';
+import { KeystoneJack } from '@/types/keystone';
 
 interface KeystoneDetailProps {
-  product: {
-    id: string;
-    title: string;
-    partNumber: string;
-    description: string;
-    image: string;
-    specifications: {
-      model: string;
-      connectorType: string;
-      shielded: string;
-      category: string;
-      requiresTerminationTool: string;
-      suitableForRoundCable: string;
-      performanceLevel: string;
-      cableConstruction: string;
-      conductorGauge: string;
-      conductorType: string;
-      overallLength: string;
-      flammabilityRating: string;
-      availableColors: string[];
-    };
-    features: string[];
-    detailedDescription: string;
-    additionalImages: string[];
-  };
+  product: KeystoneJack;
   onBack: () => void;
 }
 
@@ -88,18 +65,65 @@ const KeystoneDetail: React.FC<KeystoneDetailProps> = ({ product, onBack }) => {
             </ul>
 
             <h3 className="text-xl font-semibold text-gray-800 mb-4">Specifications</h3>
-            <div className="bg-gray-50 rounded-lg p-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {Object.entries(product.specifications).map(([key, value], idx) => (
-                  <div key={idx} className="border-b border-gray-200 pb-3">
-                    <h4 className="font-medium text-gray-900">{key.replace(/([A-Z])/g, ' $1').trim()}</h4>
-                    <p className="text-gray-600 mt-1">
-                      {Array.isArray(value) ? value.join(', ') : value}
-                    </p>
-                  </div>
-                ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Specifications</h3>
+                <ul className="space-y-2">
+                  <li><b>Model:</b> {product.specifications.model}</li>
+                  <li><b>Connector Type:</b> {product.specifications.connectorType}</li>
+                  <li><b>Category:</b> {product.specifications.category}</li>
+                  <li><b>Shielded:</b> {product.specifications.shielded}</li>
+                  <li><b>Termination Tool Required:</b> {product.specifications.requiresTerminationTool}</li>
+                  <li><b>Suitable for Round Cable:</b> {product.specifications.suitableForRoundCable}</li>
+                  {product.specifications.performanceLevel && (
+                    <li><b>Performance Level:</b> {product.specifications.performanceLevel}</li>
+                  )}
+                  {product.specifications.cableConstruction && (
+                    <li><b>Cable Construction:</b> {product.specifications.cableConstruction}</li>
+                  )}
+                  {product.specifications.conductorGauge && (
+                    <li><b>Conductor Gauge:</b> {product.specifications.conductorGauge}</li>
+                  )}
+                  {product.specifications.conductorType && (
+                    <li><b>Conductor Type:</b> {product.specifications.conductorType}</li>
+                  )}
+                  {product.specifications.overallLength && (
+                    <li><b>Overall Length:</b> {product.specifications.overallLength}</li>
+                  )}
+                  {product.specifications.flammabilityRating && (
+                    <li><b>Flammability Rating:</b> {product.specifications.flammabilityRating}</li>
+                  )}
+                  {product.specifications.availableColors && product.specifications.availableColors.length > 0 && (
+                    <li><b>Available Colors:</b> {product.specifications.availableColors.join(', ')}</li>
+                  )}
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Features</h3>
+                <ul className="list-disc list-inside space-y-2">
+                  {product.features.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
+                </ul>
               </div>
             </div>
+            {product.additionalImages && product.additionalImages.length > 0 && (
+              <div className="mt-8">
+                <h3 className="text-lg font-semibold mb-4">Additional Images</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {product.additionalImages.map((image, index) => (
+                    <div key={index} className="relative h-64">
+                      <Image
+                        src={image}
+                        alt={`${product.title} - Image ${index + 1}`}
+                        fill
+                        className="object-cover rounded-lg"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
