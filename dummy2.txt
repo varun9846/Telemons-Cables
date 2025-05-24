@@ -1,342 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keystone Data - Complete Fields</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .table-container {
-            max-width: 100%;
-            overflow-x: auto;
-        }
-        th, td {
-            white-space: nowrap;
-            max-width: 300px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        td.description, td.key-features, td.keypoints {
-            white-space: pre-wrap;
-            max-width: 400px;
-        }
-        @media (max-width: 768px) {
-            th, td {
-                font-size: 0.75rem;
-            }
-        }
-    </style>
-</head>
-<body class="bg-gray-100 flex justify-center p-4">
-    <div class="w-full max-w-screen-xl bg-white rounded-lg shadow-lg p-6">
-        <h1 class="text-2xl font-bold text-center mb-6">Keystone Data - Objects with All Fields Populated</h1>
-        <div class="table-container">
-            <table class="w-full border-collapse bg-white">
-                <thead>
-                    <tr class="bg-gray-200">
-                        <th class="border p-2 text-left text-sm font-semibold">web-scraper-order</th>
-                        <th class="border p-2 text-left text-sm font-semibold">web-scraper-start-url</th>
-                        <th class="border p-2 text-left text-sm font-semibold">Links</th>
-                        <th class="border p-2 text-left text-sm font-semibold">Links-href</th>
-                        <th class="border p-2 text-left text-sm font-semibold">Title</th>
-                        <th class="border p-2 text-left text-sm font-semibold">Part Code</th>
-                        <th class="border p-2 text-left text-sm font-semibold">Description</th>
-                        <th class="border p-2 text-left text-sm font-semibold">Keypoints</th>
-                        <th class="border p-2 text-left text-sm font-semibold">Image-src</th>
-                        <th class="border p-2 text-left text-sm font-semibold">pages</th>
-                        <th class="border p-2 text-left text-sm font-semibold">pages-href</th>
-                        <th class="border p-2 text-left text-sm font-semibold">Key Features</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718540-21</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Cat6A IP68 External Outdoor Field Chord Inline Coupler</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-151-EXS</td>
-                        <td class="border p-2 text-sm">Excel Cat6A IP68 External Outdoor Field Chord Inline Coupler</td>
-                        <td class="border p-2 text-sm">100-151-EXS</td>
-                        <td class="border p-2 text-sm description">Excel Cat6A IP68 external outdoor field chord inline coupler. The Excel range of Category 6A through couplers provides RJ45 in/out connections, allowing channels to be extended where required. This coupler is housed in an IP68 rated cover assembly that allows existing pre-terminated cables to be joined together in an outside enviorment or where water proofing is neccassary.</td>
-                        <td class="border p-2 text-sm keypoints">External field patch lead coupler \nCategory 6A FTP\n180 degree configuration\nSuitable for both screened and unscreened systems</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-151-EXS_1_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Standard RJ45 connection both ends\nMaintains channel performance\nCIBSE TM65 Embodied Carbon: 1.062 kg CO2e</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718546-22</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Euromod Angled Shutter For Keystone Jack Black</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-175-BK</td>
-                        <td class="border p-2 text-sm">Excel Euromod Angled Shutter For Keystone Jack Black</td>
-                        <td class="border p-2 text-sm">100-175-BK</td>
-                        <td class="border p-2 text-sm description">A range of mounting options are available for the Excel Keystone Tool‐less Jacks that allow them to be installed in a number of situations. This flexibility results in the ability to have the same jacks terminating the cable in the patch panel and at the outlet.</td>
-                        <td class="border p-2 text-sm keypoints">Euromod size\nAngled design optimises space whilst ensuring minimal stress to installed cables\nAvailable in black/white</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-175-BK_01_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Compatible with a range of faceplates\nLabelling field</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718546-23</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Euromod Angled Shutter For Keystone Jack Black</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-175-BK</td>
-                        <td class="border p-2 text-sm">Excel Euromod Angled Shutter For Keystone Jack Black</td>
-                        <td class="border p-2 text-sm">100-175-BK</td>
-                        <td class="border p-2 text-sm description">These shutters are available in the Euro Module size of 25 x 50 mm. They come with windows and labels fitted to complete the installation. Blanking plates available in half and single size are available in the Euro Module size to configure single or triple outlets.</td>
-                        <td class="border p-2 text-sm keypoints">Euromod size\nAngled design optimises space whilst ensuring minimal stress to installed cables\nAvailable in black/white</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-175-BK_01_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Compatible with a range of faceplates\nLabelling field</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718552-24</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm Black</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-020-BK</td>
-                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm Black</td>
-                        <td class="border p-2 text-sm">100-020-BK</td>
-                        <td class="border p-2 text-sm description">A range of mounting options are available for the Excel Keystone Tool‐less Jacks that allow them to be installed in a number of situations. This flexibility results in the ability to have the same jacks terminating the cable in the patch panel and at the outlet.</td>
-                        <td class="border p-2 text-sm keypoints">Angled design optimises space whilst ensuring minimal stress to installed cables\nAvailable in black/white\n25x50 mm angled shutter\nCompatible with a range of faceplates</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-020-BK (3)_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Labelling field\n25 Year system warranty\nCIBSE TM65 Embodied Carbon: 0.122 kg CO2e</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718552-25</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm Black</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-020-BK</td>
-                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm Black</td>
-                        <td class="border p-2 text-sm">100-020-BK</td>
-                        <td class="border p-2 text-sm description">These shutters are available in the Euro Module size of 25 x 50 mm. They come with windows and labels fitted to complete the installation. Blanking plates available in half and single size are available in the Euro Module size to configure single or triple outlets.</td>
-                        <td class="border p-2 text-sm keypoints">Angled design optimises space whilst ensuring minimal stress to installed cables\nAvailable in black/white\n25x50 mm angled shutter\nCompatible with a range of faceplates</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-020-BK (3)_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Labelling field\n25 Year system warranty\nCIBSE TM65 Embodied Carbon: 0.122 kg CO2e</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718558-26</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Cat6A STP Screened Angled Keystone Jack Toolless Silver (Box 24)</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-185-24</td>
-                        <td class="border p-2 text-sm">Excel Cat6A STP Screened Angled Keystone Jack Toolless Silver (Box 24)</td>
-                        <td class="border p-2 text-sm">100-185-24</td>
-                        <td class="border p-2 text-sm description">100-185-24 Excel Cat6a STP Screened Angled Keystone Jack Toolless Silver, available as part of our range of excel cat6a keystone jacks for RJ45 network connections. 
-A toolless termination angled RJ45 socket suitable for mounting in a range of patch panels. The angled design of the socket face makes this product ideal for high density frames. Traditional horizontal patch cable management bars can be removed or reduced in number as the leads follow a natural route to the left or right of the panel and the cabinets vertical management. 
-This angled keystone jack is manufactured in a high quality zinc die cast housing, with butterfly style Toolless IDC termination points.</td>
-                        <td class="border p-2 text-sm keypoints">High quality angled die cast housing\nToolless termination design\nLow profile design - just 28mm overall depth\nSupports 10 Gigabit Ethernet application</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-185-24_1_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">360 degree Shielding protects against alien crosstalk\n3rd Party ISO11801 2nd Edition verification\nCIBSE TM65 Embodied Carbon: 6.329 kg CO2e</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718565-27</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Plus Flat Shutter For Keystone Jack 25 x 50 mm White</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-014</td>
-                        <td class="border p-2 text-sm">Excel Plus Flat Shutter For Keystone Jack 25 x 50 mm White</td>
-                        <td class="border p-2 text-sm">100-014</td>
-                        <td class="border p-2 text-sm description">A range of mounting options are available for the Excel Keystone Tool‐less Jacks that allow them to be installed in a number of situations. This flexibility results in the ability to have the same jacks terminating the cable in the patch panel and at the outlet.</td>
-                        <td class="border p-2 text-sm keypoints">Excel plus\nChoice of colours\n25x50 mm flat shutter\nSnap fit</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-014_01_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Compatible with a range of faceplates\nLabelling field\nCIBSE TM65 Embodied Carbon: 0.123 kg CO2e</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718565-28</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Plus Flat Shutter For Keystone Jack 25 x 50 mm White</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-014</td>
-                        <td class="border p-2 text-sm">Excel Plus Flat Shutter For Keystone Jack 25 x 50 mm White</td>
-                        <td class="border p-2 text-sm">100-014</td>
-                        <td class="border p-2 text-sm description">These shutters are available in the Euro Module size of 25 x 50 mm. They come with windows and labels fitted to complete the installation. Blanking plates available in half and single size are available in the Euro Module size to configure single or triple outlets.</td>
-                        <td class="border p-2 text-sm keypoints">Excel plus\nChoice of colours\n25x50 mm flat shutter\nSnap fit</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/44014_01_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Compatible with a range of faceplates\nLabelling field\nCIBSE TM65 Embodied Carbon: 0.123 kg CO2e</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718571-29</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Keystone Blanks Black (24 Pack)</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-187-BK</td>
-                        <td class="border p-2 text-sm">Excel Keystone Blanks Black (24 Pack)</td>
-                        <td class="border p-2 text-sm">100-187-BK</td>
-                        <td class="border p-2 text-sm description">Excel Keystone Blanks are fitted in the same way as the keystone jacks the blanks can be used to populate unoccupied ports for a more aesthetic finish.</td>
-                        <td class="border p-2 text-sm keypoints">Choice of colour\nCompatible with a choice of keystone panels</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-187-BK Excel Keystone Blanks (24 Pack) - Black_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Supplied in packs of 24</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718571-30</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Keystone Blanks Black (24 Pack)</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-187-BK</td>
-                        <td class="border p-2 text-sm">Excel Keystone Blanks Black (24 Pack)</td>
-                        <td class="border p-2 text-sm">100-187-BK</td>
-                        <td class="border p-2 text-sm description">Available in two colours so that the blanks can either blend in with the panel colour or delibrately stand out, whether fitted to the Black or Chrome coloured Excel Keystone Panel Frames.</td>
-                        <td class="border p-2 text-sm keypoints">Choice of colour\nCompatible with a choice of keystone panels</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-187-BK Excel Keystone Blanks (24 Pack) - Black_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Supplied in packs of 24</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718571-31</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Keystone Blanks Black (24 Pack)</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-187-BK</td>
-                        <td class="border p-2 text-sm">Excel Keystone Blanks Black (24 Pack)</td>
-                        <td class="border p-2 text-sm">100-187-BK</td>
-                        <td class="border p-2 text-sm description"> </td>
-                        <td class="border p-2 text-sm keypoints">Choice of colour\nCompatible with a choice of keystone panels</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-187-BK Excel Keystone Blanks (24 Pack) - Black_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Supplied in packs of 24</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718577-32</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White (Box 24)</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-215-WT-24</td>
-                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White (Box 24)</td>
-                        <td class="border p-2 text-sm">100-215-WT-24</td>
-                        <td class="border p-2 text-sm description">100-215-WT-24 Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White Box 24, available as part of our range of excel Cat6 keystone jacks for RJ45 network connections.
-The Excel Cat6 Low Profile Unscreened Keystone Jack, is a reduced size toolless termination RJ45 socket. The reduced size allows for multiple cable entry directions to be accommodated when this jack is mounted in a standard depth back box. This permits many mounting options including flush shutters at the outlet as well as more common angled shutter used with keystone jacks.</td>
-                        <td class="border p-2 text-sm keypoints">ISO, EN & TIA compliant\nToolless termination design\nLow profile design - 28mm overall depth\nUL94V-0 fire retardant plastic</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-215-WTnew_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Supports Gigabit Ethernet\nDelta 3rd party verified\nCIBSE TM65 Embodied Carbon: 1.319 kg CO2e</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718577-33</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White (Box 24)</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-215-WT-24</td>
-                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White (Box 24)</td>
-                        <td class="border p-2 text-sm">100-215-WT-24</td>
-                        <td class="border p-2 text-sm description">The low profile design allows this jack to fit in the Excel 0.5U 24 Port Patch Panel resulting in a maximum port density of 48 per 1U. The socket itself is housed in a high quality fire retardant plastic cast housing, which opens at the rear in a butterfly manner to reveal the IDC termination points.</td>
-                        <td class="border p-2 text-sm keypoints">ISO, EN & TIA compliant\nToolless termination design\nLow profile design - 28mm overall depth\nUL94V-0 fire retardant plastic</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-215-WTnew_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Supports Gigabit Ethernet\nDelta 3rd party verified\nCIBSE TM65 Embodied Carbon: 1.319 kg CO2e</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718583-34</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm White</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-020</td>
-                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm White</td>
-                        <td class="border p-2 text-sm">100-020</td>
-                        <td class="border p-2 text-sm description">A range of mounting options are available for the Excel Keystone Tool‐less Jacks that allow them to be installed in a number of situations. This flexibility results in the ability to have the same jacks terminating the cable in the patch panel and at the outlet.</td>
-                        <td class="border p-2 text-sm keypoints">Angled design optimises space whilst ensuring minimal stress to installed cables\nAvailable in black/white\n25x50 mm angled shutter\nCompatible with a range of faceplates</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-020_01_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Labelling field\n25 Year system warranty\nCIBSE TM65 Embodied Carbon: 0.120 kg CO2e</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718583-35</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm White</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-020</td>
-                        <td class="border p-2 text-sm">Excel Angled Shutter For Keystone Jack 25 x 50 mm White</td>
-                        <td class="border p-2 text-sm">100-020</td>
-                        <td class="border p-2 text-sm description">These shutters are available in the Euro Module size of 25 x 50 mm. They come with windows and labels fitted to complete the installation. Blanking plates available in half and single size are available in the Euro Module size to configure single or triple outlets.</td>
-                        <td class="border p-2 text-sm keypoints">Angled design optimises space whilst ensuring minimal stress to installed cables\nAvailable in black/white\n25x50 mm angled shutter\nCompatible with a range of faceplates</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-020_01_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Labelling field\n25 Year system warranty\nCIBSE TM65 Embodied Carbon: 0.120 kg CO2e</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718589-36</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Cat5e RJ45-RJ45 In-line connector White</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/23-0035</td>
-                        <td class="border p-2 text-sm">Excel Cat5e RJ45-RJ45 In-line connector White</td>
-                        <td class="border p-2 text-sm">23-0035</td>
-                        <td class="border p-2 text-sm description">Through couplers are ideal for the extension of existing cabling installations, offering a straight through RJ45 to RJ45 connection whilst maintaining Category 5e performance.</td>
-                        <td class="border p-2 text-sm keypoints">Category 5e\nRJ45-RJ45 Socket</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/23-0035_1_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">25 Year system warranty\nCIBSE TM65 Embodied Carbon: 0.235 kg CO2e</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718596-37</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-215-WT</td>
-                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White</td>
-                        <td class="border p-2 text-sm">100-215-WT</td>
-                        <td class="border p-2 text-sm description">100-215-WT Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White, available as part of our range of excel Cat6 keystone jacks for RJ45 network connections. 
-The Excel Cat6 Low Profile Unscreened Keystone Jack, is a reduced size toolless termination RJ45 socket. The reduced size allows for multiple cable entry directions to be accommodated when this jack is mounted in a standard depth back box. This permits many mounting options including flush shutters at the outlet as well as more common angled shutter used with keystone jacks.</td>
-                        <td class="border p-2 text-sm keypoints">ISO, EN & TIA compliant\nToolless termination design\nLow profile design - 28mm overall depth\nUL94V-0 fire retardant plastic</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-215-WTnew_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Supports Gigabit Ethernet\nDelta 3rd party verified\nCIBSE TM65 Embodied Carbon: 0.057 kg CO2e</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718596-38</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-215-WT</td>
-                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless White</td>
-                        <td class="border p-2 text-sm">100-215-WT</td>
-                        <td class="border p-2 text-sm description">The low profile design allows this jack to fit in the Excel 0.5U 24 Port Patch Panel resulting in a maximum port density of 48 per 1U. The socket itself is housed in a high quality fire retardant plastic cast housing, which opens at the rear in a butterfly manner to reveal the IDC termination points.</td>
-                        <td class="border p-2 text-sm keypoints">ISO, EN & TIA compliant\nToolless termination design\nLow profile design - 28mm overall depth\nUL94V-0 fire retardant plastic</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-215-WTnew_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Supports Gigabit Ethernet\nDelta 3rd party verified\nCIBSE TM65 Embodied Carbon: 0.057 kg CO2e</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718602-39</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless Black</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-215-BK</td>
-                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless Black</td>
-                        <td class="border p-2 text-sm">100-215-BK</td>
-                        <td class="border p-2 text-sm description">100-215-BK Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless Black, available as part of our range of excel Cat6 keystone jacks for RJ45 network connections.
- The Excel Cat6 Low Profile Unscreened Keystone Jack, is a reduced size toolless termination RJ45 socket. The reduced size allows for multiple cable entry directions to be accommodated when this jack is mounted in a standard depth back box. This permits many mounting options including flush shutters at the outlet as well as more common angled shutter used with keystone jacks.</td>
-                        <td class="border p-2 text-sm keypoints">ISO, EN & TIA compliant\nToolless termination design\nLow profile design - 28mm overall depth\nUL94V-0 fire retardant plastic</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-215-BK_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Supports Gigabit Ethernet\nDelta 3rd party verified\nCIBSE TM65 Embodied Carbon: 0.057 kg CO2e</td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2 text-sm">1747718602-40</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone</td>
-                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless Black</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/product/100-215-BK</td>
-                        <td class="border p-2 text-sm">Excel Cat6 UTP Unscreened Low Profile Keystone Jack Toolless Black</td>
-                        <td class="border p-2 text-sm">100-215-BK</td>
-                        <td class="border p-2 text-sm description">The low profile design allows this jack to fit in the Excel 0.5U 24 Port Patch Panel resulting in a maximum port density of 48 per 1U. The socket itself is housed in a high quality fire retardant plastic cast housing, which opens at the rear in a butterfly manner to reveal the IDC termination points.</td>
-                        <td class="border p-2 text-sm keypoints">ISO, EN & TIA compliant\nToolless termination design\nLow profile design - 28mm overall depth\nUL94V-0 fire retardant plastic</td>
-                        <td class="border p-2 text-sm">https://media.excel-networking.com/images/EXCEL/100-215-BK_800px.jpg</td>
-                        <td class="border p-2 text-sm">2</td>
-                        <td class="border p-2 text-sm">https://excel-networking.com/catalogue/c/structured-cabling/keystone?page=2</td>
-                        <td class="border p-2 text-sm key-features">Supports Gigabit Ethernet\nDelta 3rd party verified\nCIBSE TM65 Embodied Carbon: 0.057 kg CO2e</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</body>
-</html>
+Title-head,Description,IndepthTitle,Indepth PartCode,Indepth Description,Indepth Key Features
+"Excel Double Gang 27mm Back Box","Double gang back box for flush-mounted network installations.","Excel Double Gang 27mm Back Box","100-619","This Excel Double Gang Back Box is designed to support standard double gang faceplates, crafted from durable ABS with flexible cable entry points for versatile installation scenarios.","- Multiple depth options available
+- Single or double gang configurations
+- High impact resistance
+- RoHS compliant
+- Recyclable ABS material
+- 25-year system warranty
+- Supports standard faceplate compatibility
+- Adaptable cable entry for installation flexibility"
+"Excel Single Gang 27mm Back Box","Single gang back box for secure faceplate mounting.","Excel Single Gang 27mm Back Box","100-612","The Excel Single Gang Back Box accommodates industry-standard single gang faceplates, made from robust ABS with adaptable cable entries to suit various installation needs.","- Various depth choices
+- Single or double gang options
+- Strong impact durability
+- RoHS compliant
+- ABS material recyclable
+- 25-year system warranty
+- Supports standard faceplate compatibility
+- Adaptable cable entry for installation flexibility"
+"Excel Double Gang 47mm Back Box","Deep double gang back box for network faceplates.","Excel Double Gang 47mm Back Box","100-622","This Excel Double Gang Back Box supports standard double gang faceplates, constructed from sturdy ABS with breakaway cable entries for flexible installation configurations.","- Range of depth options
+- Single or double gang models
+- Excellent impact strength
+- RoHS compliant
+- Recyclable ABS construction
+- 25-year system warranty
+- Embodied Carbon (CIBSE TM65): 0.487 kg CO2e
+- Supports standard faceplate compatibility
+- Adaptable cable entry for installation flexibility"
+"Excel Double Gang 37mm Back Box","Double gang back box for versatile faceplate setups.","Excel Double Gang 37mm Back Box","100-620","Designed for double gang faceplates, this Excel Back Box is made from durable ABS and features customizable cable entry points to accommodate diverse installation requirements.","- Depth options available
+- Single or double gang variants
+- High impact resistance
+- RoHS compliant
+- ABS material recyclable
+- 25-year system warranty
+- Supports standard faceplate compatibility
+- Adaptable cable entry for installation flexibility"
+"Excel Double Gang 32mm Back Box","Compact double gang back box for network installations.","Excel Double Gang 32mm Back Box","100-621","This Excel Double Gang Back Box is compatible with standard double gang faceplates, built from resilient ABS with flexible cable entries for easy installation in various settings.","- Multiple depth selections
+- Single or double gang options
+- Strong impact durability
+- RoHS compliant
+- Recyclable ABS material
+- 25-year system warranty
+- Embodied Carbon (CIBSE TM65): 0.381 kg CO2e
+- Supports standard faceplate compatibility
+- Adaptable cable entry for installation flexibility"
+"Excel Single Gang 37mm Back Box","Single gang back box for flush-mounted faceplates.","Excel Single Gang 37mm Back Box","100-616","The Excel Single Gang Back Box supports standard single gang faceplates, constructed from tough ABS with adaptable cable entry points for streamlined installation.","- Choice of depths
+- Single or double gang configurations
+- High impact resistance
+- RoHS compliant
+- ABS material recyclable
+- 25-year system warranty
+- Supports standard faceplate compatibility
+- Adaptable cable entry for installation flexibility"
+"Excel Single Gang 47mm Back Box","Deep single gang back box for network setups.","Excel Single Gang 47mm Back Box","100-618","This Excel Single Gang Back Box is designed for industry-standard single gang faceplates, made from durable ABS with breakaway cable entries for flexible installation scenarios.","- Various depth options
+- Single or double gang models
+- Excellent impact strength
+- RoHS compliant
+- Recyclable ABS construction
+- 25-year system warranty
+- Embodied Carbon (CIBSE TM65): 0.309 kg CO2e
+- Supports standard faceplate compatibility
+- Adaptable cable entry for installation flexibility"
+"Excel Single Gang 32mm Back Box","Compact single gang back box for faceplate mounting.","Excel Single Gang 32mm Back Box","100-614","The Excel Single Gang Back Box accommodates standard single gang faceplates, crafted from robust ABS with customizable cable entries to suit diverse installation needs.","- Depth choices available
+- Single or double gang options
+- Strong impact durability
+- RoHS compliant
+- ABS material recyclable
+- 25-year system warranty
+- Supports standard faceplate compatibility
+- Adaptable cable entry for installation flexibility"

@@ -53,37 +53,19 @@ const productMenuItems: ProductMenuItem[] = [
   {
     name: 'Telephone Networking',
     href: '/products/telephone-networking',
-  },
-  {
-    name: 'Cable Management',
-    href: '/products/cable-management',
-  },
-  {
-    name: 'Tools',
-    href: '/products/tools',
-  },
-  {
-    name: 'Accessories',
-    href: '/products/accessories',
-  },
-  // { 
-  //   name: 'Fiber Optic Systems', 
-  //   href: '/products#fiber-optic-systems',
-  //   subItems: [
-  //     { name: 'Fiber Cables', href: '/products#fiber-cables' },
-  //     { name: 'Fiber Connectors', href: '/products#fiber-connectors' },
-  //     { name: 'Fiber Management', href: '/products#fiber-management' },
-  //   ]
+  }
+  // {
+  //   name: 'Cable Management',
+  //   href: '/products/cable-management',
   // },
-  // { 
-  //   name: 'Grounding & Bonding', 
-  //   href: '/products#grounding-bonding',
-  //   subItems: [
-  //     { name: 'Grounding Cables', href: '/products#grounding-cables' },
-  //     { name: 'Bonding Components', href: '/products#bonding-components' },
-  //     { name: 'Earthing Solutions', href: '/products#earthing-solutions' },
-  //   ]
+  // {
+  //   name: 'Tools',
+  //   href: '/products/tools',
   // },
+  // {
+  //   name: 'Accessories',
+  //   href: '/products/accessories',
+  // }
 ];
 
 // Market menu interface
@@ -296,13 +278,17 @@ export const Navbar = () => {
                 </div>
               )}
             </div>
+            <Link href="/power-and-data" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Power & Data</Link>
+            <Link href="/fibre-networking" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Fibre Networking</Link>
+            <Link href="/racks-and-cabinets" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Racks & Cabinets</Link>
+            <Link href="/about-us" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">About Us</Link>
 
-            <Link href="/solutions" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">
+            {/* <Link href="/solutions" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">
               Solutions
             </Link>
             <Link href="/resources" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">
               Resources
-            </Link>
+            </Link> */}
           </div>
 
           {/* Search and Auth */}
@@ -411,8 +397,10 @@ export const Navbar = () => {
               )}
             </div>
             
-            <Link href="/solutions" className="text-gray-600 hover:text-yellow-600 py-2">Solutions</Link>
-            <Link href="/resources" className="text-gray-600 hover:text-yellow-600 py-2">Resources</Link>
+            <Link href="/power-and-data" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Power & Data</Link>
+            <Link href="/fibre-networking" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Fibre Networking</Link>
+            <Link href="/racks-and-cabinets" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Racks & Cabinets</Link>
+            <Link href="/about-us" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">About Us</Link>
             
             {/* Mobile Search */}
             <div className="relative mt-2">
