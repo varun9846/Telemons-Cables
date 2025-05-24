@@ -14,14 +14,7 @@ export async function GET() {
       partNumber: item.indepthPartCode || '',
       description: item.description || '',
       image: '/images/placeholder.jpg', // Placeholder image
-      specifications: {
-        model: 'Telephone',
-        type: 'Network',
-        category: 'Telephone',
-        material: 'ABS',
-        mounting: 'Standard',
-        suitableForRoundCable: 'Yes'
-      },
+      specifications:item.indepthKeyFeatures ? item.indepthKeyFeatures.split('\n').filter(Boolean) : [],
       features: item.indepthKeyFeatures ? item.indepthKeyFeatures.split('\n').filter(Boolean) : [],
       detailedDescription: item.indepthDescription || '',
       additionalImages: ['/images/placeholder.jpg'] // Placeholder image

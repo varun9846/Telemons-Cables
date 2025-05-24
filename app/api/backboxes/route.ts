@@ -14,14 +14,7 @@ export async function GET() {
       partNumber: backbox.indepthPartCode || '',
       description: backbox.description || '',
       image: '/images/placeholder.jpg', // Placeholder image
-      specifications: {
-        model: 'Backbox',
-        type: backbox.titleHead?.includes('Double Gang') ? 'Double Gang' : 'Single Gang',
-        depth: backbox.titleHead?.match(/\d+mm/)?.[0] || 'Standard',
-        material: 'ABS',
-        mounting: 'Flush Mount',
-        suitableForRoundCable: 'Yes'
-      },
+      specifications:backbox.indepthKeyFeatures ? backbox.indepthKeyFeatures.split('\n').filter(Boolean) : [],
       features: backbox.indepthKeyFeatures ? backbox.indepthKeyFeatures.split('\n').filter(Boolean) : [],
       detailedDescription: backbox.indepthDescription || '',
       additionalImages: ['/images/placeholder.jpg'] // Placeholder image
