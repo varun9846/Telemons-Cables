@@ -9,7 +9,13 @@ import { Footer } from '@/components/common/Footer';
 import EnterpriseCables from '@/components/products/EnterpriseCables';
 import CopperPatchPanels from '../../../components/products/CopperPatchPanels';
 import KeystoneJacks from '../../../components/products/KeystoneJacks';
+import ModulesFaceplates from '@/components/products/ModulesFaceplates';
+import { ModuleFaceplate } from '@/types/module-faceplate';
 import axios from 'axios';
+import Backboxes from '@/components/products/Backboxes';
+import { Backbox } from '@/types/backbox';
+import TelephoneNetworking from '@/components/products/TelephoneNetworking';
+import type { TelephoneNetworking as TelephoneNetworkingType } from '@/types/telephone-networking';
 
 // Product category interface for type safety
 interface ProductCategory {
@@ -103,6 +109,10 @@ export default function CategoryPage() {
     const [selectedDefaultCategory, setSelectedDefaultCategory] = useState<DefaultCategory | null>(null);
     const [showSelectedCategory, setShowSelectedCategory] = useState(false);
     const [keystoneJacks, setKeystoneJacks] = useState<KeystoneJack[]>([]);
+    const [modules, setModules] = useState<ModuleFaceplate[]>([]);
+    const [backboxes, setBackboxes] = useState<Backbox[]>([]);
+    const [items, setItems] = useState<TelephoneNetworkingType[]>([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -124,6 +134,15 @@ export default function CategoryPage() {
                 } else if (category === 'keystone-jacks-shutters') {
                     const response = await axios.get('/data/keyStone.json');
                     setKeystoneJacks(response.data);
+                } else if (category === 'modules-faceplates') {
+                    const response = await axios.get('/api/modules-faceplates');
+                    setModules(response.data);
+                } else if (category === 'backboxes-floorboxes') {
+                    const backboxesResponse = await axios.get('/api/backboxes');
+                    setBackboxes(backboxesResponse.data);
+                } else if (category === 'telephone-networking') {
+                    const response = await axios.get('/api/telephone-networking');
+                    setItems(response.data);
                 } else {
                     const response = await axios.get('/data/productCategories.json');
                     const products = response.data;
@@ -430,6 +449,105 @@ export default function CategoryPage() {
                 </div>
                 <Footer />
             </div>
+        );
+    }
+
+    // Handle modules & faceplates view
+    if (category === 'modules-faceplates') {
+        return (
+            <div className="min-h-screen bg-gray-50 font-inter">
+                <Navbar />
+                <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
+                    <div className="absolute inset-0 bg-black opacity-40"></div>
+                    <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
+                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                            Modules & Faceplates
+                        </h1>
+                        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            High-quality modules and faceplates for reliable network connectivity.
+                        </p>
+                    </div>
+                </section>
+                <div className="pt-0">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <button
+                            onClick={handleBack}
+                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+                        >
+                            <FaArrowLeft />
+                            <span>Back to Products</span>
+                        </button>
+                        <ModulesFaceplates modules={modules} />
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        );
+    }
+
+    // Handle backboxes view
+    if (category === 'backboxes-floorboxes') {
+        return (
+            <div className="min-h-screen bg-gray-50 font-inter">
+                <Navbar />
+                <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
+                    <div className="absolute inset-0 bg-black opacity-40"></div>
+                    <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
+                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                            Backboxes & Floorboxes
+                        </h1>
+                        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            High-quality backboxes and floorboxes for secure network installations.
+                        </p>
+                    </div>
+                </section>
+                <div className="pt-0">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <button
+                            onClick={handleBack}
+                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+                        >
+                            <FaArrowLeft />
+                            <span>Back to Products</span>
+                        </button>
+                        <Backboxes backboxes={backboxes} />
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        );
+    }
+
+    // Handle telephone networking view
+    if (category === 'telephone-networking') {
+        return (
+            <div className="min-h-screen bg-gray-50 font-inter">
+            <Navbar />
+            <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
+                <div className="absolute inset-0 bg-black opacity-40"></div>
+                <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
+                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                        Telephone Networking
+                    </h1>
+                    <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                        High-quality telephone networking solutions for secure network installations.
+                    </p>
+                </div>
+            </section>
+            <div className="pt-0">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <button
+                        onClick={handleBack}
+                        className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+                    >
+                        <FaArrowLeft />
+                        <span>Back to Products</span>
+                    </button>
+                    <TelephoneNetworking items={items} />
+                </div>
+            </div>
+            <Footer />
+        </div>
         );
     }
 
