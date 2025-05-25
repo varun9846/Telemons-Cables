@@ -7,6 +7,10 @@ export const ROUTES = {
   MARKETS: '/markets',
   SOLUTIONS: '/solutions',
   RESOURCES: '/resources',
+  POWER_AND_DATA: '/products/power-and-data',
+  FIBRENETWORKING: '/products/fibre-networking',
+  RACKS_AND_CABINETS: '/products/racks-and-cabinets',
+  ABOUT_US: '/about-us',
 }
 
 export const MESSAGES = {

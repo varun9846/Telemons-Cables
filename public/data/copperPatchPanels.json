@@ -57,7 +57,7 @@
   ],
   "frames": [
     {
-      "name": "Excel Unloaded 24 Port Keystone Patch Panel Frame 1U Black",
+      "name": "Telemon Unloaded 24 Port Keystone Patch Panel Frame 1U Black",
       "partCode": "100-095",
       "outlets": 24,
       "category": "Keystone Jack Dependent",
@@ -70,7 +70,7 @@
       "image": "/images/patch-panels/keystone-patch-panel-frame-one-u-black.jpg"
     },
     {
-      "name": "Excel Cat6 24 Port Unscreened Patch Panel 1U LSA Punch Down Cable Management Black",
+      "name": "Telemon Cat6 24 Port Unscreened Patch Panel 1U LSA Punch Down Cable Management Black",
       "partCode": "100-304",
       "ports": 24,
       "connector": "RJ45 8(8)",
@@ -84,7 +84,7 @@
       "image": "/images/patch-panels/cat6a-24-port-unscreened-patch-panel-one-u-lsa-punch-down-cable-management-black.jpg"
     },
     {
-      "name": "Excel Unloaded 24 Port Screened Keystone Patch Panel Frame 1U Black",
+      "name": "Telemon Unloaded 24 Port Screened Keystone Patch Panel Frame 1U Black",
       "partCode": "100-755",
       "outlets": 24,
       "category": "Keystone Jack Dependent",
@@ -97,7 +97,7 @@
       "image": "/images/patch-panels/unloaded-24-port-screened-keystone-patch-panel-frame-one-u-black.jpg"
     },
     {
-      "name": "Excel Cat6 24 Port Unscreened Patch Panel 1U LSA Punch Down Right Angled Black",
+      "name": "Telemon Cat6 24 Port Unscreened Patch Panel 1U LSA Punch Down Right Angled Black",
       "partCode": "100-302",
       "ports": 24,
       "connector": "RJ45 8(8)",
@@ -111,7 +111,7 @@
       "image": "/images/patch-panels/cat6-24-port-unscreened-patch-panel-one-u-lsa-punch-down-right-angled-black.jpg"
     },
     {
-      "name": "Excel Cat5e 24 Port Unscreened Patch Panel 1U LSA Punch Down Black",
+      "name": "Telemon Cat5e 24 Port Unscreened Patch Panel 1U LSA Punch Down Black",
       "partCode": "100-726",
       "ports": 24,
       "connector": "RJ45 8(8)",
@@ -125,7 +125,7 @@
       "image": "/images/patch-panels/cat5e-24-port-unscreened-patch-panel-one-u-lsa-punch-down-black.jpg"
     },
     {
-      "name": "Excel Unloaded 24 Port Keystone Patch Panel Frame 1U Chrome",
+      "name": "Telemon Unloaded 24 Port Keystone Patch Panel Frame 1U Chrome",
       "partCode": "100-028",
       "outlets": 24,
       "category": "Keystone Jack Dependent",
@@ -138,7 +138,7 @@
       "image": "/images/patch-panels/unloaded-24-port-keystone-patch-panel-frame-one-u-chrome.jpg"
     },
     {
-      "name": "Excel Cat6A 24 Port Screened Patch Panel 1U LSA Punch Down Black",
+      "name": "Telemon Cat6A 24 Port Screened Patch Panel 1U LSA Punch Down Black",
       "partCode": "100-032",
       "ports": 24,
       "connector": "RJ45 8(8)",
@@ -152,7 +152,7 @@
       "image": "/images/patch-panels/cat6a-24-port-screened-patch-panel-one-u-lsa-punch-down-black.jpg"
     },
     {
-      "name": "Excel Unloaded 24 Port Keystone Patch Panel Frame Angled 1U Black",
+      "name": "Telemon Unloaded 24 Port Keystone Patch Panel Frame Angled 1U Black",
       "partCode": "100-023",
       "outlets": 24,
       "category": "Keystone Jack Dependent",
@@ -165,7 +165,7 @@
       "image": "/images/patch-panels/unloaded-24-port-keystone-patch-panel-frame-angled-one-u-black.jpg"
     },
     {
-      "name": "Excel Unloaded 24 Port Keystone Patch Panel Frame 0.5U Chrome",
+      "name": "Telemon Unloaded 24 Port Keystone Patch Panel Frame 0.5U Chrome",
       "partCode": "100-041",
       "outlets": 24,
       "category": "Keystone Jack Dependent",
@@ -178,7 +178,7 @@
       "image": "/images/patch-panels/unloaded-24-port-keystone-patch-panel-frame-0-5u-chrome.jpg"
     },
     {
-      "name": "Excel Cat5e 24 Port Unscreened Patch Panel Right-Angled 1U Black",
+      "name": "Telemon Cat5e 24 Port Unscreened Patch Panel Right-Angled 1U Black",
       "partCode": "100-460",
       "ports": 24,
       "connector": "RJ45 8(8)",
