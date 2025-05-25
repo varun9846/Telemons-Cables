@@ -1,68 +1,85 @@
-Title-head,Description,IndepthTitle,Indepth PartCode,Indepth Description,Indepth Key Features
-"Excel Double Gang 27mm Back Box","Double gang back box for flush-mounted network installations.","Excel Double Gang 27mm Back Box","100-619","This Excel Double Gang Back Box is designed to support standard double gang faceplates, crafted from durable ABS with flexible cable entry points for versatile installation scenarios.","- Multiple depth options available
-- Single or double gang configurations
-- High impact resistance
-- RoHS compliant
-- Recyclable ABS material
-- 25-year system warranty
-- Supports standard faceplate compatibility
-- Adaptable cable entry for installation flexibility"
-"Excel Single Gang 27mm Back Box","Single gang back box for secure faceplate mounting.","Excel Single Gang 27mm Back Box","100-612","The Excel Single Gang Back Box accommodates industry-standard single gang faceplates, made from robust ABS with adaptable cable entries to suit various installation needs.","- Various depth choices
-- Single or double gang options
-- Strong impact durability
-- RoHS compliant
-- ABS material recyclable
-- 25-year system warranty
-- Supports standard faceplate compatibility
-- Adaptable cable entry for installation flexibility"
-"Excel Double Gang 47mm Back Box","Deep double gang back box for network faceplates.","Excel Double Gang 47mm Back Box","100-622","This Excel Double Gang Back Box supports standard double gang faceplates, constructed from sturdy ABS with breakaway cable entries for flexible installation configurations.","- Range of depth options
-- Single or double gang models
-- Excellent impact strength
-- RoHS compliant
-- Recyclable ABS construction
-- 25-year system warranty
-- Embodied Carbon (CIBSE TM65): 0.487 kg CO2e
-- Supports standard faceplate compatibility
-- Adaptable cable entry for installation flexibility"
-"Excel Double Gang 37mm Back Box","Double gang back box for versatile faceplate setups.","Excel Double Gang 37mm Back Box","100-620","Designed for double gang faceplates, this Excel Back Box is made from durable ABS and features customizable cable entry points to accommodate diverse installation requirements.","- Depth options available
-- Single or double gang variants
-- High impact resistance
-- RoHS compliant
-- ABS material recyclable
-- 25-year system warranty
-- Supports standard faceplate compatibility
-- Adaptable cable entry for installation flexibility"
-"Excel Double Gang 32mm Back Box","Compact double gang back box for network installations.","Excel Double Gang 32mm Back Box","100-621","This Excel Double Gang Back Box is compatible with standard double gang faceplates, built from resilient ABS with flexible cable entries for easy installation in various settings.","- Multiple depth selections
-- Single or double gang options
-- Strong impact durability
-- RoHS compliant
-- Recyclable ABS material
-- 25-year system warranty
-- Embodied Carbon (CIBSE TM65): 0.381 kg CO2e
-- Supports standard faceplate compatibility
-- Adaptable cable entry for installation flexibility"
-"Excel Single Gang 37mm Back Box","Single gang back box for flush-mounted faceplates.","Excel Single Gang 37mm Back Box","100-616","The Excel Single Gang Back Box supports standard single gang faceplates, constructed from tough ABS with adaptable cable entry points for streamlined installation.","- Choice of depths
-- Single or double gang configurations
-- High impact resistance
-- RoHS compliant
-- ABS material recyclable
-- 25-year system warranty
-- Supports standard faceplate compatibility
-- Adaptable cable entry for installation flexibility"
-"Excel Single Gang 47mm Back Box","Deep single gang back box for network setups.","Excel Single Gang 47mm Back Box","100-618","This Excel Single Gang Back Box is designed for industry-standard single gang faceplates, made from durable ABS with breakaway cable entries for flexible installation scenarios.","- Various depth options
-- Single or double gang models
-- Excellent impact strength
-- RoHS compliant
-- Recyclable ABS construction
-- 25-year system warranty
-- Embodied Carbon (CIBSE TM65): 0.309 kg CO2e
-- Supports standard faceplate compatibility
-- Adaptable cable entry for installation flexibility"
-"Excel Single Gang 32mm Back Box","Compact single gang back box for faceplate mounting.","Excel Single Gang 32mm Back Box","100-614","The Excel Single Gang Back Box accommodates standard single gang faceplates, crafted from robust ABS with customizable cable entries to suit diverse installation needs.","- Depth choices available
-- Single or double gang options
-- Strong impact durability
-- RoHS compliant
-- ABS material recyclable
-- 25-year system warranty
-- Supports standard faceplate compatibility
-- Adaptable cable entry for installation flexibility"
+
+C:\Users\user\Desktop\Projects\TelemonsProject\Telemons>npm run build
+
+> telemons-cable@0.1.0 build
+> next build
+
+ ⚠ Invalid next.config.js options detected:
+ ⚠     Unrecognized key(s) in object: 'turbo'
+ ⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
+  ▲ Next.js 14.2.28
+  - Environments: .env
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+
+./components/common/Navbar.tsx
+188:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+ ✓ Linting and checking validity of types
+ ✓ Collecting page data
+   Generating static pages (10/14)  [   =]Error fetching modules and faceplates: PrismaClientUnknownRequestError:
+Invalid `prisma.structuredModules.findMany()` invocation:
+
+
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: QueryError(PostgresError { code: "42P05", message: "prepared statement \"s0\" already exists", severity: "ERROR", detail: None, column: None, hint: None }), transient: false })
+    at oq.handleRequestError (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:114:8154)
+    at oq.handleAndLogRequestError (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:114:7049)
+    at oq.request (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:114:6756)
+    at async s (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:126:6317)
+    at async u (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\app\api\modules-faceplates\route.js:1:1101)
+    at async C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:38411
+    at async e_.execute (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:27880)
+    at async e_.handle (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:39943)
+    at async exportAppRoute (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\export\routes\app-route.js:77:26)
+    at async exportPageImpl (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\export\worker.js:175:20) {
+  clientVersion: '6.8.2'
+}
+   Generating static pages (12/14)  [  ==]Error fetching telephone networking data: PrismaClientUnknownRequestError:
+Invalid `prisma.structuredTelephonenetworking.findMany()` invocation:
+
+
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: QueryError(PostgresError { code: "42P05", message: "prepared statement \"s0\" already exists", severity: "ERROR", detail: None, column: None, hint: None }), transient: false })
+    at oq.handleRequestError (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:114:8154)
+    at oq.handleAndLogRequestError (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:114:7049)
+    at oq.request (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:114:6756)
+    at async s (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:126:6317)
+    at async d (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\app\api\telephone-networking\route.js:1:1101)
+    at async C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:38411
+    at async e_.execute (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:27880)
+    at async e_.handle (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:39943)
+    at async exportAppRoute (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\export\routes\app-route.js:77:26)
+    at async exportPageImpl (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\export\worker.js:175:20) {
+  clientVersion: '6.8.2'
+}
+ ✓ Generating static pages (14/14)
+ ✓ Collecting build traces
+ ✓ Finalizing page optimization
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    40.5 kB         155 kB
+├ ○ /_not-found                          873 B          88.1 kB
+├ ○ /api/backboxes                       0 B                0 B
+├ ƒ /api/modules-faceplates              0 B                0 B
+├ ƒ /api/telephone-networking            0 B                0 B
+├ ○ /auth/callback                       1.84 kB          98 kB
+├ ○ /login                               2.16 kB         123 kB
+├ ○ /markets                             1.51 kB         137 kB
+├ ƒ /markets/[market]                    1.8 kB          137 kB
+├ ○ /products                            5.22 kB         140 kB
+├ ƒ /products/[category]                 6.14 kB         141 kB
+├ ○ /signup                              2.2 kB          123 kB
+└ ○ /test                                810 B           110 kB
++ First Load JS shared by all            87.2 kB
+  ├ chunks/117-cd1dfbe0ca6b7ee6.js       31.6 kB
+  ├ chunks/fd9d1056-5b667ce5b248ceca.js  53.6 kB
+  └ other shared chunks (total)          1.99 kB
+
+
+ƒ Middleware                             59 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand

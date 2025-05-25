@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import Image from 'next/image';
 import BackboxDetail from './BackboxDetail';
@@ -11,6 +11,12 @@ interface BackboxesProps {
 const Backboxes: React.FC<BackboxesProps> = ({ backboxes }) => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Backbox | null>(null);
+
+  useEffect(() => {
+    if (selectedProduct) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [selectedProduct]);
 
   const handleToggle = (idx: number) => {
     setExpandedIndex(expandedIndex === idx ? null : idx);

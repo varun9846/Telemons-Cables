@@ -1,10 +1,5 @@
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '@/lib/generated/prisma';
-
-
-const prisma = new PrismaClient();
-
-
+import prisma from '@/lib/prisma';
 
 // Function to format title to match image filename
 const formatImageName = (title: string): string => {
@@ -12,13 +7,15 @@ const formatImageName = (title: string): string => {
   return title.replace(/\s+/g, '_'); // Simply replace spaces with underscores
 };
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET() {
   try {
     const modules = await prisma.structuredModules.findMany();
     
     // Transform the data to match the required format
     const transformedData = modules.map((module) => {
-      console.log('module.titleHead',module.titleHead);
       const imageFileName = formatImageName(module.titleHead || '');
       
       return {
@@ -30,7 +27,7 @@ export async function GET() {
         specifications: module.indepthKeyFeatures ? module.indepthKeyFeatures.split('\n').filter(Boolean) : [],
         features: module.indepthKeyFeatures ? module.indepthKeyFeatures.split('\n').filter(Boolean) : [],
         detailedDescription: module.indepthDescription || '',
-        additionalImages: [`/images/modules-faceplates/${imageFileName}.jpg`] // Using the same image for now
+        additionalImages: [`/images/modules-faceplates/${imageFileName}.jpg`]
       };
     });
 

@@ -1,22 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import Image from 'next/image';
 import TelephoneNetworkingDetail from './TelephoneNetworkingDetail';
-import { TelephoneNetworking } from '@/types/telephone-networking';
+import type { TelephoneNetworking as ITelephoneNetworking } from '@/types/telephone-networking';
 
 interface TelephoneNetworkingProps {
-  items: TelephoneNetworking[];
+  items: ITelephoneNetworking[];
 }
 
 const TelephoneNetworking: React.FC<TelephoneNetworkingProps> = ({ items }) => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const [selectedProduct, setSelectedProduct] = useState<TelephoneNetworking | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<ITelephoneNetworking | null>(null);
+
+  useEffect(() => {
+    if (selectedProduct) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [selectedProduct]);
 
   const handleToggle = (idx: number) => {
     setExpandedIndex(expandedIndex === idx ? null : idx);
   };
 
-  const handleViewDetails = (product: TelephoneNetworking) => {
+  const handleViewDetails = (product: ITelephoneNetworking) => {
     setSelectedProduct(product);
   };
 
@@ -38,7 +44,7 @@ const TelephoneNetworking: React.FC<TelephoneNetworkingProps> = ({ items }) => {
           {item?.image && (
             <div className="relative h-48 w-full">
               <Image
-                src={item?.image}
+                src={item.image}
                 alt={item.title}
                 fill
                 className="object-cover"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import Image from 'next/image';
 import ModuleFaceplateDetail from './ModuleFaceplateDetail';
@@ -11,6 +11,12 @@ interface ModulesFaceplatesProps {
 const ModulesFaceplates: React.FC<ModulesFaceplatesProps> = ({ modules }) => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<ModuleFaceplate | null>(null);
+
+  useEffect(() => {
+    if (selectedProduct) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [selectedProduct]);
 
   const handleToggle = (idx: number) => {
     setExpandedIndex(expandedIndex === idx ? null : idx);
