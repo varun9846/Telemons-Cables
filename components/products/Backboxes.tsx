@@ -68,12 +68,12 @@ const Backboxes: React.FC<BackboxesProps> = ({ backboxes }) => {
               >
                 View Details
               </button>
-              <button
+              {/* <button
                 onClick={() => handleToggle(idx)}
                 className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors font-medium"
               >
                 Quick Specs {expandedIndex === idx ? <FaChevronUp /> : <FaChevronDown />}
-              </button>
+              </button> */}
             </div>
             
             {expandedIndex === idx && (

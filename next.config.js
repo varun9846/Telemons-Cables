@@ -5,6 +5,9 @@ const nextConfig = {
       overlay: false,
     },
   },
+  images: {
+    domains: ['pgsabofajdqaeyjpqeet.supabase.co'],
+  },
 };
 
 module.exports = nextConfig; 
