@@ -97,6 +97,28 @@ const marketMenuItems: MarketMenuItem[] = [
   { name: 'Warehouse Automation', href: '/markets/warehouse-automation' }
 ];
 
+// Fibre Networking menu interface
+interface FibreNetworkingMenuItem {
+  name: string;
+  href: string;
+}
+
+const fibreNetworkingMenuItems: FibreNetworkingMenuItem[] = [
+  { name: 'Fibre Cable', href: '/fibre-networking/fibre-cable' },
+  { name: 'Fibre Patch Panels', href: '/fibre-networking/fibre-patch-panels' },
+  { name: 'Fibre Patch Panel Cassettes', href: '/fibre-networking/fibre-patch-panel-cassettes' },
+  { name: 'Fibre Breakout Boxes', href: '/fibre-networking/fibre-breakout-boxes' },
+  { name: 'Fibre Patch Boxes', href: '/fibre-networking/fibre-patch-boxes' },
+  { name: 'Fibre Connectors & Couplers', href: '/fibre-networking/fibre-connectors-couplers' },
+  { name: 'Fibre Attenuators', href: '/fibre-networking/fibre-attenuators' },
+  { name: 'Fibre Cable Management', href: '/fibre-networking/fibre-cable-management' },
+  { name: 'Fibre Fan-Out Kits', href: '/fibre-networking/fibre-fan-out-kits' },
+  { name: 'Fibre Tools', href: '/fibre-networking/fibre-tools' },
+  { name: 'Fibre Cleaning & Polishing', href: '/fibre-networking/fibre-cleaning-polishing' },
+  { name: 'Fibre Accessories', href: '/fibre-networking/fibre-accessories' },
+  { name: 'Why Excel Fibre?', href: '/fibre-networking/why-excel-fibre' },
+];
+
 export const Navbar = () => {
   const router = useRouter()
   const { user } = useAuth()
@@ -111,11 +133,13 @@ export const Navbar = () => {
   const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null)
   const [isMarketsOpen, setIsMarketsOpen] = useState(false)
   const [isRacksAndCabinetsOpen, setIsRacksAndCabinetsOpen] = useState(false)
+  const [isFibreNetworkingOpen, setIsFibreNetworkingOpen] = useState(false)
   // Refs for handling hover behavior
   const productsMenuRef = useRef<HTMLDivElement>(null)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
   const marketsMenuRef = useRef<HTMLDivElement>(null)
   const racksAndCabinetsMenuRef = useRef<HTMLDivElement>(null)
+  const fibreNetworkingMenuRef = useRef<HTMLDivElement>(null)
   // Handle mouse events for dropdown
   const handleProductsMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
@@ -160,6 +184,17 @@ export const Navbar = () => {
   const handleRacksAndCabinetsMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setIsRacksAndCabinetsOpen(false)
+    }, 100)
+  }
+
+  const handleFibreNetworkingMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    setIsFibreNetworkingOpen(true)
+  }
+
+  const handleFibreNetworkingMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsFibreNetworkingOpen(false)
     }, 100)
   }
 
@@ -321,9 +356,32 @@ export const Navbar = () => {
                 </div>
               )}
             </div>
+            <div
+              ref={fibreNetworkingMenuRef}
+              className="relative"
+              onMouseEnter={handleFibreNetworkingMouseEnter}
+              onMouseLeave={handleFibreNetworkingMouseLeave}
+            >
+              <button className="flex items-center text-gray-600 hover:text-yellow-600 font-medium transition-colors">
+                Fibre Networking
+                <FaChevronDown className={`ml-1 h-3 w-3 transition-transform ${isFibreNetworkingOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isFibreNetworkingOpen && (
+                <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50 py-2">
+                  {fibreNetworkingMenuItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-600"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <Link href="/racks-and-cabinets" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Racks & Cabinets</Link>
             <Link href="/power-and-data" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Power & Data</Link>
-            <Link href="/fibre-networking" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Fibre Networking</Link>
             <Link href="/about-us" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">About Us</Link>
 
             {/* <Link href="/solutions" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">
@@ -440,8 +498,31 @@ export const Navbar = () => {
               )}
             </div>
 
+            <div className="py-2">
+              <button
+                onClick={() => setIsFibreNetworkingOpen(!isFibreNetworkingOpen)}
+                className="flex items-center justify-between w-full text-gray-600 hover:text-yellow-600"
+              >
+                <span>Fibre Networking</span>
+                <FaChevronDown className={`h-3 w-3 transition-transform ${isFibreNetworkingOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isFibreNetworkingOpen && (
+                <div className="pl-4 mt-2 space-y-2">
+                  {fibreNetworkingMenuItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="block text-gray-600 hover:text-yellow-600 py-1"
+                      onClick={() => setIsFibreNetworkingOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link href="/power-and-data" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Power & Data</Link>
-            <Link href="/fibre-networking" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Fibre Networking</Link>
             <Link href="/racks-and-cabinets" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Racks & Cabinets</Link>
             <Link href="/about-us" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">About Us</Link>
 
