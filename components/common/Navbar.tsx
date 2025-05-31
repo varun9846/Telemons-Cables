@@ -111,12 +111,8 @@ const fibreNetworkingMenuItems: FibreNetworkingMenuItem[] = [
   { name: 'Fibre Patch Boxes', href: '/fibre-networking/fibre-patch-boxes' },
   { name: 'Fibre Connectors & Couplers', href: '/fibre-networking/fibre-connectors-couplers' },
   { name: 'Fibre Attenuators', href: '/fibre-networking/fibre-attenuators' },
-  { name: 'Fibre Cable Management', href: '/fibre-networking/fibre-cable-management' },
-  { name: 'Fibre Fan-Out Kits', href: '/fibre-networking/fibre-fan-out-kits' },
-  { name: 'Fibre Tools', href: '/fibre-networking/fibre-tools' },
-  { name: 'Fibre Cleaning & Polishing', href: '/fibre-networking/fibre-cleaning-polishing' },
-  { name: 'Fibre Accessories', href: '/fibre-networking/fibre-accessories' },
-  { name: 'Why Excel Fibre?', href: '/fibre-networking/why-excel-fibre' },
+  { name: 'Fibre Tools & Accessories', href: '/fibre-networking/fibre-tools-accessories' },
+  // { name: 'Why Excel Fibre?', href: '/fibre-networking/why-excel-fibre' },
 ];
 
 export const Navbar = () => {
@@ -316,9 +312,33 @@ export const Navbar = () => {
               {isRacksAndCabinetsOpen && (
                 <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50 py-2">
                   {racksAndCabinetsMenuItems.map((item) => (
-                    <Link 
+                    <Link
                       key={item.name}
-                      href={item.href} 
+                      href={item.href}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-600"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div
+              ref={fibreNetworkingMenuRef}
+              className="relative"
+              onMouseEnter={handleFibreNetworkingMouseEnter}
+              onMouseLeave={handleFibreNetworkingMouseLeave}
+            >
+              <button className="flex items-center text-gray-600 hover:text-yellow-600 font-medium transition-colors">
+                Fibre Networking
+                <FaChevronDown className={`ml-1 h-3 w-3 transition-transform ${isFibreNetworkingOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isFibreNetworkingOpen && (
+                <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50 py-2">
+                  {fibreNetworkingMenuItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-600"
                     >
                       {item.name}
@@ -356,31 +376,7 @@ export const Navbar = () => {
                 </div>
               )}
             </div>
-            <div
-              ref={fibreNetworkingMenuRef}
-              className="relative"
-              onMouseEnter={handleFibreNetworkingMouseEnter}
-              onMouseLeave={handleFibreNetworkingMouseLeave}
-            >
-              <button className="flex items-center text-gray-600 hover:text-yellow-600 font-medium transition-colors">
-                Fibre Networking
-                <FaChevronDown className={`ml-1 h-3 w-3 transition-transform ${isFibreNetworkingOpen ? 'rotate-180' : ''}`} />
-              </button>
-              {isFibreNetworkingOpen && (
-                <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50 py-2">
-                  {fibreNetworkingMenuItems.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-600"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-            <Link href="/racks-and-cabinets" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Racks & Cabinets</Link>
+
             <Link href="/power-and-data" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Power & Data</Link>
             <Link href="/about-us" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">About Us</Link>
 
@@ -523,7 +519,6 @@ export const Navbar = () => {
             </div>
 
             <Link href="/power-and-data" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Power & Data</Link>
-            <Link href="/racks-and-cabinets" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">Racks & Cabinets</Link>
             <Link href="/about-us" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">About Us</Link>
 
             {/* Mobile Search */}

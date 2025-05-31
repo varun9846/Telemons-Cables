@@ -141,3 +141,101 @@ model StructuredFibrePatchPanels {
   indepthKeyFeatures      String?  @map("Indepth Key Features") // Corrected field name
   indepthImage            String?  @map("Indepth Image SRC-src") // Corrected field name
 }
+
+model StructuredFibreCassetes {
+  // Unique identifier for each record
+  id                      Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt               DateTime @default(now())
+
+  // Fields derived from the CSV columns
+  titleHead               String?  @map("Title-head") // Corrected field name, added @map
+  description             String?  @map("Description") // Corrected field name, added @map
+  indepthTitle            String?  @map("IndepthTitle") // Corrected field name, added @map
+  indepthPartCode         String?  @map("Indepth PartCode") // Corrected field name
+  indepthDescription      String?  @map("Indepth Description") // Corrected field name
+  indepthKeyFeatures      String?  @map("Indepth Key Features") // Corrected field name
+  indepthImage            String?  @map("Indepth Image SRC-src") // Corrected field name
+}
+
+model StructuredFibrePatchBoxes {
+  // Unique identifier for each record
+  id                      Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt               DateTime @default(now())
+
+  // Fields derived from the CSV columns
+  titleHead               String?  @map("Title-head") // Corrected field name, added @map
+  description             String?  @map("Description") // Corrected field name, added @map
+  indepthTitle            String?  @map("IndepthTitle") // Corrected field name, added @map
+  indepthPartCode         String?  @map("Indepth PartCode") // Corrected field name
+  indepthDescription      String?  @map("Indepth Description") // Corrected field name
+  indepthKeyFeatures      String?  @map("Indepth Key Features") // Corrected field name
+  indepthImage            String?  @map("Indepth Image SRC-src") // Corrected field name
+}
+
+
+model StructuredBreakoutBoxes {
+  // Unique identifier for each record
+  id                      Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt               DateTime @default(now())
+
+  // Fields derived from the CSV columns
+  titleHead               String?  @map("Title-head") // Corrected field name, added @map
+  description             String?  @map("Description") // Corrected field name, added @map
+  indepthTitle            String?  @map("IndepthTitle") // Corrected field name, added @map
+  indepthPartCode         String?  @map("Indepth PartCode") // Corrected field name
+  indepthDescription      String?  @map("Indepth Description") // Corrected field name
+  indepthKeyFeatures      String?  @map("Indepth Key Features") // Corrected field name
+  indepthImage            String?  @map("Indepth Image SRC-src") // Corrected field name
+}
+
+model StructuredFibreConnectorsCouplers {
+  // Unique identifier for each record
+  id                      Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt               DateTime @default(now())
+
+  // Fields derived from the CSV columns
+  titleHead               String?  @map("Title-head") // Corrected field name, added @map
+  description             String?  @map("Description") // Corrected field name, added @map
+  indepthTitle            String?  @map("IndepthTitle") // Corrected field name, added @map
+  indepthPartCode         String?  @map("Indepth PartCode") // Corrected field name
+  indepthDescription      String?  @map("Indepth Description") // Corrected field name
+  indepthKeyFeatures      String?  @map("Indepth Key Features") // Corrected field name
+  indepthImage            String?  @map("Indepth Image SRC-src") // Corrected field name
+}
+
+model StructuredFibreAttenuators {
+  // Unique identifier for each record
+  id                      Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt               DateTime @default(now())
+
+  // Fields derived from the CSV columns
+  titleHead               String?  @map("Title-head") // Corrected field name, added @map
+  description             String?  @map("Description") // Corrected field name, added @map
+  indepthTitle            String?  @map("IndepthTitle") // Corrected field name, added @map
+  indepthPartCode         String?  @map("Indepth PartCode") // Corrected field name
+  indepthDescription      String?  @map("Indepth Description") // Corrected field name
+  indepthKeyFeatures      String?  @map("Indepth Key Features") // Corrected field name
+  indepthImage            String?  @map("Indepth Image SRC-src") // Corrected field name
+}
+
+
+model StructuredFibreToolsAccessories {
+  // Unique identifier for each record
+  id                      Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt               DateTime @default(now())
+
+  // Fields derived from the CSV columns
+  titleHead               String?  @map("Title-head") // Corrected field name, added @map
+  description             String?  @map("Description") // Corrected field name, added @map
+  indepthTitle            String?  @map("IndepthTitle") // Corrected field name, added @map
+  indepthPartCode         String?  @map("Indepth PartCode") // Corrected field name
+  indepthDescription      String?  @map("Indepth Description") // Corrected field name
+  indepthKeyFeatures      String?  @map("Indepth Key Features") // Corrected field name
+  indepthImage            String?  @map("Indepth Image SRC-src") // Corrected field name
+}
