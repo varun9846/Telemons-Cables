@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import FibreToolsAccessoriesDetail from './FibreToolsAccessoriesDetail';
+import FibreToolsAccessoriesDetail from '@/components/FibreNetworks/FibreToolsAccessoriesDetail';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import Image from 'next/image';
-import { FibreToolsAccessories } from '@/types/fibre-tools-accessories';
-
+import type { FibreToolsAccessories } from '@/types/fibre-tools-accessories';
 interface FibreToolsAccessoriesProps {
   tools: FibreToolsAccessories[];
 }

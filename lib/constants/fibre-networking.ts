@@ -6,7 +6,7 @@ import { FibreBreakoutBox } from '@/types/fibre-breakout-box';
 import { FibrePatchBox } from '@/types/fibre-patch-box';
 import { FibreConnectorCoupler } from '@/types/fibre-connector-coupler';
 import { FibreAttenuator } from '@/types/fibre-attenuator';
-import { FibreToolsAccessoriesType } from '@/types/fibre-tools-accessories';
+import { FibreToolsAccessories } from '@/types/fibre-tools-accessories';
 
 // API Endpoints
 export const API_ENDPOINTS = {
@@ -68,7 +68,7 @@ export const fetchFibreAttenuators = async (): Promise<FibreAttenuator[]> => {
   return response.data;
 };
 
-export const fetchFibreToolsAccessories = async (): Promise<FibreToolsAccessoriesType[]> => {
+export const fetchFibreToolsAccessories = async (): Promise<FibreToolsAccessories[]> => {
   const response = await axios.get(API_ENDPOINTS.FIBRE_TOOLS_ACCESSORIES);
   return response.data;
 };
