@@ -7,8 +7,8 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { Navbar } from '@/components/common/Navbar';
 import { Footer } from '@/components/common/Footer';
 import EnterpriseCables from '@/components/products/EnterpriseCables';
-import CopperPatchPanels from '../../../components/products/CopperPatchPanels';
-import KeystoneJacks from '../../../components/products/KeystoneJacks';
+import CopperPatchPanels from '@/components/products/CopperPatchPanels';
+import KeystoneJacks from '@/components/products/KeystoneJacks';
 import ModulesFaceplates from '@/components/products/ModulesFaceplates';
 import { ModuleFaceplate } from '@/types/module-faceplate';
 import axios from 'axios';
@@ -17,6 +17,11 @@ import { Backbox } from '@/types/backbox';
 import TelephoneNetworking from '@/components/products/TelephoneNetworking';
 import type { TelephoneNetworking as TelephoneNetworkingType } from '@/types/telephone-networking';
 import FloorStandingRacks from '@/components/RacksCabinets/FloorStandingRacks';
+import WallRacks from '@/components/RacksCabinets/WallRacks';
+import OpenRacks from '@/components/RacksCabinets/OpenRacks';
+import { FloorStandingRack } from '@/types/floor-standing-rack';
+import { WallRack } from '@/types/wall-rack';
+import { OpenRack } from '@/types/open-rack';
 
 // Product category interface for type safety
 interface ProductCategory {
@@ -109,45 +114,29 @@ export default function CategoryPage() {
     const [defaultCategories, setDefaultCategories] = useState<DefaultCategory[]>([]);
     const [selectedDefaultCategory, setSelectedDefaultCategory] = useState<DefaultCategory | null>(null);
     const [showSelectedCategory, setShowSelectedCategory] = useState(false);
-    const [keystoneJacks, setKeystoneJacks] = useState<KeystoneJack[]>([]);
-    const [modules, setModules] = useState<ModuleFaceplate[]>([]);
-    const [backboxes, setBackboxes] = useState<Backbox[]>([]);
-    const [items, setItems] = useState<TelephoneNetworkingType[]>([]);
-    const [floorStandingRacks, setFloorStandingRacks] = useState<any[]>([]);
+    const [floorStandingRacks, setFloorStandingRacks] = useState<FloorStandingRack[]>([]);
+    const [wallRacks, setWallRacks] = useState<WallRack[]>([]);
+    const [openRacks, setOpenRacks] = useState<OpenRack[]>([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 setLoading(true);
+                setError(null);
 
                 if (category === 'data-center-copper-cable') {
                     const response = await axios.get('/data/enterpriseCables.json');
                     setEnterpriseCables(response.data);
-                } else if (category === 'products-enterprises') {
-                    const response = await axios.get('/data/defaultCategories.json');
-                    setDefaultCategories(response.data);
-                    if (response.data.length > 0) {
-                        setSelectedDefaultCategory(response.data[0]);
-                    }
-                } else if (category === 'copper-patch-panels-frames') {
-                    const response = await axios.get('/data/copperPatchPanels.json');
-                    setProductData(response.data);
-                } else if (category === 'keystone-jacks-shutters') {
-                    const response = await axios.get('/data/keyStone.json');
-                    setKeystoneJacks(response.data);
-                } else if (category === 'modules-faceplates') {
-                    const response = await axios.get('/api/modules-faceplates');
-                    setModules(response.data);
-                } else if (category === 'backboxes-floorboxes') {
-                    const backboxesResponse = await axios.get('/api/backboxes');
-                    setBackboxes(backboxesResponse.data);
-                } else if (category === 'telephone-networking') {
-                    const response = await axios.get('/api/telephone-networking');
-                    setItems(response.data);
                 } else if (category === 'floor-standing') {
-                    const response = await axios.get('/api/products/floor-standing');
+                    const response = await axios.get('/api/floor-standing-racks');
                     setFloorStandingRacks(response.data);
+                } else if (category === 'wall-frames') {
+                    const response = await axios.get('/api/wall-racks');
+                    setWallRacks(response.data);
+                } else if (category === 'open-racks') {
+                    const response = await axios.get('/api/open-racks');
+                    setOpenRacks(response.data);
                 } else {
                     const response = await axios.get('/data/productCategories.json');
                     const products = response.data;
@@ -175,7 +164,7 @@ export default function CategoryPage() {
 
     // Handle back navigation
     const handleBack = () => {
-        router.push('/products');
+        router.push('/');
         setShowSelectedCategory(false);
     };
     const handleCategoryBack = () => {
@@ -205,7 +194,7 @@ export default function CategoryPage() {
                 {/* Cards Grid */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {defaultCategories.map((category: any, idx: number) => (
+                        {defaultCategories?.map((category: any, idx: number) => (
                             <div
                                 key={idx}
                                 className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 h-full flex flex-col"
@@ -358,204 +347,6 @@ export default function CategoryPage() {
         );
     }
 
-    // Handle enterprise cables view
-    if (category === 'data-center-copper-cable') {
-        return (
-            <div className="min-h-screen bg-gray-50 font-inter">
-                <Navbar />
-                <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
-                    <div className="absolute inset-0 bg-black opacity-40"></div>
-                    <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
-                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                            Enterprise Data Center Copper Cable
-                        </h1>
-                        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            Discover high-performance products designed for modern infrastructure.
-                        </p>
-                    </div>
-                </section>
-                <div className="pt-0">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <button
-                            onClick={handleBack}
-                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
-                        >
-                            <FaArrowLeft />
-                            <span>Back to Products</span>
-                        </button>
-                        <EnterpriseCables cables={enterpriseCables} />
-                    </div>
-                </div>
-                <Footer />
-            </div>
-        );
-    }
-
-    // Handle copper patch panels & frames view
-    if (category === 'copper-patch-panels-frames' && productData) {
-        return (
-            <div className="min-h-screen bg-gray-50 font-inter">
-                <Navbar />
-                <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
-                    <div className="absolute inset-0 bg-black opacity-40"></div>
-                    <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
-                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                            Copper Patch Panels & Frames
-                        </h1>
-                        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            Discover high-performance patch panels and frames for structured cabling systems.
-                        </p>
-                    </div>
-                </section>
-                <div className="pt-0">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <button
-                            onClick={handleBack}
-                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
-                        >
-                            <FaArrowLeft />
-                            <span>Back to Products</span>
-                        </button>
-                        {productData.frames && <CopperPatchPanels frames={productData.frames} />}
-                    </div>
-                </div>
-                <Footer />
-            </div>
-        );
-    }
-
-    // Handle keystone jacks view
-    if (category === 'keystone-jacks-shutters') {
-        return (
-            <div className="min-h-screen bg-gray-50 font-inter">
-                <Navbar />
-                <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
-                    <div className="absolute inset-0 bg-black opacity-40"></div>
-                    <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
-                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                            Keystone Jacks & Shutters
-                        </h1>
-                        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            High-quality keystone jacks and shutters for reliable network connectivity.
-                        </p>
-                    </div>
-                </section>
-                <div className="pt-0">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <button
-                            onClick={handleBack}
-                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
-                        >
-                            <FaArrowLeft />
-                            <span>Back to Products</span>
-                        </button>
-                        <KeystoneJacks jacks={keystoneJacks} />
-                    </div>
-                </div>
-                <Footer />
-            </div>
-        );
-    }
-
-    // Handle modules & faceplates view
-    if (category === 'modules-faceplates') {
-        return (
-            <div className="min-h-screen bg-gray-50 font-inter">
-                <Navbar />
-                <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
-                    <div className="absolute inset-0 bg-black opacity-40"></div>
-                    <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
-                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                            Modules & Faceplates
-                        </h1>
-                        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            High-quality modules and faceplates for reliable network connectivity.
-                        </p>
-                    </div>
-                </section>
-                <div className="pt-0">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <button
-                            onClick={handleBack}
-                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
-                        >
-                            <FaArrowLeft />
-                            <span>Back to Products</span>
-                        </button>
-                        <ModulesFaceplates modules={modules} />
-                    </div>
-                </div>
-                <Footer />
-            </div>
-        );
-    }
-
-    // Handle backboxes view
-    if (category === 'backboxes-floorboxes') {
-        return (
-            <div className="min-h-screen bg-gray-50 font-inter">
-                <Navbar />
-                <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
-                    <div className="absolute inset-0 bg-black opacity-40"></div>
-                    <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
-                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                            Backboxes & Floorboxes
-                        </h1>
-                        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            High-quality backboxes and floorboxes for secure network installations.
-                        </p>
-                    </div>
-                </section>
-                <div className="pt-0">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <button
-                            onClick={handleBack}
-                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
-                        >
-                            <FaArrowLeft />
-                            <span>Back to Products</span>
-                        </button>
-                        <Backboxes backboxes={backboxes} />
-                    </div>
-                </div>
-                <Footer />
-            </div>
-        );
-    }
-
-    // Handle telephone networking view
-    if (category === 'telephone-networking') {
-        return (
-            <div className="min-h-screen bg-gray-50 font-inter">
-            <Navbar />
-            <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
-                <div className="absolute inset-0 bg-black opacity-40"></div>
-                <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
-                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                        Telephone Networking
-                    </h1>
-                    <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                        High-quality telephone networking solutions for secure network installations.
-                    </p>
-                </div>
-            </section>
-            <div className="pt-0">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <button
-                        onClick={handleBack}
-                        className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
-                    >
-                        <FaArrowLeft />
-                        <span>Back to Products</span>
-                    </button>
-                    <TelephoneNetworking items={items} />
-                </div>
-            </div>
-            <Footer />
-        </div>
-        );
-    }
-
     // Handle floor standing racks view
     if (category === 'floor-standing') {
         return (
@@ -582,6 +373,72 @@ export default function CategoryPage() {
                             <span>Back to Products</span>
                         </button>
                         <FloorStandingRacks racks={floorStandingRacks} />
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        );
+    }
+
+    // Handle wall racks view
+    if (category === 'wall-frames') {
+        return (
+            <div className="min-h-screen bg-gray-50 font-inter">
+                <Navbar />
+                <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
+                    <div className="absolute inset-0 bg-black opacity-40"></div>
+                    <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
+                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                            Wall Frames
+                        </h1>
+                        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            Professional wall frames for efficient space utilization.
+                        </p>
+                    </div>
+                </section>
+                <div className="pt-0">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <button
+                            onClick={handleBack}
+                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+                        >
+                            <FaArrowLeft />
+                            <span>Back to Racks & Cabinets</span>
+                        </button>
+                        <WallRacks racks={wallRacks} />
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        );
+    }
+
+    // Handle open racks view
+    if (category === 'open-racks') {
+        return (
+            <div className="min-h-screen bg-gray-50 font-inter">
+                <Navbar />
+                <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
+                    <div className="absolute inset-0 bg-black opacity-40"></div>
+                    <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
+                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                            Open Racks
+                        </h1>
+                        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            Open racks for flexible and adaptable storage solutions.
+                        </p>
+                    </div>
+                </section>
+                <div className="pt-0">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <button
+                            onClick={handleBack}
+                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+                        >
+                            <FaArrowLeft />
+                            <span>Back to Racks & Cabinets</span>
+                        </button>
+                        <OpenRacks racks={openRacks} />
                     </div>
                 </div>
                 <Footer />

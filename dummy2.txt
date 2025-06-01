@@ -1,85 +1,1209 @@
-
-C:\Users\user\Desktop\Projects\TelemonsProject\Telemons>npm run build
-
-> telemons-cable@0.1.0 build
-> next build
-
- ⚠ Invalid next.config.js options detected:
- ⚠     Unrecognized key(s) in object: 'turbo'
- ⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
-  ▲ Next.js 14.2.28
-  - Environments: .env
-
-   Creating an optimized production build ...
- ✓ Compiled successfully
-
-./components/common/Navbar.tsx
-188:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
-
-info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
- ✓ Linting and checking validity of types
- ✓ Collecting page data
-   Generating static pages (10/14)  [   =]Error fetching modules and faceplates: PrismaClientUnknownRequestError:
-Invalid `prisma.structuredModules.findMany()` invocation:
-
-
-Error occurred during query execution:
-ConnectorError(ConnectorError { user_facing_error: None, kind: QueryError(PostgresError { code: "42P05", message: "prepared statement \"s0\" already exists", severity: "ERROR", detail: None, column: None, hint: None }), transient: false })
-    at oq.handleRequestError (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:114:8154)
-    at oq.handleAndLogRequestError (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:114:7049)
-    at oq.request (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:114:6756)
-    at async s (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:126:6317)
-    at async u (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\app\api\modules-faceplates\route.js:1:1101)
-    at async C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:38411
-    at async e_.execute (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:27880)
-    at async e_.handle (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:39943)
-    at async exportAppRoute (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\export\routes\app-route.js:77:26)
-    at async exportPageImpl (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\export\worker.js:175:20) {
-  clientVersion: '6.8.2'
-}
-   Generating static pages (12/14)  [  ==]Error fetching telephone networking data: PrismaClientUnknownRequestError:
-Invalid `prisma.structuredTelephonenetworking.findMany()` invocation:
-
-
-Error occurred during query execution:
-ConnectorError(ConnectorError { user_facing_error: None, kind: QueryError(PostgresError { code: "42P05", message: "prepared statement \"s0\" already exists", severity: "ERROR", detail: None, column: None, hint: None }), transient: false })
-    at oq.handleRequestError (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:114:8154)
-    at oq.handleAndLogRequestError (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:114:7049)
-    at oq.request (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:114:6756)
-    at async s (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\chunks\331.js:126:6317)
-    at async d (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\.next\server\app\api\telephone-networking\route.js:1:1101)
-    at async C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:38411
-    at async e_.execute (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:27880)
-    at async e_.handle (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\compiled\next-server\app-route.runtime.prod.js:6:39943)
-    at async exportAppRoute (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\export\routes\app-route.js:77:26)
-    at async exportPageImpl (C:\Users\user\Desktop\Projects\TelemonsProject\Telemons\node_modules\next\dist\export\worker.js:175:20) {
-  clientVersion: '6.8.2'
-}
- ✓ Generating static pages (14/14)
- ✓ Collecting build traces
- ✓ Finalizing page optimization
-
-Route (app)                              Size     First Load JS
-┌ ○ /                                    40.5 kB         155 kB
-├ ○ /_not-found                          873 B          88.1 kB
-├ ○ /api/backboxes                       0 B                0 B
-├ ƒ /api/modules-faceplates              0 B                0 B
-├ ƒ /api/telephone-networking            0 B                0 B
-├ ○ /auth/callback                       1.84 kB          98 kB
-├ ○ /login                               2.16 kB         123 kB
-├ ○ /markets                             1.51 kB         137 kB
-├ ƒ /markets/[market]                    1.8 kB          137 kB
-├ ○ /products                            5.22 kB         140 kB
-├ ƒ /products/[category]                 6.14 kB         141 kB
-├ ○ /signup                              2.2 kB          123 kB
-└ ○ /test                                810 B           110 kB
-+ First Load JS shared by all            87.2 kB
-  ├ chunks/117-cd1dfbe0ca6b7ee6.js       31.6 kB
-  ├ chunks/fd9d1056-5b667ce5b248ceca.js  53.6 kB
-  └ other shared chunks (total)          1.99 kB
-
-
-ƒ Middleware                             59 kB
-
-○  (Static)   prerendered as static content
-ƒ  (Dynamic)  server-rendered on demand
+[
+    {
+        "id": "1",
+        "title": "Environ CL800 47U Co-Location Rack 800x1000mm (2 Compartments) Vented (F) Vented (R) B/Panels B/Central-Mgmt Black Flat Pack",
+        "partNumber": "545-4781-2C-VVBM-BK-FP",
+        "description": "Secure co-location rack with two compartments for multi-tenant setups.",
+        "image": "https://media.excel-networking.com/images/EXCEL/2 Door Colo_800px.jpg",
+        "specifications": [
+            "- 2 or 4 compartment options",
+            "- Includes leveling feet",
+            "- Heavy-duty lockable casters",
+            "- U-marked 19-inch profiles",
+            "- Top and bottom cable entry per compartment",
+            "- Secure cable entry design",
+            "- Baying kit provided",
+            "- Baying with or without side panels",
+            "- 600 kg load capacity",
+            "- Brush strip cable entry at roof and base",
+            "- Simultaneous jacking feet and caster use",
+            "- Detachable side panels",
+            "- Swing handle locks with keys on doors",
+            "- Unique side panel keys",
+            "- CIBSE TM65 Embodied Carbon: 1076.156 kg CO2e",
+            "- Adjustable mounting rails",
+            "- Full-depth compartment separation"
+        ],
+        "features": [
+            "- 2 or 4 compartment options",
+            "- Includes leveling feet",
+            "- Heavy-duty lockable casters",
+            "- U-marked 19-inch profiles",
+            "- Top and bottom cable entry per compartment",
+            "- Secure cable entry design",
+            "- Baying kit provided",
+            "- Baying with or without side panels",
+            "- 600 kg load capacity",
+            "- Brush strip cable entry at roof and base",
+            "- Simultaneous jacking feet and caster use",
+            "- Detachable side panels",
+            "- Swing handle locks with keys on doors",
+            "- Unique side panel keys",
+            "- CIBSE TM65 Embodied Carbon: 1076.156 kg CO2e",
+            "- Adjustable mounting rails",
+            "- Full-depth compartment separation"
+        ],
+        "detailedDescription": "The Environ CL800 co-location rack features two secure compartments for multi-tenant installations, built on a robust ER series chassis with adjustable mounting rails and full-depth dividing panels for enhanced access control.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/2 Door Colo_800px.jpg"
+        ]
+    },
+    {
+        "id": "2",
+        "title": "Environ CL800 47U Co-Location Rack 800x1000mm (4 Compartments) Vented (F) Vented (R) B/Panels B/Central-Mgmt Grey White Flat Pack",
+        "partNumber": "545-4781-4C-VVBM-GW-FP",
+        "description": "Co-location rack with four compartments for secure multi-tenant environments.",
+        "image": "https://media.excel-networking.com/images/SNEN003/20170321_COLO Rack_front_02_800px.jpg",
+        "specifications": [
+            "- 2 or 4 compartment options",
+            "- Includes leveling feet",
+            "- Heavy-duty lockable casters",
+            "- U-marked 19-inch profiles",
+            "- Top and bottom cable entry per compartment",
+            "- Secure cable entry design",
+            "- Baying kit provided",
+            "- Baying with or without side panels",
+            "- 600 kg load capacity",
+            "- Brush strip cable entry at roof and base",
+            "- Simultaneous jacking feet and caster use",
+            "- Detachable side panels",
+            "- Swing handle locks with keys on doors",
+            "- Unique side panel keys",
+            "- CIBSE TM65 Embodied Carbon: 1076.156 kg CO2e",
+            "- Adjustable mounting rails",
+            "- Full-depth compartment separation"
+        ],
+        "features": [
+            "- 2 or 4 compartment options",
+            "- Includes leveling feet",
+            "- Heavy-duty lockable casters",
+            "- U-marked 19-inch profiles",
+            "- Top and bottom cable entry per compartment",
+            "- Secure cable entry design",
+            "- Baying kit provided",
+            "- Baying with or without side panels",
+            "- 600 kg load capacity",
+            "- Brush strip cable entry at roof and base",
+            "- Simultaneous jacking feet and caster use",
+            "- Detachable side panels",
+            "- Swing handle locks with keys on doors",
+            "- Unique side panel keys",
+            "- CIBSE TM65 Embodied Carbon: 1076.156 kg CO2e",
+            "- Adjustable mounting rails",
+            "- Full-depth compartment separation"
+        ],
+        "detailedDescription": "This Environ CL800 rack offers four isolated compartments for co-location setups, utilizing the ER series chassis with adjustable rails and dividing panels for secure equipment housing.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/SNEN003/20170321_COLO Rack_front_02_800px.jpg"
+        ]
+    },
+    {
+        "id": "3",
+        "title": "Environ CL800 47U Co-Location Rack 800x1000mm (4 Compartments) Vented (F) Vented (R) B/Panels B/Central-Mgmt Grey White",
+        "partNumber": "545-4781-4C-VVBM-GW",
+        "description": "Four-compartment rack for secure co-location installations.",
+        "image": "https://media.excel-networking.com/images/SNEN003/20170321_COLO Rack_front_02_800px.jpg",
+        "specifications": [
+            "- 2 or 4 compartment options",
+            "- Includes leveling feet",
+            "- Heavy-duty lockable casters",
+            "- U-marked 19-inch profiles",
+            "- Top and bottom cable entry per compartment",
+            "- Secure cable entry design",
+            "- Baying kit provided",
+            "- Baying with or without side panels",
+            "- 600 kg load capacity",
+            "- Brush strip cable entry at roof and base",
+            "- Simultaneous jacking feet and caster use",
+            "- Detachable side panels",
+            "- Swing handle locks with keys on doors",
+            "- Unique side panel keys",
+            "- CIBSE TM65 Embodied Carbon: 1076.156 kg CO2e",
+            "- Adjustable mounting rails",
+            "- Full-depth compartment separation"
+        ],
+        "features": [
+            "- 2 or 4 compartment options",
+            "- Includes leveling feet",
+            "- Heavy-duty lockable casters",
+            "- U-marked 19-inch profiles",
+            "- Top and bottom cable entry per compartment",
+            "- Secure cable entry design",
+            "- Baying kit provided",
+            "- Baying with or without side panels",
+            "- 600 kg load capacity",
+            "- Brush strip cable entry at roof and base",
+            "- Simultaneous jacking feet and caster use",
+            "- Detachable side panels",
+            "- Swing handle locks with keys on doors",
+            "- Unique side panel keys",
+            "- CIBSE TM65 Embodied Carbon: 1076.156 kg CO2e",
+            "- Adjustable mounting rails",
+            "- Full-depth compartment separation"
+        ],
+        "detailedDescription": "The Environ CL800 rack provides four secure compartments for multi-tenant applications, built on the ER series chassis with adjustable mounting rails and full-depth dividers for access control.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/SNEN003/20170321_COLO Rack_front_02_800px.jpg"
+        ]
+    },
+    {
+        "id": "4",
+        "title": "Environ CR600 29U Rack 600x800mm Glass (F) Steel (R) B/Panels No/Mgmt Grey White",
+        "partNumber": "542-2968-GSBN-GW",
+        "description": "Versatile 29U rack for data and telecom applications.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4266-GSBN-GW_full view_front_003_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 416.689 kg CO2e",
+            "- Flexible cable management",
+            "- Wide application compatibility"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 416.689 kg CO2e",
+            "- Flexible cable management",
+            "- Wide application compatibility"
+        ],
+        "detailedDescription": "The Environ CR600 29U rack is designed for diverse applications in data, security, and telecommunications, featuring a 600 mm width with flexible cable entry and robust construction.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4266-GSBN-GW_full view_front_003_800px.jpg"
+        ]
+    },
+    {
+        "id": "5",
+        "title": "Environ CR600 24U Rack 600x600mm Glass (F) Steel (R) B/Panels No/Mgmt Grey White Flat Pack",
+        "partNumber": "542-2466-GSBN-GW-FP",
+        "description": "Compact 24U rack for communication setups.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4266-GSBN-GW_full view_front_003_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 319.281 kg CO2e",
+            "- Efficient cable entry design",
+            "- Easy assembly flat-pack"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 319.281 kg CO2e",
+            "- Efficient cable entry design",
+            "- Easy assembly flat-pack"
+        ],
+        "detailedDescription": "This Environ CR600 24U rack supports data, security, and telecom applications with a 600 mm wide frame, offering efficient cable entry and a flat-pack option for easy assembly.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4266-GSBN-GW_full view_front_003_800px.jpg"
+        ]
+    },
+    {
+        "id": "6",
+        "title": "Environ CR600 24U Rack 600x600mm Glass (F) Steel (R) B/Panels No/Mgmt Grey White",
+        "partNumber": "542-2466-GSBN-GW",
+        "description": "24U rack for versatile data and telecom installations.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4266-GSBN-GW_full view_front_003_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 319.281 kg CO2e",
+            "- Flexible cable management",
+            "- Robust construction"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 319.281 kg CO2e",
+            "- Flexible cable management",
+            "- Robust construction"
+        ],
+        "detailedDescription": "The Environ CR600 24U rack is ideal for data, security, and telecommunication environments, featuring a 600 mm wide chassis with ample cable entry and sturdy build.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4266-GSBN-GW_full view_front_003_800px.jpg"
+        ]
+    },
+    {
+        "id": "7",
+        "title": "Environ CR800 42U Rack 800x800mm No Door (F) No Door (R) N/Panels F/Mgmt Grey White",
+        "partNumber": "542-4288-NNNF-GW",
+        "description": "Open 42U rack with vertical cable management.",
+        "image": "https://media.excel-networking.com/images/EXCEL/CR800-no-sides-no-doors-generic_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Open-frame accessibility",
+            "- Efficient cable organization"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Open-frame accessibility",
+            "- Efficient cable organization"
+        ],
+        "detailedDescription": "This Environ CR800 42U rack offers an open design for data and telecom applications, with an 800 mm width and high-density vertical cable management for organized installations.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/CR800-no-sides-no-doors-generic_800px.jpg"
+        ]
+    },
+    {
+        "id": "8",
+        "title": "Environ CR600 20U Rack 600x600mm No Door (F) No Door (R) N/Panels No/Mgmt Black",
+        "partNumber": "542-2066-NNNN-BK",
+        "description": "Open 20U rack for flexible installations.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.CR 542-4266-GSBN-BK_full view_front_002_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Open-frame accessibility",
+            "- Optimized cable entry"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Open-frame accessibility",
+            "- Optimized cable entry"
+        ],
+        "detailedDescription": "The Environ CR600 20U rack features an open-frame design for data, security, and telecom setups, with a 600 mm wide chassis and optimized cable entry points.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.CR 542-4266-GSBN-BK_full view_front_002_800px.jpg"
+        ]
+    },
+    {
+        "id": "9",
+        "title": "Environ CR800 47U Rack 800x800mm Glass (F) Steel (R) N/Panels F/Mgmt Black",
+        "partNumber": "542-4788-GSNF-BK",
+        "description": "47U rack with vertical cable management for large setups.",
+        "image": "https://media.excel-networking.com/images/EXCEL/CR800-no-sides-generic-black_800px.jpg",
+        "specifications": [
+            "- Custom configuration without side panels",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Enhanced equipment accessibility",
+            "- Organized cable routing"
+        ],
+        "features": [
+            "- Custom configuration without side panels",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Enhanced equipment accessibility",
+            "- Organized cable routing"
+        ],
+        "detailedDescription": "This Environ CR800 47U rack supports extensive data and telecom applications with an 800 mm wide frame, featuring high-density cable management and no side panels for easy access.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/CR800-no-sides-generic-black_800px.jpg"
+        ]
+    },
+    {
+        "id": "10",
+        "title": "Environ CL600 42U Co-Location Rack 600x1000mm (2 Compartments) Vented (F) Vented (R) B/Panels R/Central-Mgmt Grey White Flat Pack",
+        "partNumber": "545-4261-2C-VVBM-GW-FP",
+        "description": "Co-location rack with two secure compartments.",
+        "image": "https://media.excel-networking.com/images/EXCEL/2 Door Colo GreyWhite_800px.jpg",
+        "specifications": [
+            "- 2 or 4 compartment options",
+            "- Includes leveling feet",
+            "- Heavy-duty lockable casters",
+            "- U-marked 19-inch profiles",
+            "- Top and bottom cable entry per compartment",
+            "- Secure cable entry design",
+            "- Baying kit provided",
+            "- Baying with or without side panels",
+            "- 600 kg load capacity",
+            "- Brush strip cable entry at roof and base",
+            "- Simultaneous jacking feet and caster use",
+            "- Detachable side panels",
+            "- Swing handle locks with keys on doors",
+            "- Unique side panel keys",
+            "- Adjustable mounting rails",
+            "- Full-depth compartment separation"
+        ],
+        "features": [
+            "- 2 or 4 compartment options",
+            "- Includes leveling feet",
+            "- Heavy-duty lockable casters",
+            "- U-marked 19-inch profiles",
+            "- Top and bottom cable entry per compartment",
+            "- Secure cable entry design",
+            "- Baying kit provided",
+            "- Baying with or without side panels",
+            "- 600 kg load capacity",
+            "- Brush strip cable entry at roof and base",
+            "- Simultaneous jacking feet and caster use",
+            "- Detachable side panels",
+            "- Swing handle locks with keys on doors",
+            "- Unique side panel keys",
+            "- Adjustable mounting rails",
+            "- Full-depth compartment separation"
+        ],
+        "detailedDescription": "The Environ CL600 42U rack provides two secure compartments for co-location, built on the ER series chassis with adjustable rails and dividing panels for tenant separation.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/2 Door Colo GreyWhite_800px.jpg"
+        ]
+    },
+    {
+        "id": "11",
+        "title": "Environ CR800 42U Rack 800x1000mm Steel (F) Steel (R) B/Panels F/Mgmt Black",
+        "partNumber": "542-42810-SSBF-BK",
+        "description": "42U rack with steel doors for secure installations.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4288-GSBF-BK_full view_front_002_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 896.102 kg CO2e",
+            "- Secure steel door design",
+            "- Efficient cable organization"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 896.102 kg CO2e",
+            "- Secure steel door design",
+            "- Efficient cable organization"
+        ],
+        "detailedDescription": "The Environ CR800 42U rack is designed for data, security, and telecom applications, featuring an 800 mm wide frame with steel doors and high-density cable management.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4288-GSBF-BK_full view_front_002_800px.jpg"
+        ]
+    },
+    {
+        "id": "12",
+        "title": "Environ SR600 42U Rack 600x1000mm W/Vented (F) D/Vented (R) B/Panels No/Mgmt Black",
+        "partNumber": "544-42610-WDBN-BK",
+        "description": "Server rack for high-density equipment hosting.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.544-42610-WDBN-BK_full view_front_01_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Removable sliding base panel",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- High-density server compatibility",
+            "- Enhanced cable access"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Removable sliding base panel",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- High-density server compatibility",
+            "- Enhanced cable access"
+        ],
+        "detailedDescription": "The Environ SR600 42U server rack supports high-density equipment with a 600 mm wide frame, featuring vented doors and a sliding base panel for cable access.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.544-42610-WDBN-BK_full view_front_01_800px.jpg"
+        ]
+    },
+    {
+        "id": "13",
+        "title": "Environ ER800 29U Rack 800x600mm D/Vented (F) D/Vented (R) B/Panels F/Mgmt Black",
+        "partNumber": "542-2986-DDBF-BK",
+        "description": "29U rack with double vented doors for ventilation.",
+        "image": "https://media.excel-networking.com/images/EXCEL/ER600-double-door-generic-black_800px.jpg",
+        "specifications": [
+            "- Custom double-door configuration",
+            "- Multiple depth and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 445.160 kg CO2e",
+            "- Enhanced ventilation",
+            "- Organized cable routing"
+        ],
+        "features": [
+            "- Custom double-door configuration",
+            "- Multiple depth and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 445.160 kg CO2e",
+            "- Enhanced ventilation",
+            "- Organized cable routing"
+        ],
+        "detailedDescription": "This Environ ER800 29U rack is tailored for data and telecom setups, with an 800 mm wide chassis, double vented doors, and vertical cable management.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/ER600-double-door-generic-black_800px.jpg"
+        ]
+    },
+    {
+        "id": "14",
+        "title": "Environ CR800 24U Rack 800x800mm No Door (F) No Door (R) N/Panels F/Mgmt Black",
+        "partNumber": "542-2488-NNNF-BK",
+        "description": "Open 24U rack for accessible equipment setups.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4288-GSBF-BK_full view_front_002_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Open-frame accessibility",
+            "- Efficient cable organization"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Open-frame accessibility",
+            "- Efficient cable organization"
+        ],
+        "detailedDescription": "The Environ CR800 24U rack features an open design for data and telecom applications, with an 800 mm wide frame and high-density vertical cable management.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4288-GSBF-BK_full view_front_002_800px.jpg"
+        ]
+    },
+    {
+        "id": "15",
+        "title": "Environ ACR Acoustic Soundproof Rack 42U Wood Finish Black Metal",
+        "partNumber": "548-42710-FSBN-PW",
+        "description": "Soundproof 42U rack for quiet office IT setups.",
+        "image": "https://media.excel-networking.com/images/EXCEL/548-42710-FSBN-PW_1_800px.jpg",
+        "specifications": [
+            "- Available in 18U, 24U, and 42U sizes",
+            "- Furniture-style wood finish",
+            "- 49 dB sound reduction",
+            "- Temperature-controlled cooling fans",
+            "- 12-way C13 PDU included",
+            "- 1000 kg load capacity",
+            "- Quiet office compatibility",
+            "- Immediate out-of-box use"
+        ],
+        "features": [
+            "- Available in 18U, 24U, and 42U sizes",
+            "- Furniture-style wood finish",
+            "- 49 dB sound reduction",
+            "- Temperature-controlled cooling fans",
+            "- 12-way C13 PDU included",
+            "- 1000 kg load capacity",
+            "- Quiet office compatibility",
+            "- Immediate out-of-box use"
+        ],
+        "detailedDescription": "The Environ ACR 42U rack combines soundproofing with a furniture-style finish, equipped with cooling fans and a PDU for small office IT environments.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/548-42710-FSBN-PW_1_800px.jpg"
+        ]
+    },
+    {
+        "id": "16",
+        "title": "Environ CL800 42U Co-Location Rack 800x1000mm (2 Compartments) Vented (F) Vented (R) B/Panels B/Central-Mgmt Black Flat Pack",
+        "partNumber": "545-4281-2C-VVBM-BK-FP",
+        "description": "Two-compartment co-location rack for secure setups.",
+        "image": "https://media.excel-networking.com/images/EXCEL/2 Door Colo_800px.jpg",
+        "specifications": [
+            "- 2 or 4 compartment options",
+            "- Includes leveling feet",
+            "- Heavy-duty lockable casters",
+            "- U-marked 19-inch profiles",
+            "- Top and bottom cable entry per compartment",
+            "- Secure cable entry design",
+            "- Baying kit provided",
+            "- Baying with or without side panels",
+            "- 600 kg load capacity",
+            "- Brush strip cable entry at roof and base",
+            "- Simultaneous jacking feet and caster use",
+            "- Detachable side panels",
+            "- Swing handle locks with keys on doors",
+            "- Unique side panel keys",
+            "- Adjustable mounting rails",
+            "- Full-depth compartment separation"
+        ],
+        "features": [
+            "- 2 or 4 compartment options",
+            "- Includes leveling feet",
+            "- Heavy-duty lockable casters",
+            "- U-marked 19-inch profiles",
+            "- Top and bottom cable entry per compartment",
+            "- Secure cable entry design",
+            "- Baying kit provided",
+            "- Baying with or without side panels",
+            "- 600 kg load capacity",
+            "- Brush strip cable entry at roof and base",
+            "- Simultaneous jacking feet and caster use",
+            "- Detachable side panels",
+            "- Swing handle locks with keys on doors",
+            "- Unique side panel keys",
+            "- Adjustable mounting rails",
+            "- Full-depth compartment separation"
+        ],
+        "detailedDescription": "This Environ CL800 42U rack offers two secure compartments for co-location, with adjustable mounting rails and full-depth dividers for multi-tenant installations.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/2 Door Colo_800px.jpg"
+        ]
+    },
+    {
+        "id": "17",
+        "title": "Environ CR800 24U Rack 800x800mm Glass (F) Steel (R) B/Panels F/Mgmt Black Flat Pack",
+        "partNumber": "542-2488-GSBF-BK-FP",
+        "description": "24U rack with glass door for telecom setups.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4288-GSBF-BK_full view_front_002_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Glass door visibility",
+            "- Organized cable routing"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Glass door visibility",
+            "- Organized cable routing"
+        ],
+        "detailedDescription": "The Environ CR800 24U rack supports data and telecom applications with an 800 mm wide frame, glass front door, and high-density cable management.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4288-GSBF-BK_full view_front_002_800px.jpg"
+        ]
+    },
+    {
+        "id": "18",
+        "title": "Environ CL800 42U Co-Location Rack 800x1000mm (4 Compartments) Vented (F) Vented (R) B/Panels B/Central-Mgmt Black Flat Pack",
+        "partNumber": "545-4281-4C-VVBM-BK-FP",
+        "description": "Four-compartment rack for co-location security.",
+        "image": "https://media.excel-networking.com/images/SNEN003/CL800 Full Rack_800px.jpg",
+        "specifications": [
+            "- 2 or 4 compartment options",
+            "- Includes leveling feet",
+            "- Heavy-duty lockable casters",
+            "- U-marked 19-inch profiles",
+            "- Top and bottom cable entry per compartment",
+            "- Secure cable entry design",
+            "- Baying kit provided",
+            "- Baying with or without side panels",
+            "- 600 kg load capacity",
+            "- Brush strip cable entry at roof and base",
+            "- Simultaneous jacking feet and caster use",
+            "- Detachable side panels",
+            "- Swing handle locks with keys on doors",
+            "- Unique side panel keys",
+            "- CIBSE TM65 Embodied Carbon: 1076.156 kg CO2e",
+            "- Adjustable mounting rails",
+            "- Full-depth compartment separation"
+        ],
+        "features": [
+            "- 2 or 4 compartment options",
+            "- Includes leveling feet",
+            "- Heavy-duty lockable casters",
+            "- U-marked 19-inch profiles",
+            "- Top and bottom cable entry per compartment",
+            "- Secure cable entry design",
+            "- Baying kit provided",
+            "- Baying with or without side panels",
+            "- 600 kg load capacity",
+            "- Brush strip cable entry at roof and base",
+            "- Simultaneous jacking feet and caster use",
+            "- Detachable side panels",
+            "- Swing handle locks with keys on doors",
+            "- Unique side panel keys",
+            "- CIBSE TM65 Embodied Carbon: 1076.156 kg CO2e",
+            "- Adjustable mounting rails",
+            "- Full-depth compartment separation"
+        ],
+        "detailedDescription": "The Environ CL800 42U rack features four secure compartments for co-location, with adjustable rails and full-depth dividers for enhanced tenant separation.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/SNEN003/CL800 Full Rack_800px.jpg"
+        ]
+    },
+    {
+        "id": "19",
+        "title": "Environ ER600 47U Rack 600x600mm W/Vented (F) D/Vented (R) B/Panels No/Mgmt Black",
+        "partNumber": "542-4766-WDBN-BK",
+        "description": "47U equipment rack for versatile applications.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4266-WDBN-BK_full view_front_01_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- High ventilation design",
+            "- Efficient cable management"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- High ventilation design",
+            "- Efficient cable management"
+        ],
+        "detailedDescription": "This Environ ER600 47U rack is designed for data, security, and telecom setups, featuring a 600 mm wide chassis with vented doors and efficient cable entry.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4266-WDBN-BK_full view_front_01_800px.jpg"
+        ]
+    },
+    {
+        "id": "20",
+        "title": "Environ ER600 47U Rack 600x1000mm W/Vented (F) D/Vented (R) B/Panels No/Mgmt Black Flat Pack",
+        "partNumber": "542-47610-WDBN-BK-FP",
+        "description": "47U rack with vented doors for large setups.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4266-WDBN-BK_full view_front_01_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- High ventilation design",
+            "- Easy assembly flat-pack"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- High ventilation design",
+            "- Easy assembly flat-pack"
+        ],
+        "detailedDescription": "The Environ ER600 47U rack supports extensive data and telecom applications with a 600 mm wide frame, vented doors, and a flat-pack option for assembly.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4266-WDBN-BK_full view_front_01_800px.jpg"
+        ]
+    },
+    {
+        "id": "21",
+        "title": "Environ ER800 42U Rack 800x1000mm No Door (F) D/Vented (R) N/Panels F/Mgmt Black",
+        "partNumber": "542-42810-NDNF-BK",
+        "description": "Open 42U rack with rear ventilation.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4288-WDBF-BK_full view_front_03 1_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Open-front accessibility",
+            "- Enhanced ventilation"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Open-front accessibility",
+            "- Enhanced ventilation"
+        ],
+        "detailedDescription": "This Environ ER800 42U rack features an open-front design with a vented rear door, offering an 800 mm wide frame and high-density cable management.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4288-WDBF-BK_full view_front_03 1_800px.jpg"
+        ]
+    },
+    {
+        "id": "22",
+        "title": "Environ ER600 42U Rack 600x600mm W/Vented (F) D/Vented (R) B/Panels No/Mgmt Grey White",
+        "partNumber": "542-4266-WDBN-GW",
+        "description": "42U rack for data and telecom environments.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4266-WDBN-GW_full view_front_02_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- High ventilation design",
+            "- Efficient cable management"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- High ventilation design",
+            "- Efficient cable management"
+        ],
+        "detailedDescription": "The Environ ER600 42U rack is suited for data, security, and telecom applications, with a 600 mm wide chassis and vented doors for optimal airflow.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4266-WDBN-GW_full view_front_02_800px.jpg"
+        ]
+    },
+    {
+        "id": "23",
+        "title": "Environ ACR Acoustic Soundproof Rack 24U Wood Finish Black Metal",
+        "partNumber": "548-24710-FSBN-PW",
+        "description": "Soundproof 24U rack for office IT installations.",
+        "image": "https://media.excel-networking.com/images/EXCEL/548-1868-FSBN-PW_1_800px.jpg",
+        "specifications": [
+            "- Available in 18U, 24U, and 42U sizes",
+            "- Furniture-style wood finish",
+            "- 49 dB sound reduction",
+            "- Temperature-controlled cooling fans",
+            "- 12-way C13 PDU included",
+            "- 1000 kg load capacity",
+            "- Quiet office compatibility",
+            "- Immediate out-of-box use"
+        ],
+        "features": [
+            "- Available in 18U, 24U, and 42U sizes",
+            "- Furniture-style wood finish",
+            "- 49 dB sound reduction",
+            "- Temperature-controlled cooling fans",
+            "- 12-way C13 PDU included",
+            "- 1000 kg load capacity",
+            "- Quiet office compatibility",
+            "- Immediate out-of-box use"
+        ],
+        "detailedDescription": "This Environ ACR 24U rack offers soundproofing and a furniture-style finish, with cooling fans and a PDU for discreet office IT setups.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/548-1868-FSBN-PW_1_800px.jpg"
+        ]
+    },
+    {
+        "id": "24",
+        "title": "Environ CR800 29U Rack 800x1000mm No Door (F) No Door (R) N/Panels F/Mgmt Black",
+        "partNumber": "542-29810-NNNF-BK",
+        "description": "Open 29U rack for flexible equipment setups.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4288-GSBF-BK_full view_front_002_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Open-frame accessibility",
+            "- Efficient cable organization"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Open-frame accessibility",
+            "- Efficient cable organization"
+        ],
+        "detailedDescription": "The Environ CR800 29U rack features an open design for data and telecom applications, with an 800 mm wide frame and high-density vertical cable management.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4288-GSBF-BK_full view_front_002_800px.jpg"
+        ]
+    },
+    {
+        "id": "25",
+        "title": "Environ CR800 33U Rack 800x800mm Glass (F) Steel (R) B/Panels F/Mgmt Black",
+        "partNumber": "542-3388-GSBF-BK",
+        "description": "33U rack with glass door for secure setups.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4288-GSBF-BK_full view_front_002_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Glass door visibility",
+            "- Organized cable routing"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Glass door visibility",
+            "- Organized cable routing"
+        ],
+        "detailedDescription": "This Environ CR800 33U rack supports data and telecom applications with an 800 mm wide frame, glass front door, and high-density cable management.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4288-GSBF-BK_full view_front_002_800px.jpg"
+        ]
+    },
+    {
+        "id": "26",
+        "title": "Environ CR800 33U Rack 800x1000mm Glass (F) Steel (R) B/Panels F/Mgmt Black Flat Pack",
+        "partNumber": "542-33810-GSBF-BK-FP",
+        "description": "33U rack with glass door for flat-pack assembly.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4288-GSBF-BK_full view_front_002_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Glass door visibility",
+            "- Easy assembly flat-pack"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Glass door visibility",
+            "- Easy assembly flat-pack"
+        ],
+        "detailedDescription": "The Environ CR800 33U rack is designed for data and telecom setups, with an 800 mm wide frame, glass front door, and flat-pack option for easy assembly.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4288-GSBF-BK_full view_front_002_800px.jpg"
+        ]
+    },
+    {
+        "id": "27",
+        "title": "Environ CR600 20U Rack 600x600mm Glass (F) Steel (R) B/Panels No/Mgmt Grey White",
+        "partNumber": "542-2066-GSBN-GW",
+        "description": "20U rack for compact data installations.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4266-GSBN-GW_full view_front_003_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 265.166 kg CO2e",
+            "- Compact design",
+            "- Flexible cable management"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 265.166 kg CO2e",
+            "- Compact design",
+            "- Flexible cable management"
+        ],
+        "detailedDescription": "This Environ CR600 20U rack supports data, security, and telecom applications with a 600 mm wide frame and efficient cable entry design.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4266-GSBN-GW_full view_front_003_800px.jpg"
+        ]
+    },
+    {
+        "id": "28",
+        "title": "Elevate DCR800 42U Rack 800x1000mm Vented (F) D/Vented (R) B/Panels F/Mgmt Black",
+        "partNumber": "546-42810-VDBF-BK",
+        "description": "High-ventilation 42U rack for data centers.",
+        "image": "https://media.excel-networking.com/images/EXCEL/546_Series_Black_1_800px.jpg",
+        "specifications": [
+            "- Available in 42U, 47U, and 52U sizes",
+            "- High-ventilation mesh doors",
+            "- Airflow management baffles included",
+            "- Roof entry/exit for 16A and 32A IEC plugs",
+            "- Upgraded side cable trays",
+            "- Front finger cable management",
+            "- Optimized data center airflow",
+            "- Enhanced cable organization"
+        ],
+        "features": [
+            "- Available in 42U, 47U, and 52U sizes",
+            "- High-ventilation mesh doors",
+            "- Airflow management baffles included",
+            "- Roof entry/exit for 16A and 32A IEC plugs",
+            "- Upgraded side cable trays",
+            "- Front finger cable management",
+            "- Optimized data center airflow",
+            "- Enhanced cable organization"
+        ],
+        "detailedDescription": "The Elevate DCR800 42U rack is optimized for data center environments, featuring high-ventilation mesh doors, airflow baffles, and front cable management.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/546_Series_Black_1_800px.jpg"
+        ]
+    },
+    {
+        "id": "29",
+        "title": "Environ ER600 42U Rack 600x600mm W/Vented (F) D/Vented (R) B/Panels No/Mgmt Black",
+        "partNumber": "542-4266-WDBN-BK",
+        "description": "42U rack with vented doors for equipment hosting.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4266-WDBN-BK_full view_front_01_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- High ventilation design",
+            "- Efficient cable management"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- High ventilation design",
+            "- Efficient cable management"
+        ],
+        "detailedDescription": "The Environ ER600 42U rack is designed for data, security, and telecom setups, with a 600 mm wide chassis and vented doors for optimal ventilation.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4266-WDBN-BK_full view_front_01_800px.jpg"
+        ]
+    },
+    {
+        "id": "30",
+        "title": "Environ CR600 15U Rack 600x600mm Glass (F) Steel (R) B/Panels No/Mgmt Grey White",
+        "partNumber": "542-1566-GSBN-GW",
+        "description": "15U rack for small-scale data setups.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4266-GSBN-GW_full view_front_003_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 200.227 kg CO2e",
+            "- Compact design",
+            "- Flexible cable management"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- Available assembled or flat-packed",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 200.227 kg CO2e",
+            "- Compact design",
+            "- Flexible cable management"
+        ],
+        "detailedDescription": "This Environ CR600 15U rack is ideal for compact data and telecom installations, featuring a 600 mm wide frame and efficient cable entry.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4266-GSBN-GW_full view_front_003_800px.jpg"
+        ]
+    },
+    {
+        "id": "31",
+        "title": "Environ CR800 42U Rack 800x1000mm Glass (F) Steel (R) B/Panels F/Mgmt Black",
+        "partNumber": "542-42810-GSBF-BK",
+        "description": "42U rack with glass door for large installations.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4288-GSBF-BK_full view_front_002_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Glass door visibility",
+            "- Organized cable routing"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- IP20 rating with base plate",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- Glass door visibility",
+            "- Organized cable routing"
+        ],
+        "detailedDescription": "The Environ CR800 42U rack supports extensive data and telecom setups with an 800 mm wide frame, glass front door, and high-density cable management.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4288-GSBF-BK_full view_front_002_800px.jpg"
+        ]
+    },
+    {
+        "id": "32",
+        "title": "Environ ER800 47U Rack 800x1000mm W/Vented (F) D/Vented (R) B/Panels F/Mgmt Black",
+        "partNumber": "542-47810-WDBF-BK",
+        "description": "47U rack with vented doors for large setups.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4288-WDBF-BK_full view_front_03 1_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- High ventilation design",
+            "- Organized cable routing"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- High ventilation design",
+            "- Organized cable routing"
+        ],
+        "detailedDescription": "This Environ ER800 47U rack is designed for data, security, and telecom applications, with an 800 mm wide frame, vented doors, and high-density cable management.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4288-WDBF-BK_full view_front_03 1_800px.jpg"
+        ]
+    },
+    {
+        "id": "33",
+        "title": "Environ ER800 42U Rack 800x1000mm W/Vented (F) D/Vented (R) B/Panels F/Mgmt Black",
+        "partNumber": "542-42810-WDBF-BK",
+        "description": "42U rack with vented doors for efficient cooling.",
+        "image": "https://media.excel-networking.com/images/EXCEL/01.542-4288-WDBF-BK_full view_front_03 1_800px.jpg",
+        "specifications": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 896.102 kg CO2e",
+            "- High ventilation design",
+            "- Organized cable routing"
+        ],
+        "features": [
+            "- Multiple door, depth, and color options",
+            "- U-marked 19-inch profiles",
+            "- Large base cable entry cutout",
+            "- Brush strip cable entry at roof and base",
+            "- 70% door ventilation",
+            "- Available assembled or flat-packed",
+            "- High-density vertical cable management",
+            "- Includes baying kit, leveling feet, and lockable casters",
+            "- CIBSE TM65 Embodied Carbon: 896.102 kg CO2e",
+            "- High ventilation design",
+            "- Organized cable routing"
+        ],
+        "detailedDescription": "The Environ ER800 42U rack supports data and telecom setups with an 800 mm wide frame, vented doors, and high-density vertical cable management.",
+        "additionalImages": [
+            "https://media.excel-networking.com/images/EXCEL/01.542-4288-WDBF-BK_full view_front_03 1_800px.jpg"
+        ]
+    }
+]
