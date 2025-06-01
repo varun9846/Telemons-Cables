@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import Image from 'next/image';
-import BackboxDetail from './BackboxDetail';
-import { Backbox } from '@/types/backbox';
+import FibreConnectorCouplerDetail from './FibreConnectorCouplerDetail';
+import { FibreConnectorCoupler } from '@/types/fibre-connector-coupler';
 
-interface BackboxesProps {
-  backboxes: Backbox[];
+interface FibreConnectorsCouplersProps {
+  connectors: FibreConnectorCoupler[];
 }
 
-const Backboxes: React.FC<BackboxesProps> = ({ backboxes }) => {
+const FibreConnectorsCouplers: React.FC<FibreConnectorsCouplersProps> = ({ connectors }) => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const [selectedProduct, setSelectedProduct] = useState<Backbox | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<FibreConnectorCoupler | null>(null);
 
   useEffect(() => {
     if (selectedProduct) {
@@ -22,7 +22,7 @@ const Backboxes: React.FC<BackboxesProps> = ({ backboxes }) => {
     setExpandedIndex(expandedIndex === idx ? null : idx);
   };
 
-  const handleViewDetails = (product: Backbox) => {
+  const handleViewDetails = (product: FibreConnectorCoupler) => {
     setSelectedProduct(product);
   };
 
@@ -31,60 +31,54 @@ const Backboxes: React.FC<BackboxesProps> = ({ backboxes }) => {
   };
 
   if (selectedProduct) {
-    return <BackboxDetail product={selectedProduct} onBack={handleBack} />;
+    return <FibreConnectorCouplerDetail product={selectedProduct} onBack={handleBack} />;
   }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {backboxes.map((backbox, idx) => (
+      {connectors.map((connector, idx) => (
         <div
-          key={backbox.id}
+          key={connector.id}
           className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
         >
-          {backbox?.image && (
+          {connector?.image && (
             <div className="relative h-48 w-full">
               <Image
-                src={backbox?.image}
-                alt={backbox.title}
+                src={connector?.image}
+                alt={connector.title}
                 fill
                 className="object-cover"
               />
             </div>
           )}
-          
-          <div className="p-6">
-            <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">{backbox.title}</h3>
-            <p className="text-gray-600 mb-2 text-sm">{backbox.description}</p>
+          <div className="p-6 flex flex-col flex-1">
+            <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">{connector.title}</h3>
+            <p className="text-gray-600 mb-2 text-sm">{connector.description}</p>
             <div className="flex flex-wrap gap-2 mb-2">
-              <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Part: {backbox.partNumber}</span>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{backbox.specifications.type}</span>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{backbox.specifications.depth}</span>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{backbox.specifications.material}</span>
+              <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">
+                Part: {connector.partNumber}
+              </span>
             </div>
             <div className="mt-auto space-y-2">
               <button
-                onClick={() => handleViewDetails(backbox)}
+                onClick={() => handleViewDetails(connector)}
                 className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
               >
                 View Details
               </button>
-              {/* <button
+              <button
                 onClick={() => handleToggle(idx)}
                 className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors font-medium"
               >
                 Quick Specs {expandedIndex === idx ? <FaChevronUp /> : <FaChevronDown />}
-              </button> */}
+              </button>
             </div>
-            
             {expandedIndex === idx && (
               <div className="mt-4 text-sm text-gray-700 animate-fade-in">
                 <ul className="space-y-1">
-                  <li><b>Model:</b> {backbox.specifications.model}</li>
-                  <li><b>Type:</b> {backbox.specifications.type}</li>
-                  <li><b>Depth:</b> {backbox.specifications.depth}</li>
-                  <li><b>Material:</b> {backbox.specifications.material}</li>
-                  <li><b>Mounting:</b> {backbox.specifications.mounting}</li>
-                  <li><b>Suitable for Round Cable:</b> {backbox.specifications.suitableForRoundCable}</li>
+                  {connector.specifications.map((spec, i) => (
+                    <li key={i}>{spec}</li>
+                  ))}
                 </ul>
               </div>
             )}
@@ -95,4 +89,4 @@ const Backboxes: React.FC<BackboxesProps> = ({ backboxes }) => {
   );
 };
 
-export default Backboxes; 
+export default FibreConnectorsCouplers; 

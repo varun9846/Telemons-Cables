@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import FibreCableDetail from './FibreCableDetail';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import Image from 'next/image';
-import BackboxDetail from './BackboxDetail';
-import { Backbox } from '@/types/backbox';
+import { FibreCable } from '@/types/fibre-cable';
 
-interface BackboxesProps {
-  backboxes: Backbox[];
+interface FibreCablesProps {
+  cables: FibreCable[];
 }
 
-const Backboxes: React.FC<BackboxesProps> = ({ backboxes }) => {
+const FibreCables: React.FC<FibreCablesProps> = ({ cables }) => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const [selectedProduct, setSelectedProduct] = useState<Backbox | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<FibreCable | null>(null);
 
   useEffect(() => {
     if (selectedProduct) {
@@ -22,7 +22,7 @@ const Backboxes: React.FC<BackboxesProps> = ({ backboxes }) => {
     setExpandedIndex(expandedIndex === idx ? null : idx);
   };
 
-  const handleViewDetails = (product: Backbox) => {
+  const handleViewDetails = (product: FibreCable) => {
     setSelectedProduct(product);
   };
 
@@ -31,39 +31,35 @@ const Backboxes: React.FC<BackboxesProps> = ({ backboxes }) => {
   };
 
   if (selectedProduct) {
-    return <BackboxDetail product={selectedProduct} onBack={handleBack} />;
+    return <FibreCableDetail product={selectedProduct} onBack={handleBack} />;
   }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {backboxes.map((backbox, idx) => (
+      {cables.map((cable, idx) => (
         <div
-          key={backbox.id}
+          key={cable.id}
           className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
         >
-          {backbox?.image && (
+          {cable?.image && (
             <div className="relative h-48 w-full">
               <Image
-                src={backbox?.image}
-                alt={backbox.title}
+                src={cable?.image}
+                alt={cable.title}
                 fill
                 className="object-cover"
               />
             </div>
           )}
-          
-          <div className="p-6">
-            <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">{backbox.title}</h3>
-            <p className="text-gray-600 mb-2 text-sm">{backbox.description}</p>
+          <div className="p-6 flex flex-col flex-1">
+            <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">{cable.title}</h3>
+            <p className="text-gray-600 mb-2 text-sm">{cable.description}</p>
             <div className="flex flex-wrap gap-2 mb-2">
-              <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Part: {backbox.partNumber}</span>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{backbox.specifications.type}</span>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{backbox.specifications.depth}</span>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{backbox.specifications.material}</span>
+              <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Part: {cable.partNumber}</span>
             </div>
             <div className="mt-auto space-y-2">
               <button
-                onClick={() => handleViewDetails(backbox)}
+                onClick={() => handleViewDetails(cable)}
                 className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
               >
                 View Details
@@ -75,16 +71,12 @@ const Backboxes: React.FC<BackboxesProps> = ({ backboxes }) => {
                 Quick Specs {expandedIndex === idx ? <FaChevronUp /> : <FaChevronDown />}
               </button> */}
             </div>
-            
             {expandedIndex === idx && (
               <div className="mt-4 text-sm text-gray-700 animate-fade-in">
                 <ul className="space-y-1">
-                  <li><b>Model:</b> {backbox.specifications.model}</li>
-                  <li><b>Type:</b> {backbox.specifications.type}</li>
-                  <li><b>Depth:</b> {backbox.specifications.depth}</li>
-                  <li><b>Material:</b> {backbox.specifications.material}</li>
-                  <li><b>Mounting:</b> {backbox.specifications.mounting}</li>
-                  <li><b>Suitable for Round Cable:</b> {backbox.specifications.suitableForRoundCable}</li>
+                  {cable.specifications.map((spec, i) => (
+                    <li key={i}>{spec}</li>
+                  ))}
                 </ul>
               </div>
             )}
@@ -95,4 +87,4 @@ const Backboxes: React.FC<BackboxesProps> = ({ backboxes }) => {
   );
 };
 
-export default Backboxes; 
+export default FibreCables; 
