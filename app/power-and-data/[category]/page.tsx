@@ -103,13 +103,15 @@ export default function PowerAndDataPage({ params }: PageProps) {
                 </div>
             </section>
 
-            <div className="max-w-7xl mt-12 mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 py-1">
                 <button
                     onClick={() => router.push('/power-and-data')}
-                    className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+                    className="group flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-all duration-300 mb-8"
                 >
-                    <FaArrowLeft />
-                    <span>Back to Power & Data</span>
+                    <div className="p-2.5 rounded-xl bg-gray-100/80 group-hover:bg-blue-100 group-hover:scale-110 transition-all duration-300">
+                        <FaArrowLeft className="text-sm" />
+                    </div>
+                    <span className="font-semibold text-sm">Back to Power & Data</span>
                 </button>
 
                 {category === "power-pdus" && <PowerPduList pdus={data as PowerPdu[]} />}

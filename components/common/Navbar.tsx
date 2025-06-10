@@ -36,6 +36,11 @@ const productMenuItems: ProductMenuItem[] = [
   {
     name: 'Telephone Networking',
     href: '/products/telephone-networking',
+    
+  },
+  {
+    name: 'Keystone Jacks & Shutters',
+    href: '/products/keystone-jacks-shutters',
   },
   {
     name: 'Copper Systems',
@@ -51,11 +56,8 @@ const productMenuItems: ProductMenuItem[] = [
   {
     name: 'Copper Patch Panels & Frames',
     href: '/products/copper-patch-panels-frames',
-  },
-  {
-    name: 'Keystone Jacks & Shutters',
-    href: '/products/keystone-jacks-shutters',
   }
+
   // {
   //   name: 'Cable Management',
   //   href: '/products/cable-management',
@@ -268,12 +270,12 @@ export const Navbar = () => {
 
   return (
     <nav className="bg-white shadow-lg fixed w-full top-0 z-50 border-b border-gray-200">
-      <div className="container mx-auto px-4">
+      <div className="container mx-2 px-2">
         <div className='custom header-container'>
           <div className="flex justify-between items-center h-20 py-2">
             {/* Logo */}
-            <div className="flex-shrink-0 flex items-center pr-8 py-1">
-              <img src="/telemons.jpg" alt="Telemons Cable" className="h-10 w-auto" />
+            <div onClick={() => router.push('/')} className="flex-shrink-0 flex items-center pr-8 py-1">
+              <img src="/telemons.jpg" alt="Telemons Cable" className="h-12 w-auto cursor-pointer" />
             </div>
 
             {/* Mobile menu button */}
@@ -467,13 +469,13 @@ export const Navbar = () => {
                   <div className="flex space-x-3">
                     <Link
                       href="/login"
-                      className="px-5 py-2 text-sm font-medium text-white bg-yellow-600 rounded-lg hover:bg-yellow-700 transition-colors shadow"
+                      className="px-5 py-2 text-sm font-medium text-white bg-gradient-to-br from-gray-900 to-blue-300 rounded-lg hover:from-gray-200 hover:to-blue-400 transition-all shadow"
                     >
                       Login
                     </Link>
                     <Link
                       href="/signup"
-                      className="px-5 py-2 text-sm font-medium text-yellow-600 border border-yellow-600 rounded-lg hover:bg-yellow-50 transition-colors shadow"
+                      className="px-5 py-2 text-sm font-medium text-blue-600 bg-white border border-blue-600 rounded-lg hover:bg-blue-100 transition-colors shadow"
                     >
                       Sign Up
                     </Link>
