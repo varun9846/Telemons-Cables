@@ -47,7 +47,7 @@ const DataCentreRacksList: React.FC<DataCentreRacksListProps> = ({ racks }) => {
                 src={rack.indepthImage}
                 alt={rack.titleHead || 'Data Centre Rack'}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

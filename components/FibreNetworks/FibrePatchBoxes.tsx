@@ -48,7 +48,7 @@ const FibrePatchBoxes: React.FC<FibrePatchBoxesProps> = ({ boxes }) => {
                 src={box?.image}
                 alt={box.title}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

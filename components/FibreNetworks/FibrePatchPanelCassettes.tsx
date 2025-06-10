@@ -47,7 +47,7 @@ const FibrePatchPanelCassettes: React.FC<FibrePatchPanelCassettesProps> = ({ cas
                 src={cassette?.image}
                 alt={cassette.title}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

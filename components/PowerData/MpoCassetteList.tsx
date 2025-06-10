@@ -47,7 +47,7 @@ const MpoCassetteList: React.FC<MpoCassetteListProps> = ({ cassettes }) => {
                 src={cassette.indepthImage}
                 alt={cassette.titleHead || 'MPO Cassette'}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

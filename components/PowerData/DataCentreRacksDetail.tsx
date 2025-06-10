@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { 
-  FaArrowLeft, 
-  FaCheck, 
-  FaQuoteRight, 
-  FaShieldAlt, 
-  FaBolt, 
+import {
+  FaArrowLeft,
+  FaCheck,
+  FaQuoteRight,
+  FaShieldAlt,
+  FaBolt,
   FaLeaf,
   FaStar,
   FaCertificate,
@@ -36,29 +36,28 @@ const DataCentreRacksDetail: React.FC<DataCentreRacksDetailProps> = ({ product, 
       <section className="pt-24 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
+
             {/* Product Image */}
             <div className="relative">
               <div className="relative h-[512px] w-full max-w-lg mx-auto lg:mx-0">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-indigo-50 to-purple-100 rounded-3xl transform rotate-3 scale-105"></div>
                 <div className="absolute inset-0 bg-gradient-to-tl from-blue-200/50 via-transparent to-purple-200/50 rounded-3xl transform -rotate-2 scale-103"></div>
-                
+
                 <div className="relative h-full bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
-        {product.indepthImage && (
-          <Image
-            src={product.indepthImage}
-            alt={product.titleHead || 'Data Centre Rack'}
-            fill
-                      className={`object-cover transition-all duration-700 ${
-                        imageLoaded ? 'scale-100 opacity-100' : 'scale-110 opacity-0'
-                      }`}
+                  {product.indepthImage && (
+                    <Image
+                      src={product.indepthImage}
+                      alt={product.titleHead || 'Data Centre Rack'}
+                      fill
+                      className={`object-cover transition-all duration-700 ${imageLoaded ? 'scale-100 opacity-100' : 'scale-110 opacity-0'
+                        }`}
                       sizes="(max-width: 768px) 100vw, 50vw"
-            priority
+                      priority
                       onLoad={() => setImageLoaded(true)}
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                  
+
                   <div className="absolute top-4 right-4">
                     <div className="bg-green-500 text-white px-3 py-1.5 rounded-full text-xs font-bold flex items-center space-x-1 shadow-lg">
                       <FaStar className="text-xs" />
@@ -66,8 +65,8 @@ const DataCentreRacksDetail: React.FC<DataCentreRacksDetailProps> = ({ product, 
                     </div>
                   </div>
                 </div>
-        </div>
-      </div>
+              </div>
+            </div>
 
             {/* Product Info */}
             <div className="space-y-8">
@@ -80,14 +79,14 @@ const DataCentreRacksDetail: React.FC<DataCentreRacksDetailProps> = ({ product, 
                     In Stock
                   </span>
                 </div>
-                
+
                 <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                   {product.indepthTitle}
                 </h1>
-                
+
                 <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              {product.indepthDescription}
-            </p>
+                  {product.indepthDescription}
+                </p>
               </div>
 
               {/* Quick Stats */}
@@ -134,11 +133,10 @@ const DataCentreRacksDetail: React.FC<DataCentreRacksDetailProps> = ({ product, 
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                      activeTab === tab.id
-                        ? 'bg-blue-600 text-white shadow-lg transform scale-105'
-                        : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
-                    }`}
+                    className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${activeTab === tab.id
+                      ? 'bg-blue-600 text-white shadow-lg transform scale-105'
+                      : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
+                      }`}
                   >
                     <tab.icon className="text-sm" />
                     <span>{tab.label}</span>
@@ -154,10 +152,10 @@ const DataCentreRacksDetail: React.FC<DataCentreRacksDetailProps> = ({ product, 
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
+
             {/* Main Content */}
             <div className="lg:col-span-2">
-              
+
               {/* Overview Tab */}
               {activeTab === 'overview' && (
                 <div className="space-y-8 animate-fade-in">
@@ -169,7 +167,7 @@ const DataCentreRacksDetail: React.FC<DataCentreRacksDetailProps> = ({ product, 
                     <p className="text-lg text-gray-700 leading-relaxed mb-8">
                       {product.indepthDescription}
                     </p>
-                    
+
                     {/* Key Benefits Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       <div className="group p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl border border-blue-100 hover:shadow-lg transition-all duration-300">
@@ -200,10 +198,10 @@ const DataCentreRacksDetail: React.FC<DataCentreRacksDetailProps> = ({ product, 
                       <div className="w-2 h-10 bg-gradient-to-b from-green-500 to-emerald-600 rounded-full mr-4"></div>
                       Key Features
                     </h2>
-                    
+
                     <div className="space-y-4">
                       {product.indepthKeyFeatures?.split('-').filter(Boolean).map((feature, idx) => (
-                        <div 
+                        <div
                           key={idx}
                           className="group flex items-start space-x-4 p-4 rounded-2xl hover:bg-gray-50 transition-all duration-300"
                           style={{ animationDelay: `${idx * 100}ms` }}
@@ -233,7 +231,7 @@ const DataCentreRacksDetail: React.FC<DataCentreRacksDetailProps> = ({ product, 
                       <div className="w-2 h-10 bg-gradient-to-b from-purple-500 to-pink-600 rounded-full mr-4"></div>
                       Technical Specifications
                     </h2>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div className="space-y-6">
                         <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-2xl border border-gray-100">
@@ -257,7 +255,7 @@ const DataCentreRacksDetail: React.FC<DataCentreRacksDetailProps> = ({ product, 
                           </div>
                         </div>
                       </div>
-                      
+
                       <div className="space-y-6">
                         <div className="bg-gradient-to-br from-gray-50 to-green-50 p-6 rounded-2xl border border-gray-100">
                           <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
@@ -286,8 +284,8 @@ const DataCentreRacksDetail: React.FC<DataCentreRacksDetailProps> = ({ product, 
                 <div className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 rounded-3xl shadow-2xl overflow-hidden">
                   {/* Animated Background Elements */}
                   <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-20 translate-x-20 animate-pulse"></div>
-                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-16 -translate-x-16 animate-pulse" style={{animationDelay: '1s'}}></div>
-                  
+                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-16 -translate-x-16 animate-pulse" style={{ animationDelay: '1s' }}></div>
+
                   <div className="relative p-8">
                     <div className="text-center mb-8">
                       <div className="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
@@ -322,13 +320,13 @@ const DataCentreRacksDetail: React.FC<DataCentreRacksDetailProps> = ({ product, 
                           <span>Get Quote Now</span>
                         </span>
                       </button>
-                      
+
                       <button className="group w-full bg-blue-500/30 backdrop-blur-sm text-white py-4 px-6 rounded-2xl font-bold text-lg border-2 border-white/30 hover:bg-blue-500/50 transition-all duration-300">
                         <span className="flex items-center justify-center space-x-2">
                           <FaPhone className="text-lg" />
                           <span>Call Expert</span>
                         </span>
-            </button>
+                      </button>
                     </div>
 
                     <div className="mt-8 pt-8 border-t border-white/20 text-center">

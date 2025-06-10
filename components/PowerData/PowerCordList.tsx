@@ -47,7 +47,7 @@ const PowerCordList: React.FC<PowerCordListProps> = ({ cords }) => {
                 src={cord.indepthImage}
                 alt={cord.titleHead || 'Power Cord'}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

@@ -46,7 +46,7 @@ const FibreToolsAccessories: React.FC<FibreToolsAccessoriesProps> = ({ tools }) 
                 src={tool?.image}
                 alt={tool.title}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

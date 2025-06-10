@@ -47,7 +47,7 @@ const MpoChassisList: React.FC<MpoChassisListProps> = ({ chassis }) => {
                 src={chassis.indepthImage}
                 alt={chassis.titleHead || 'MPO Chassis'}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

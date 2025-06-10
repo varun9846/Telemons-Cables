@@ -47,7 +47,7 @@ const PowerPduList: React.FC<PowerPduListProps> = ({ pdus }) => {
                 src={pdu.indepthImage}
                 alt={pdu.titleHead || 'Power PDU'}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

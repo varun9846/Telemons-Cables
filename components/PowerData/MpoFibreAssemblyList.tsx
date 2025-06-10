@@ -47,7 +47,7 @@ const MpoFibreAssemblyList: React.FC<MpoFibreAssemblyListProps> = ({ assemblies 
                 src={assembly.indepthImage}
                 alt={assembly.titleHead || 'MPO Fibre Assembly'}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

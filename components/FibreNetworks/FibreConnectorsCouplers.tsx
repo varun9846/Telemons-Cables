@@ -47,7 +47,7 @@ const FibreConnectorsCouplers: React.FC<FibreConnectorsCouplersProps> = ({ conne
                 src={connector?.image}
                 alt={connector.title}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

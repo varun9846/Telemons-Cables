@@ -47,7 +47,7 @@ const FibreDuctList: React.FC<FibreDuctListProps> = ({ ducts }) => {
                 src={duct.indepthImage}
                 alt={duct.titleHead || 'Fibre Duct'}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

@@ -47,7 +47,7 @@ const LiquidCoolingList: React.FC<LiquidCoolingListProps> = ({ coolingSystems })
                 src={system.indepthImage}
                 alt={system.titleHead || 'Liquid Cooling System'}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

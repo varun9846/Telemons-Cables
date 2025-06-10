@@ -49,7 +49,7 @@ export default function FibreAttenuators({ attenuators }: FibreAttenuatorsProps)
               src={attenuator.image}
               alt={attenuator.title}
               fill
-              className="object-contain p-4"
+              className="object-contain"
             />
           </div>
           <div className="p-6">
