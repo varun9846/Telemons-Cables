@@ -47,7 +47,7 @@ const KeystoneJacks: React.FC<KeystoneJacksProps> = ({ jacks }) => {
                 src={jack?.image}
                 alt={jack.title}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

@@ -527,32 +527,32 @@ export default function CategoryPage() {
     if (category === 'telephone-networking') {
         return (
             <div className="min-h-screen bg-gray-50 font-inter">
-            <Navbar />
-            <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
-                <div className="absolute inset-0 bg-black opacity-40"></div>
-                <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
-                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                        Telephone Networking
-                    </h1>
-                    <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                        High-quality telephone networking solutions for secure network installations.
-                    </p>
+                <Navbar />
+                <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
+                    <div className="absolute inset-0 bg-black opacity-40"></div>
+                    <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
+                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                            Telephone Networking
+                        </h1>
+                        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            High-quality telephone networking solutions for secure network installations.
+                        </p>
+                    </div>
+                </section>
+                <div className="pt-0">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <button
+                            onClick={handleBack}
+                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+                        >
+                            <FaArrowLeft />
+                            <span>Back to Products</span>
+                        </button>
+                        <TelephoneNetworking items={items} />
+                    </div>
                 </div>
-            </section>
-            <div className="pt-0">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <button
-                        onClick={handleBack}
-                        className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
-                    >
-                        <FaArrowLeft />
-                        <span>Back to Products</span>
-                    </button>
-                    <TelephoneNetworking items={items} />
-                </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
         );
     }
 
@@ -575,11 +575,13 @@ export default function CategoryPage() {
                 <div className="pt-0">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <button
-                            onClick={handleBack}
-                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+                            onClick={() => router.push('/products')}
+                            className="group flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-all duration-300 mb-8"
                         >
-                            <FaArrowLeft />
-                            <span>Back to Products</span>
+                            <div className="p-2.5 rounded-xl bg-gray-100/80 group-hover:bg-blue-100 group-hover:scale-110 transition-all duration-300">
+                                <FaArrowLeft className="text-sm" />
+                            </div>
+                            <span className="font-semibold text-sm">Back to Products</span>
                         </button>
                         <FloorStandingRacks racks={floorStandingRacks} />
                     </div>

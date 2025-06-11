@@ -17,7 +17,7 @@
   .btn-primary {
     @apply bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition-colors;
   }
-  
+
   .input-field {
     @apply appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 focus:z-10 sm:text-sm;
   }
@@ -44,4 +44,14 @@
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 500ms, transform 500ms;
+}
+
+.custom .font-medium {
+  font-size: 12px;
+}
+
+.fibre-patch-box-image img.object-cover {
+  position: static !important;
+  object-fit: contain !important;
+  height: 260px !important;
 }

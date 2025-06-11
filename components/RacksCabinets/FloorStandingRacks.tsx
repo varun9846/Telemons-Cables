@@ -50,7 +50,7 @@ const FloorStandingRacks: React.FC<FloorStandingRacksProps> = ({ racks }) => {
               src={rack.image || '/images/placeholder.png'}
               alt={rack.title || 'Floor Standing Rack'}
               fill
-              className="object-cover"
+              className="object-contain"
               priority={false}
             />
           </div>

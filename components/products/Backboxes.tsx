@@ -47,7 +47,7 @@ const Backboxes: React.FC<BackboxesProps> = ({ backboxes }) => {
                 src={backbox?.image}
                 alt={backbox.title}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

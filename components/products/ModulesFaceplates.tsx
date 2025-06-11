@@ -47,7 +47,7 @@ const ModulesFaceplates: React.FC<ModulesFaceplatesProps> = ({ modules }) => {
                 src={module?.image}
                 alt={module.title}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

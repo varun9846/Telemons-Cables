@@ -473,11 +473,13 @@ export default function CategoryPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Back Button */}
                     <button
-                        onClick={handleBack}
-                        className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+                        onClick={() => router.push('/racks-and-cabinets')}
+                        className="group flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-all duration-300 mb-8"
                     >
-                        <FaArrowLeft />
-                        <span>Back to Products</span>
+                        <div className="p-2.5 rounded-xl bg-gray-100/80 group-hover:bg-blue-100 group-hover:scale-110 transition-all duration-300">
+                            <FaArrowLeft className="text-sm" />
+                        </div>
+                        <span className="font-semibold text-sm">Back to Racks & Cabinets</span>
                     </button>
 
                     {/* Product Details */}

@@ -47,7 +47,7 @@ const TelephoneNetworking: React.FC<TelephoneNetworkingProps> = ({ items }) => {
                 src={item.image}
                 alt={item.title}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

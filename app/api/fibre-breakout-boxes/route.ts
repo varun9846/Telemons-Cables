@@ -1,12 +1,14 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const breakoutBoxes = await prisma.structuredBreakoutBoxes.findMany({
       orderBy: {
-        createdAt: 'desc',
-      },
+        createdAt: 'desc'
+      }
     });
 
     // Transform the data to match our frontend interface
@@ -19,7 +21,7 @@ export async function GET() {
       specifications: box.indepthKeyFeatures ? box.indepthKeyFeatures.split('\n').filter(Boolean) : [],
       features: box.indepthKeyFeatures ? box.indepthKeyFeatures.split('\n').filter(Boolean) : [],
       detailedDescription: box.indepthDescription || '',
-      additionalImages: [], // Add additional images if available in the future
+      additionalImages: box.indepthImage ? [box.indepthImage] : []
     }));
 
     return NextResponse.json(transformedData);

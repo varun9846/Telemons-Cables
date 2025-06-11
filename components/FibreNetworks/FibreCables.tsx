@@ -47,7 +47,7 @@ const FibreCables: React.FC<FibreCablesProps> = ({ cables }) => {
                 src={cable?.image}
                 alt={cable.title}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

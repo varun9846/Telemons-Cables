@@ -57,8 +57,8 @@ const WallRacks: React.FC<WallRacksProps> = ({ racks }) => {
               src={rack.image || '/images/placeholder.png'}
               alt={rack.title || 'Wall Rack'}
               fill
-              className="object-cover"
-              priority={false}
+              className="object-contain"
+              priority={false} 
             />
           </div>
           <div className="p-6">
