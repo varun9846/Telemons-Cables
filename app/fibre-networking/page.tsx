@@ -3,55 +3,56 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa';
 import { prisma } from '@/lib/prisma';
-
+import { Navbar } from '@/components/common/Navbar';
+import { Footer } from '@/components/common/Footer';
 const categories = [
   {
     title: 'Fibre Cable',
     description: 'High-performance fibre optic cables for reliable data transmission',
     href: '/fibre-networking/fibre-cable',
-    image: '/images/fibre-cable.jpg'
+    image: '/images/power-data/Excel Enbeam OM4 Multimode Armoured CST Fibre Optic Cable Loose Tube 8 Core 50_125 LSOH Eca Blue.jpg'
   },
   {
     title: 'Fibre Patch Panels',
     description: 'Professional-grade patch panels for organized fibre management',
     href: '/fibre-networking/fibre-patch-panels',
-    image: '/images/fibre-patch-panels.jpg'
+    image: '/images/power-data/Excel Enbeam LGX 3U 14 Module Panel.jpg'
   },
   {
     title: 'Fibre Patch Panel Cassettes',
     description: 'Modular cassettes for flexible fibre patch panel configurations',
     href: '/fibre-networking/fibre-patch-panel-cassettes',
-    image: '/images/fibre-cassettes.jpg'
+    image: '/images/power-data/Part Code_ 208-016-APC.jpg'
   },
   {
     title: 'Fibre Breakout Boxes',
     description: 'Secure breakout solutions for fibre cable management',
     href: '/fibre-networking/fibre-breakout-boxes',
-    image: '/images/fibre-breakout.jpg'
+    image: '/images/power-data/Part Code_ 202-120.jpg'
   },
   {
     title: 'Fibre Patch Boxes',
     description: 'Compact patch boxes for efficient fibre connections',
     href: '/fibre-networking/fibre-patch-boxes',
-    image: '/images/fibre-patch-box.jpg'
+    image: '/images/power-data/Part Code_ 208-200.jpg'
   },
   {
     title: 'Fibre Connectors & Couplers',
     description: 'High-quality connectors and couplers for reliable fibre connections',
     href: '/fibre-networking/fibre-connectors-couplers',
-    image: '/images/fibre-connectors.jpg'
+    image: '/images/power-data/200-372-06.jpg'
   },
   {
     title: 'Fibre Attenuators',
     description: 'Precision attenuators for optimal signal management',
     href: '/fibre-networking/fibre-attenuators',
-    image: '/images/fibre-attenuators.jpg'
+    image: '/images/power-data/208-570.jpg'
   },
   {
     title: 'Fibre Tools & Accessories',
     description: 'Essential tools and accessories for fibre installation and maintenance',
     href: '/fibre-networking/fibre-tools-accessories',
-    image: '/images/fibre-tools.jpg'
+    image: '/images/power-data/202-080.jpg'
   }
 ];
 
@@ -71,6 +72,7 @@ export default async function FibreNetworkingPage() {
 
     return (
       <div className="min-h-screen bg-gray-50">
+        <Navbar />
         {/* Hero Section */}
         <div className="relative bg-blue-900 text-white">
           <div className="absolute inset-0">
@@ -78,7 +80,7 @@ export default async function FibreNetworkingPage() {
               src="/images/fibre-networking-hero.jpg"
               alt="Fibre Networking"
               fill
-              className="object-cover opacity-20"
+              className="object-contain opacity-20"
               priority
             />
           </div>
@@ -124,6 +126,7 @@ export default async function FibreNetworkingPage() {
             ))}
           </div>
         </div>
+        <Footer />
       </div>
     );
   } catch (error) {

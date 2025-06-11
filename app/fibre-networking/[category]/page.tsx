@@ -105,10 +105,12 @@ export default function FibreNetworkingPage({ params }: PageProps) {
       <div className="max-w-7xl mt-12 mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <button
           onClick={() => router.push('/fibre-networking')}
-          className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+          className="group flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-all duration-300 mb-8"
         >
-          <FaArrowLeft />
-          <span>Back to Fibre Networking</span>
+          <div className="p-2.5 rounded-xl bg-gray-100/80 group-hover:bg-blue-100 group-hover:scale-110 transition-all duration-300">
+            <FaArrowLeft className="text-sm" />
+          </div>
+          <span className="font-semibold text-sm">Back to Fibre Networking</span>
         </button>
         
         {category === "fibre-cable" && <FibreCables cables={data as FibreCable[]} />}

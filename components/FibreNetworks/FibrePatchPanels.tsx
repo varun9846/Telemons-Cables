@@ -47,7 +47,7 @@ const FibrePatchPanels: React.FC<FibrePatchPanelsProps> = ({ panels }) => {
                 src={panel?.image}
                 alt={panel.title}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

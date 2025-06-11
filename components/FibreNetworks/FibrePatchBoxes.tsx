@@ -3,6 +3,7 @@ import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import Image from 'next/image';
 import FibrePatchBoxDetail from '@/components/FibreNetworks/FibrePatchBoxDetail';
 import { FibrePatchBox } from '@/types/fibre-patch-box';
+import "@/styles/globals.css";
 
 interface FibrePatchBoxesProps {
   boxes: FibrePatchBox[];
@@ -38,16 +39,16 @@ const FibrePatchBoxes: React.FC<FibrePatchBoxesProps> = ({ boxes }) => {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {boxes.map((box, idx) => (
         <div
-          key={box.id}
+          key={box?.id}
           className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
         >
           {box?.image && (
-            <div className="relative h-48 w-full">
+            <div className="relative h-38 w-full fibre-patch-box-image">
               <Image
                 src={box?.image}
                 alt={box.title}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}

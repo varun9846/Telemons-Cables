@@ -52,7 +52,7 @@ const OpenRacks: React.FC<OpenRacksProps> = ({ racks }) => {
               src={rack.image || '/images/placeholder.png'}
               alt={rack.title || 'Open Rack'}
               fill
-              className="object-cover"
+              className="object-contain"
               priority={false}
             />
           </div>

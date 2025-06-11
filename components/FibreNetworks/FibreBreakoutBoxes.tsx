@@ -47,7 +47,7 @@ const FibreBreakoutBoxes: React.FC<FibreBreakoutBoxesProps> = ({ boxes }) => {
                 src={box?.image}
                 alt={box.title}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           )}
