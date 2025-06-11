@@ -9,7 +9,7 @@ const prismaClientSingleton = () => {
     log: ['error'],
     datasources: {
       db: {
-        url: process.env.DATABASE_URL + '?statement_cache_size=0'
+        url: process.env.DATABASE_URL
       }
     }
   });

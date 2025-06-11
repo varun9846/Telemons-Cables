@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { FaSearch, FaUser, FaBars, FaChevronDown } from 'react-icons/fa'
 import { toast } from 'react-hot-toast'
@@ -275,7 +276,13 @@ export const Navbar = () => {
           <div className="flex justify-between items-center h-20 py-2">
             {/* Logo */}
             <div onClick={() => router.push('/')} className="flex-shrink-0 flex items-center pr-8 py-1">
-              <img src="/telemons.jpg" alt="Telemons Cable" className="h-12 w-auto cursor-pointer" />
+              <Image 
+                src="/telemons.jpg" 
+                alt="Telemons Cable" 
+                width={48} 
+                height={48} 
+                className="h-12 w-auto cursor-pointer" 
+              />
             </div>
 
             {/* Mobile menu button */}

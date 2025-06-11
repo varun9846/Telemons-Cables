@@ -35,7 +35,7 @@ export default function MarketDetailPage() {
         const response = await axios.get('/data/markets.json');
         const markets = response.data.markets;
         const foundMarket = markets.find((m: Market) => m.id === marketId);
-        
+
         if (!foundMarket) {
           router.push('/markets');
           return;
@@ -91,7 +91,7 @@ export default function MarketDetailPage() {
   return (
     <div className="min-h-screen bg-gray-50 font-inter">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative h-[400px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center">
         <div className="absolute inset-0 bg-black opacity-40"></div>
@@ -108,11 +108,13 @@ export default function MarketDetailPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Back Button */}
         <button
-          onClick={handleBack}
-          className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+          onClick={() => router.push('/markets')}
+          className="group flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-all duration-300 mb-8"
         >
-          <FaArrowLeft />
-          <span>Back to Markets</span>
+          <div className="p-2.5 rounded-xl bg-gray-100/80 group-hover:bg-blue-100 group-hover:scale-110 transition-all duration-300">
+            <FaArrowLeft className="text-sm" />
+          </div>
+          <span className="font-semibold text-sm">Back to Markets</span>
         </button>
 
         {/* Market Details */}
