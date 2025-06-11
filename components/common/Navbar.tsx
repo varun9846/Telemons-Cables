@@ -279,9 +279,9 @@ export const Navbar = () => {
               <Image 
                 src="/telemons.jpg" 
                 alt="Telemons Cable" 
-                width={48} 
-                height={48} 
-                className="h-12 w-auto cursor-pointer" 
+                width={210} 
+                height={110} 
+                className="cursor-pointer" 
               />
             </div>
 
