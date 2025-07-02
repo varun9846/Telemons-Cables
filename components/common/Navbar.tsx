@@ -26,6 +26,8 @@ interface ProductSubMenuItem {
 // Product menu data
 const productMenuItems: ProductMenuItem[] = [
 
+  { name: 'Enterprise Copper Cables', href: '/products/enterprise-copper-cables' },
+
   {
     name: 'Modules & Faceplates',
     href: '/products/modules-faceplates',
@@ -37,18 +39,11 @@ const productMenuItems: ProductMenuItem[] = [
   {
     name: 'Telephone Networking',
     href: '/products/telephone-networking',
-    
+
   },
   {
     name: 'Keystone Jacks & Shutters',
     href: '/products/keystone-jacks-shutters',
-  },
-  {
-    name: 'Copper Systems',
-    href: '/products',
-    subItems: [
-      { name: 'Enterprise Data Center Copper Cable', href: '/products/data-center-copper-cable' }
-    ]
   },
   {
     name: 'Connectors,Products & Enterprises',
@@ -130,7 +125,6 @@ const powerAndDataMenuItems: PowerAndDataMenuItem[] = [
   // { name: 'Why Excel PDUs?', href: '/power-and-data/why-excel-pdus' },
   { name: 'Power-PDUs', href: '/power-and-data/power-pdus' },
   { name: 'Power Cords & Extension Leads', href: '/power-and-data/power-cords-extension-leads' },
-  { name: 'Enterprise Copper Cables', href: '/power-and-data/enterprise-copper-cables' },
   { name: 'MPO Fibre Assemblies', href: '/power-and-data/mpo-fibre-assemblies' },
   { name: 'MPO Cassettes', href: '/power-and-data/mpo-cassettes' },
   { name: 'MPO Chassis', href: '/power-and-data/mpo-chassis' },
@@ -277,12 +271,12 @@ export const Navbar = () => {
           <div className="flex justify-between items-center h-20 py-2">
             {/* Logo */}
             <div onClick={() => router.push('/')} className="flex-shrink-0 flex items-center pr-8 py-1">
-              <Image 
-                src="/telemons.jpg" 
-                alt="Telemons Cable" 
-                width={210} 
-                height={110} 
-                className="cursor-pointer hover:opacity-80 transition-opacity duration-300" 
+              <Image
+                src="/telemons.jpg"
+                alt="Telemons Cable"
+                width={210}
+                height={110}
+                className="cursor-pointer hover:opacity-80 transition-opacity duration-300"
               />
             </div>
 
@@ -298,30 +292,57 @@ export const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-4">
-              {/* Racks & Cabinets Dropdown */}
-              <div className="relative"
-                ref={racksAndCabinetsMenuRef}
-                onMouseEnter={handleRacksAndCabinetsMouseEnter}
-                onMouseLeave={handleRacksAndCabinetsMouseLeave}
+
+              {/* Products Dropdown */}
+              <div
+                ref={productsMenuRef}
+                className="relative"
+                onMouseEnter={handleProductsMouseEnter}
+                onMouseLeave={handleProductsMouseLeave}
               >
                 <button className="flex items-center text-telemons-blue-primary hover:text-telemons-orange-primary font-semibold transition-colors duration-300">
-                  Racks & Cabinets
-                  <FaChevronDown className={`ml-1 h-3 w-3 transition-transform duration-300 ${isRacksAndCabinetsOpen ? 'rotate-180' : ''}`} />
+                  Copper Systems
+                  <FaChevronDown className={`ml-1 h-3 w-3 transition-transform duration-300 ${isProductsOpen ? 'rotate-180' : ''}`} />
                 </button>
-                {isRacksAndCabinetsOpen && (
+
+                {/* Main Dropdown Menu */}
+                {isProductsOpen && (
                   <div className="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl z-50 py-2 border border-telemons-blue-100">
-                    {racksAndCabinetsMenuItems.map((item) => (
-                      <Link
+                    {productMenuItems.map((item) => (
+                      <div
                         key={item.name}
-                        href={item.href}
-                        className="block px-4 py-3 text-sm text-telemons-blue-700 hover:bg-telemons-orange-50 hover:text-telemons-orange-primary transition-all duration-300"
+                        className="relative"
+                        onMouseEnter={() => handleCategoryMouseEnter(item.name)}
+                        onMouseLeave={handleCategoryMouseLeave}
                       >
-                        {item.name}
-                      </Link>
+                        <button
+                          className="w-full text-left px-4 py-3 text-sm text-telemons-blue-700 hover:bg-telemons-orange-50 hover:text-telemons-orange-primary flex justify-between items-center transition-all duration-300"
+                          onClick={() => navigateToCategory(item.href)}
+                        >
+                          {item.name}
+                          {item.subItems && <FaChevronDown className="h-3 w-3" />}
+                        </button>
+
+                        {/* Submenu */}
+                        {activeSubMenu === item.name && item.subItems && (
+                          <div className="absolute left-full top-0 w-64 bg-white rounded-xl shadow-2xl z-50 py-2 border border-telemons-blue-100">
+                            {item.subItems.map((subItem) => (
+                              <button
+                                key={subItem.name}
+                                className="w-full text-left px-4 py-3 text-sm text-telemons-blue-700 hover:bg-telemons-orange-50 hover:text-telemons-orange-primary transition-all duration-300"
+                                onClick={() => navigateToCategory(subItem.href)}
+                              >
+                                {subItem.name}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     ))}
                   </div>
                 )}
               </div>
+
 
               {/* Fibre Networking Dropdown */}
               <div
@@ -375,51 +396,27 @@ export const Navbar = () => {
                 )}
               </div>
 
-              {/* Products Dropdown */}
-              <div
-                ref={productsMenuRef}
-                className="relative"
-                onMouseEnter={handleProductsMouseEnter}
-                onMouseLeave={handleProductsMouseLeave}
+
+              {/* Racks & Cabinets Dropdown */}
+              <div className="relative"
+                ref={racksAndCabinetsMenuRef}
+                onMouseEnter={handleRacksAndCabinetsMouseEnter}
+                onMouseLeave={handleRacksAndCabinetsMouseLeave}
               >
                 <button className="flex items-center text-telemons-blue-primary hover:text-telemons-orange-primary font-semibold transition-colors duration-300">
-                  Products
-                  <FaChevronDown className={`ml-1 h-3 w-3 transition-transform duration-300 ${isProductsOpen ? 'rotate-180' : ''}`} />
+                  Racks & Cabinets
+                  <FaChevronDown className={`ml-1 h-3 w-3 transition-transform duration-300 ${isRacksAndCabinetsOpen ? 'rotate-180' : ''}`} />
                 </button>
-
-                {/* Main Dropdown Menu */}
-                {isProductsOpen && (
+                {isRacksAndCabinetsOpen && (
                   <div className="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl z-50 py-2 border border-telemons-blue-100">
-                    {productMenuItems.map((item) => (
-                      <div
+                    {racksAndCabinetsMenuItems.map((item) => (
+                      <Link
                         key={item.name}
-                        className="relative"
-                        onMouseEnter={() => handleCategoryMouseEnter(item.name)}
-                        onMouseLeave={handleCategoryMouseLeave}
+                        href={item.href}
+                        className="block px-4 py-3 text-sm text-telemons-blue-700 hover:bg-telemons-orange-50 hover:text-telemons-orange-primary transition-all duration-300"
                       >
-                        <button
-                          className="w-full text-left px-4 py-3 text-sm text-telemons-blue-700 hover:bg-telemons-orange-50 hover:text-telemons-orange-primary flex justify-between items-center transition-all duration-300"
-                          onClick={() => navigateToCategory(item.href)}
-                        >
-                          {item.name}
-                          {item.subItems && <FaChevronDown className="h-3 w-3" />}
-                        </button>
-
-                        {/* Submenu */}
-                        {activeSubMenu === item.name && item.subItems && (
-                          <div className="absolute left-full top-0 w-64 bg-white rounded-xl shadow-2xl z-50 py-2 border border-telemons-blue-100">
-                            {item.subItems.map((subItem) => (
-                              <button
-                                key={subItem.name}
-                                className="w-full text-left px-4 py-3 text-sm text-telemons-blue-700 hover:bg-telemons-orange-50 hover:text-telemons-orange-primary transition-all duration-300"
-                                onClick={() => navigateToCategory(subItem.href)}
-                              >
-                                {subItem.name}
-                              </button>
-                            ))}
-                          </div>
-                        )}
-                      </div>
+                        {item.name}
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -495,33 +492,49 @@ export const Navbar = () => {
               </div>
             </div>
           </div>
+          {/* =====================================================================================================================================================================================*/}
 
           {/* Mobile Navigation Menu with Products Dropdown */}
           <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} pb-4 bg-white border-t border-telemons-blue-100`}>
             <div className="flex flex-col space-y-3">
-              {/* Mobile Racks & Cabinets Dropdown */}
+
+              {/* Mobile Products Dropdown */}
               <div className="py-2">
                 <button
-                  onClick={() => setIsRacksAndCabinetsOpen(!isRacksAndCabinetsOpen)}
+                  onClick={() => setIsProductsOpen(!isProductsOpen)}
                   className="flex items-center justify-between w-full text-telemons-blue-primary hover:text-telemons-orange-primary transition-colors duration-300"
                 >
-                  <span>Racks & Cabinets</span>
-                  <FaChevronDown className={`h-3 w-3 transition-transform duration-300 ${isRacksAndCabinetsOpen ? 'rotate-180' : ''}`} />
+                  <span>Copper Systems</span>
+                  <FaChevronDown className={`h-3 w-3 transition-transform duration-300 ${isProductsOpen ? 'rotate-180' : ''}`} />
                 </button>
-                {isRacksAndCabinetsOpen && (
+
+                {isProductsOpen && (
                   <div className="pl-4 mt-2 space-y-2">
-                    {racksAndCabinetsMenuItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="block text-telemons-blue-600 hover:text-telemons-orange-primary py-1 transition-colors duration-300"
-                      >
-                        {item.name}
-                      </Link>
+                    {productMenuItems.map((item) => (
+                      <div key={item?.name} className="space-y-2">
+                        <Link href={item?.href} className="block text-telemons-blue-600 hover:text-telemons-orange-primary py-1 transition-colors duration-300">
+                          {item?.name}
+                        </Link>
+                        {item?.subItems && (
+                          <div className="pl-4 space-y-2">
+                            {item?.subItems?.map((subItem) => (
+                              <Link
+                                key={subItem?.name}
+                                href={subItem?.href}
+                                className="block text-telemons-blue-500 hover:text-telemons-orange-primary py-1 text-sm transition-colors duration-300"
+                              >
+                                {subItem?.name}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     ))}
                   </div>
                 )}
               </div>
+
+
 
               {/* Mobile Fibre Networking Dropdown */}
               <div className="py-2">
@@ -571,41 +584,30 @@ export const Navbar = () => {
                 )}
               </div>
 
-              {/* Mobile Products Dropdown */}
+              {/* Mobile Racks & Cabinets Dropdown */}
               <div className="py-2">
                 <button
-                  onClick={() => setIsProductsOpen(!isProductsOpen)}
+                  onClick={() => setIsRacksAndCabinetsOpen(!isRacksAndCabinetsOpen)}
                   className="flex items-center justify-between w-full text-telemons-blue-primary hover:text-telemons-orange-primary transition-colors duration-300"
                 >
-                  <span>Products</span>
-                  <FaChevronDown className={`h-3 w-3 transition-transform duration-300 ${isProductsOpen ? 'rotate-180' : ''}`} />
+                  <span>Racks & Cabinets</span>
+                  <FaChevronDown className={`h-3 w-3 transition-transform duration-300 ${isRacksAndCabinetsOpen ? 'rotate-180' : ''}`} />
                 </button>
-
-                {isProductsOpen && (
+                {isRacksAndCabinetsOpen && (
                   <div className="pl-4 mt-2 space-y-2">
-                    {productMenuItems.map((item) => (
-                      <div key={item?.name} className="space-y-2">
-                        <Link href={item?.href} className="block text-telemons-blue-600 hover:text-telemons-orange-primary py-1 transition-colors duration-300">
-                          {item?.name}
-                        </Link>
-                        {item?.subItems && (
-                          <div className="pl-4 space-y-2">
-                            {item?.subItems?.map((subItem) => (
-                              <Link
-                                key={subItem?.name}
-                                href={subItem?.href}
-                                className="block text-telemons-blue-500 hover:text-telemons-orange-primary py-1 text-sm transition-colors duration-300"
-                              >
-                                {subItem?.name}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </div>
+                    {racksAndCabinetsMenuItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="block text-telemons-blue-600 hover:text-telemons-orange-primary py-1 transition-colors duration-300"
+                      >
+                        {item.name}
+                      </Link>
                     ))}
                   </div>
                 )}
               </div>
+
 
               {/* Mobile Markets Dropdown */}
               <div className="py-2">
