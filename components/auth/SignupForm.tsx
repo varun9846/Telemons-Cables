@@ -55,25 +55,25 @@ export const SignupForm = () => {
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-950">
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-telemons-blue-900 via-telemons-blue-800 to-telemons-blue-900">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         {/* Animated circles representing global connectivity nodes */}
-        <div className="absolute top-20 left-10 w-24 h-24 bg-blue-500/10 rounded-full animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-cyan-400/15 rounded-full animate-ping"></div>
-        <div className="absolute bottom-32 left-20 w-20 h-20 bg-blue-400/10 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 right-32 w-12 h-12 bg-indigo-400/20 rounded-full animate-ping"></div>
+        <div className="absolute top-20 left-10 w-24 h-24 bg-telemons-orange-primary/10 rounded-full animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-16 h-16 bg-telemons-blue-primary/15 rounded-full animate-ping"></div>
+        <div className="absolute bottom-32 left-20 w-20 h-20 bg-telemons-orange-primary/10 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-20 right-32 w-12 h-12 bg-telemons-blue-primary/20 rounded-full animate-ping"></div>
         
         {/* Connection lines */}
         <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 1000 800">
           <defs>
             <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.4"/>
-              <stop offset="100%" stopColor="#06B6D4" stopOpacity="0.1"/>
+              <stop offset="0%" stopColor="#144F89" stopOpacity="0.4"/>
+              <stop offset="100%" stopColor="#F58320" stopOpacity="0.1"/>
             </linearGradient>
             <linearGradient id="lineGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.3"/>
-              <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.1"/>
+              <stop offset="0%" stopColor="#F58320" stopOpacity="0.3"/>
+              <stop offset="100%" stopColor="#144F89" stopOpacity="0.1"/>
             </linearGradient>
           </defs>
           <path d="M 50 150 Q 250 100 450 200 T 850 150" stroke="url(#lineGradient1)" strokeWidth="2" fill="none" className="animate-pulse"/>
@@ -99,9 +99,12 @@ export const SignupForm = () => {
                 <h2 className="text-center text-3xl font-bold text-white mb-2">
                   Join the Network
                 </h2>
-                <p className="text-center text-lg text-blue-100/80 leading-relaxed">
+                <p className="text-center text-lg text-telemons-blue-100/80 leading-relaxed">
                   Connect to premium cable solutions across continents
                 </p>
+                
+                {/* Decorative line */}
+                <div className="w-16 h-1 bg-telemons-orange-primary rounded-full mt-4"></div>
               </div>
 
               {/* Form */}
@@ -113,7 +116,7 @@ export const SignupForm = () => {
                 <Form className="space-y-6">
                   <div className="space-y-5">
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-blue-100 mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-telemons-blue-100 mb-2">
                         Email Address
                       </label>
                       <Field
@@ -121,35 +124,35 @@ export const SignupForm = () => {
                         type="email"
                         autoComplete="email"
                         required
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400/50 focus:border-blue-400/50 transition-all duration-200"
+                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-telemons-blue-200/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-telemons-orange-primary/50 focus:border-telemons-orange-primary/50 transition-all duration-200"
                         placeholder="Enter your email"
                       />
                       <ErrorMessage name="email" component="div" className="text-red-300 text-sm mt-2" />
                     </div>
                     
                     <div>
-                      <label htmlFor="password" className="block text-sm font-medium text-blue-100 mb-2">
+                      <label htmlFor="password" className="block text-sm font-medium text-telemons-blue-100 mb-2">
                         Password
                       </label>
                       <Field
                         name="password"
                         type="password"
                         required
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400/50 focus:border-blue-400/50 transition-all duration-200"
+                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-telemons-blue-200/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-telemons-orange-primary/50 focus:border-telemons-orange-primary/50 transition-all duration-200"
                         placeholder="Create a password"
                       />
                       <ErrorMessage name="password" component="div" className="text-red-300 text-sm mt-2" />
                     </div>
                     
                     <div>
-                      <label htmlFor="confirmPassword" className="block text-sm font-medium text-blue-100 mb-2">
+                      <label htmlFor="confirmPassword" className="block text-sm font-medium text-telemons-blue-100 mb-2">
                         Confirm Password
                       </label>
                       <Field
                         name="confirmPassword"
                         type="password"
                         required
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-blue-200/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400/50 focus:border-blue-400/50 transition-all duration-200"
+                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-telemons-blue-200/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-telemons-orange-primary/50 focus:border-telemons-orange-primary/50 transition-all duration-200"
                         placeholder="Confirm your password"
                       />
                       <ErrorMessage name="confirmPassword" component="div" className="text-red-300 text-sm mt-2" />
@@ -160,7 +163,7 @@ export const SignupForm = () => {
                   <div className="space-y-4 pt-2">
                     <button
                       type="submit"
-                      className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl text-base font-medium text-white bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
+                      className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl text-base font-medium text-white bg-gradient-to-r from-telemons-orange-primary to-telemons-orange-dark hover:from-telemons-orange-dark hover:to-telemons-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-telemons-blue-primary shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
                     >
                       Create Account
                     </button>
@@ -177,11 +180,11 @@ export const SignupForm = () => {
 
                   {/* Footer */}
                   <div className="text-center pt-4">
-                    <p className="text-blue-100/80">
+                    <p className="text-telemons-blue-100/80">
                       Already connected?{' '}
                       <a 
                         href="/login" 
-                        className="font-medium text-cyan-300 hover:text-cyan-200 transition-colors duration-200 underline decoration-cyan-300/50 hover:decoration-cyan-200"
+                        className="font-medium text-telemons-orange-primary hover:text-telemons-orange-light transition-colors duration-200 underline decoration-telemons-orange-primary/50 hover:decoration-telemons-orange-light"
                       >
                         Sign in
                       </a>
@@ -194,7 +197,7 @@ export const SignupForm = () => {
 
           {/* Additional connectivity message */}
           <div className="text-center">
-            <p className="text-blue-200/60 text-sm">
+            <p className="text-telemons-blue-200/60 text-sm">
               Connecting businesses across continents
             </p>
           </div>

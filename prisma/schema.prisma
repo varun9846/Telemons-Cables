@@ -15,6 +15,10 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+
+
+
+
 model StructuredModules {
   // Unique identifier for each record
   id                      Int      @id @default(autoincrement())
@@ -93,6 +97,22 @@ model StructuredWallRacks {
   indepthKeyFeatures      String?  @map("Indepth Key Features") // Corrected field name
   indepthImage            String?  @map("Indepth Image SRC-src") // Corrected field name
 }
+model StructuredCopperCables  {
+  // Unique identifier for each record
+  id                      Int      @id @default(autoincrement())
+  // Timestamp when the record was created
+  createdAt               DateTime @default(now())
+
+  // Fields derived from the CSV columns
+  titleHead               String?  @map("Title-head") // Corrected field name, added @map
+  description             String?  @map("Description") // Corrected field name, added @map
+  indepthTitle            String?  @map("IndepthTitle") // Corrected field name, added @map
+  indepthPartCode         String?  @map("Indepth PartCode") // Corrected field name
+  indepthDescription      String?  @map("Indepth Description") // Corrected field name
+  indepthKeyFeatures      String?  @map("Indepth Key Features") // Corrected field name
+  indepthImage            String?  @map("Indepth Image SRC-src") // Corrected field name
+}
+
 
 model StructuredOpenRacks {
   // Unique identifier for each record

@@ -2,28 +2,127 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Telemons Brand Color Variables */
 :root {
-  --primary: #EAB308;
-  --primary-dark: #CA8A04;
+  --telemons-blue-primary: #144F89;
+  --telemons-blue-dark: #0f3a6b;
+  --telemons-blue-light: #1e5ba3;
+  --telemons-orange-primary: #F58320;
+  --telemons-orange-dark: #e67300;
+  --telemons-orange-light: #ff9933;
+  
+  /* Legacy support - keeping for backward compatibility */
+  --primary: #144F89;
+  --primary-dark: #0f3a6b;
 }
 
 @layer base {
   body {
-    @apply bg-gray-50;
+    @apply bg-telemons-blue-50;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-telemons-blue-100;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-telemons-blue-400 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-telemons-blue-500;
   }
 }
 
 @layer components {
+  /* Primary Button Styles */
   .btn-primary {
-    @apply bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition-colors;
+    @apply bg-telemons-blue-primary hover:bg-telemons-blue-dark text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
   }
-
+  
+  .btn-secondary {
+    @apply bg-telemons-orange-primary hover:bg-telemons-orange-dark text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-telemons-blue-primary text-telemons-blue-primary hover:bg-telemons-blue-primary hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300;
+  }
+  
+  .btn-outline-orange {
+    @apply border-2 border-telemons-orange-primary text-telemons-orange-primary hover:bg-telemons-orange-primary hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300;
+  }
+  
+  /* Input Field Styles */
   .input-field {
-    @apply appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 focus:z-10 sm:text-sm;
+    @apply appearance-none rounded-lg relative block w-full px-4 py-3 border border-telemons-blue-200 placeholder-telemons-blue-400 text-telemons-blue-900 focus:outline-none focus:ring-2 focus:ring-telemons-blue-primary focus:border-telemons-blue-primary focus:z-10 text-sm transition-all duration-300;
+  }
+  
+  .input-field:focus {
+    @apply shadow-lg shadow-telemons-blue-100;
+  }
+  
+  /* Card Styles */
+  .card-primary {
+    @apply bg-white rounded-xl shadow-lg border border-telemons-blue-100 hover:shadow-xl transition-all duration-300;
+  }
+  
+  .card-gradient {
+    @apply bg-gradient-to-br from-telemons-blue-primary to-telemons-blue-dark text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  
+  /* Section Styles */
+  .section-primary {
+    @apply py-16 bg-gradient-to-br from-telemons-blue-50 to-telemons-orange-50;
+  }
+  
+  .section-secondary {
+    @apply py-16 bg-gradient-to-br from-white to-telemons-blue-50;
+  }
+  
+  /* Text Styles */
+  .text-primary {
+    @apply text-telemons-blue-primary;
+  }
+  
+  .text-accent {
+    @apply text-telemons-orange-primary;
+  }
+  
+  /* Link Styles */
+  .link-primary {
+    @apply text-telemons-blue-primary hover:text-telemons-blue-dark transition-colors duration-300;
+  }
+  
+  .link-accent {
+    @apply text-telemons-orange-primary hover:text-telemons-orange-dark transition-colors duration-300;
+  }
+  
+  /* Badge Styles */
+  .badge-primary {
+    @apply bg-telemons-blue-primary text-white px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .badge-accent {
+    @apply bg-telemons-orange-primary text-white px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  /* Loading Spinner */
+  .spinner-primary {
+    @apply animate-spin rounded-full border-4 border-telemons-blue-200 border-t-telemons-blue-primary;
+  }
+  
+  .spinner-accent {
+    @apply animate-spin rounded-full border-4 border-telemons-orange-200 border-t-telemons-orange-primary;
   }
 }
 
-/* Carousel Transitions */
+/* Enhanced Carousel Transitions with Telemons colors */
 .carousel-slide-enter {
   opacity: 0;
   transform: scale(1.1);
@@ -46,6 +145,7 @@
   transition: opacity 500ms, transform 500ms;
 }
 
+/* Custom utility classes for responsive design */
 .custom .font-medium {
   font-size: 12px;
 }
@@ -54,4 +154,82 @@
   position: static !important;
   object-fit: contain !important;
   height: 260px !important;
+}
+
+/* Custom animations for enhanced UX */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+/* Hover effects for interactive elements */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(20, 79, 137, 0.1), 0 10px 10px -5px rgba(20, 79, 137, 0.04);
+}
+
+/* Gradient text effects */
+.gradient-text {
+  background: linear-gradient(135deg, #144F89 0%, #F58320 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #144F89 0%, #1e5ba3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-orange {
+  background: linear-gradient(135deg, #F58320 0%, #ff9933 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
