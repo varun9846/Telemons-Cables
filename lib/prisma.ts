@@ -11,7 +11,14 @@ const prismaClientSingleton = () => {
       db: {
         url: process.env.DATABASE_URL
       }
-    }
+    },
+    // @ts-ignore - Disable prepared statements to fix PostgreSQL error
+    __internal: {
+      engine: {
+        // Disable prepared statements
+        enablePreparedStatement: false,
+      },
+    },
   });
 };
 
