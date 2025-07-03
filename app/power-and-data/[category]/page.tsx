@@ -21,6 +21,8 @@ import DataCentreRacksList from '@/components/PowerData/DataCentreRacksList';
 import { DataCentreRack } from '@/types/data-centre-racks';
 import LiquidCoolingList from '@/components/PowerData/LiquidCoolingList';
 import { LiquidCooling } from '@/types/liquid-cooling';
+import EnterpriseCopperCables from '@/components/products/EnterpriseCopperCables';
+import { EnterpriseCopperCable } from '@/types/enterprise-copper-cables';
 
 interface PageProps {
     params: {
@@ -65,7 +67,7 @@ export default function PowerAndDataPage({ params }: PageProps) {
                 <Navbar />
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <div className="flex justify-center items-center h-64">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-telemons-blue-primary"></div>
                     </div>
                 </div>
                 <Footer />
@@ -91,7 +93,7 @@ export default function PowerAndDataPage({ params }: PageProps) {
     return (
         <div className="min-h-screen bg-gray-50">
             <Navbar />
-            <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
+            <section className="relative h-[275px] bg-gradient-to-r from-telemons-blue-primary to-telemons-blue-dark text-white flex items-center justify-center mb-12">
                 <div className="absolute inset-0 bg-black opacity-40"></div>
                 <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
@@ -106,9 +108,9 @@ export default function PowerAndDataPage({ params }: PageProps) {
             <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 py-1">
                 <button
                     onClick={() => router.push('/power-and-data')}
-                    className="group flex items-center space-x-3 text-gray-700 hover:text-blue-600 transition-all duration-300 mb-8"
+                    className="group flex items-center space-x-3 text-gray-700 hover:text-telemons-blue-primary transition-all duration-300 mb-8"
                 >
-                    <div className="p-2.5 rounded-xl bg-gray-100/80 group-hover:bg-blue-100 group-hover:scale-110 transition-all duration-300">
+                    <div className="p-2.5 rounded-xl bg-gray-100/80 group-hover:bg-telemons-blue-100 group-hover:scale-110 transition-all duration-300">
                         <FaArrowLeft className="text-sm" />
                     </div>
                     <span className="font-semibold text-sm">Back to Power & Data</span>
@@ -122,6 +124,7 @@ export default function PowerAndDataPage({ params }: PageProps) {
                 {category === "fibre-duct" && <FibreDuctList ducts={data as FibreDuct[]} />}
                 {category === "data-centre-racks" && <DataCentreRacksList racks={data as DataCentreRack[]} />}
                 {category === "liquid-cooling" && <LiquidCoolingList coolingSystems={data as LiquidCooling[]} />}
+                {category === "enterprise-copper-cables" && <EnterpriseCopperCables cables={data as EnterpriseCopperCable[]} />}
                 {/* Add other category components as needed */}
             </div>
             <Footer />

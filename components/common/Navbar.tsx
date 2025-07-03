@@ -26,6 +26,8 @@ interface ProductSubMenuItem {
 // Product menu data
 const productMenuItems: ProductMenuItem[] = [
 
+  { name: 'Enterprise Copper Cables', href: '/products/enterprise-copper-cables' },
+
   {
     name: 'Modules & Faceplates',
     href: '/products/modules-faceplates',
@@ -37,18 +39,11 @@ const productMenuItems: ProductMenuItem[] = [
   {
     name: 'Telephone Networking',
     href: '/products/telephone-networking',
-    
+
   },
   {
     name: 'Keystone Jacks & Shutters',
     href: '/products/keystone-jacks-shutters',
-  },
-  {
-    name: 'Copper Systems',
-    href: '/products',
-    subItems: [
-      { name: 'Enterprise Data Center Copper Cable', href: '/products/data-center-copper-cable' }
-    ]
   },
   {
     name: 'Connectors,Products & Enterprises',
@@ -270,18 +265,18 @@ export const Navbar = () => {
   }
 
   return (
-    <nav className="bg-white shadow-lg fixed w-full top-0 z-50 border-b border-gray-200">
+    <nav className="bg-white shadow-xl fixed w-full top-0 z-50 border-b-2 border-telemons-blue-100">
       <div className="container mx-2 px-2">
         <div className='custom header-container'>
           <div className="flex justify-between items-center h-20 py-2">
             {/* Logo */}
             <div onClick={() => router.push('/')} className="flex-shrink-0 flex items-center pr-8 py-1">
-              <Image 
-                src="/telemons.jpg" 
-                alt="Telemons Cable" 
-                width={210} 
-                height={110} 
-                className="cursor-pointer" 
+              <Image
+                src="/telemons.jpg"
+                alt="Telemons Cable"
+                width={210}
+                height={110}
+                className="cursor-pointer hover:opacity-80 transition-opacity duration-300"
               />
             </div>
 
@@ -289,7 +284,7 @@ export const Navbar = () => {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-gray-600 hover:text-yellow-600 focus:outline-none"
+                className="text-telemons-blue-primary hover:text-telemons-orange-primary focus:outline-none transition-colors duration-300"
               >
                 <FaBars className="h-6 w-6" />
               </button>
@@ -297,95 +292,22 @@ export const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-4">
+
               {/* Products Dropdown */}
-
-              <div className="relative"
-                ref={racksAndCabinetsMenuRef}
-                onMouseEnter={handleRacksAndCabinetsMouseEnter}
-                onMouseLeave={handleRacksAndCabinetsMouseLeave}
-              >
-                <button className="flex items-center text-gray-600 hover:text-yellow-600 font-medium transition-colors">
-                  Racks & Cabinets
-                  <FaChevronDown className={`ml-1 h-3 w-3 transition-transform ${isRacksAndCabinetsOpen ? 'rotate-180' : ''}`} />
-                </button>
-                {isRacksAndCabinetsOpen && (
-                  <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50 py-2">
-                    {racksAndCabinetsMenuItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-600"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-              <div
-                ref={fibreNetworkingMenuRef}
-                className="relative"
-                onMouseEnter={handleFibreNetworkingMouseEnter}
-                onMouseLeave={handleFibreNetworkingMouseLeave}
-              >
-                <button className="flex items-center text-gray-600 hover:text-yellow-600 font-medium transition-colors">
-                  Fibre Networking
-                  <FaChevronDown className={`ml-1 h-3 w-3 transition-transform ${isFibreNetworkingOpen ? 'rotate-180' : ''}`} />
-                </button>
-                {isFibreNetworkingOpen && (
-                  <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50 py-2">
-                    {fibreNetworkingMenuItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-600"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <div
-                ref={powerAndDataMenuRef}
-                className="relative"
-                onMouseEnter={handlePowerAndDataMouseEnter}
-                onMouseLeave={handlePowerAndDataMouseLeave}
-              >
-                <button className="flex items-center text-gray-600 hover:text-yellow-600 font-medium transition-colors">
-                  Power & Data
-                  <FaChevronDown className={`ml-1 h-3 w-3 transition-transform ${isPowerAndDataOpen ? 'rotate-180' : ''}`} />
-                </button>
-                {isPowerAndDataOpen && (
-                  <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50 py-2">
-                    {powerAndDataMenuItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-600"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
               <div
                 ref={productsMenuRef}
                 className="relative"
                 onMouseEnter={handleProductsMouseEnter}
                 onMouseLeave={handleProductsMouseLeave}
               >
-                <button className="flex items-center text-gray-600 hover:text-yellow-600 font-medium transition-colors">
-                  Products
-                  <FaChevronDown className={`ml-1 h-3 w-3 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
+                <button className="flex items-center text-telemons-blue-primary hover:text-telemons-orange-primary font-semibold transition-colors duration-300">
+                  Copper Systems
+                  <FaChevronDown className={`ml-1 h-3 w-3 transition-transform duration-300 ${isProductsOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {/* Main Dropdown Menu */}
                 {isProductsOpen && (
-                  <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50 py-2">
+                  <div className="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl z-50 py-2 border border-telemons-blue-100">
                     {productMenuItems.map((item) => (
                       <div
                         key={item.name}
@@ -394,7 +316,7 @@ export const Navbar = () => {
                         onMouseLeave={handleCategoryMouseLeave}
                       >
                         <button
-                          className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-600 flex justify-between items-center"
+                          className="w-full text-left px-4 py-3 text-sm text-telemons-blue-700 hover:bg-telemons-orange-50 hover:text-telemons-orange-primary flex justify-between items-center transition-all duration-300"
                           onClick={() => navigateToCategory(item.href)}
                         >
                           {item.name}
@@ -403,11 +325,11 @@ export const Navbar = () => {
 
                         {/* Submenu */}
                         {activeSubMenu === item.name && item.subItems && (
-                          <div className="absolute left-full top-0 w-64 bg-white rounded-md shadow-lg z-50 py-2">
+                          <div className="absolute left-full top-0 w-64 bg-white rounded-xl shadow-2xl z-50 py-2 border border-telemons-blue-100">
                             {item.subItems.map((subItem) => (
                               <button
                                 key={subItem.name}
-                                className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-600"
+                                className="w-full text-left px-4 py-3 text-sm text-telemons-blue-700 hover:bg-telemons-orange-50 hover:text-telemons-orange-primary transition-all duration-300"
                                 onClick={() => navigateToCategory(subItem.href)}
                               >
                                 {subItem.name}
@@ -421,6 +343,85 @@ export const Navbar = () => {
                 )}
               </div>
 
+
+              {/* Fibre Networking Dropdown */}
+              <div
+                ref={fibreNetworkingMenuRef}
+                className="relative"
+                onMouseEnter={handleFibreNetworkingMouseEnter}
+                onMouseLeave={handleFibreNetworkingMouseLeave}
+              >
+                <button className="flex items-center text-telemons-blue-primary hover:text-telemons-orange-primary font-semibold transition-colors duration-300">
+                  Fibre Networking
+                  <FaChevronDown className={`ml-1 h-3 w-3 transition-transform duration-300 ${isFibreNetworkingOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isFibreNetworkingOpen && (
+                  <div className="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl z-50 py-2 border border-telemons-blue-100">
+                    {fibreNetworkingMenuItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="block px-4 py-3 text-sm text-telemons-blue-700 hover:bg-telemons-orange-50 hover:text-telemons-orange-primary transition-all duration-300"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Power & Data Dropdown */}
+              <div
+                ref={powerAndDataMenuRef}
+                className="relative"
+                onMouseEnter={handlePowerAndDataMouseEnter}
+                onMouseLeave={handlePowerAndDataMouseLeave}
+              >
+                <button className="flex items-center text-telemons-blue-primary hover:text-telemons-orange-primary font-semibold transition-colors duration-300">
+                  Power & Data
+                  <FaChevronDown className={`ml-1 h-3 w-3 transition-transform duration-300 ${isPowerAndDataOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isPowerAndDataOpen && (
+                  <div className="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl z-50 py-2 border border-telemons-blue-100">
+                    {powerAndDataMenuItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="block px-4 py-3 text-sm text-telemons-blue-700 hover:bg-telemons-orange-50 hover:text-telemons-orange-primary transition-all duration-300"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+
+              {/* Racks & Cabinets Dropdown */}
+              <div className="relative"
+                ref={racksAndCabinetsMenuRef}
+                onMouseEnter={handleRacksAndCabinetsMouseEnter}
+                onMouseLeave={handleRacksAndCabinetsMouseLeave}
+              >
+                <button className="flex items-center text-telemons-blue-primary hover:text-telemons-orange-primary font-semibold transition-colors duration-300">
+                  Racks & Cabinets
+                  <FaChevronDown className={`ml-1 h-3 w-3 transition-transform duration-300 ${isRacksAndCabinetsOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isRacksAndCabinetsOpen && (
+                  <div className="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl z-50 py-2 border border-telemons-blue-100">
+                    {racksAndCabinetsMenuItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="block px-4 py-3 text-sm text-telemons-blue-700 hover:bg-telemons-orange-50 hover:text-telemons-orange-primary transition-all duration-300"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               {/* Markets Dropdown */}
               <div
                 ref={marketsMenuRef}
@@ -428,19 +429,19 @@ export const Navbar = () => {
                 onMouseEnter={handleMarketsMouseEnter}
                 onMouseLeave={handleMarketsMouseLeave}
               >
-                <button className="flex items-center text-gray-600 hover:text-yellow-600 font-medium transition-colors">
+                <button className="flex items-center text-telemons-blue-primary hover:text-telemons-orange-primary font-semibold transition-colors duration-300">
                   Markets
-                  <FaChevronDown className={`ml-1 h-3 w-3 transition-transform ${isMarketsOpen ? 'rotate-180' : ''}`} />
+                  <FaChevronDown className={`ml-1 h-3 w-3 transition-transform duration-300 ${isMarketsOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {/* Markets Dropdown Menu */}
                 {isMarketsOpen && (
-                  <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-50 py-2">
+                  <div className="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl z-50 py-2 border border-telemons-blue-100">
                     {marketMenuItems.map((item) => (
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-yellow-600"
+                        className="block px-4 py-3 text-sm text-telemons-blue-700 hover:bg-telemons-orange-50 hover:text-telemons-orange-primary transition-all duration-300"
                         onClick={() => setIsMarketsOpen(false)}
                       >
                         {item.name}
@@ -450,7 +451,7 @@ export const Navbar = () => {
                 )}
               </div>
 
-              <Link href="/about-us" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">About Us</Link>
+              <Link href="/about-us" className="text-telemons-blue-primary hover:text-telemons-orange-primary font-semibold transition-colors duration-300">About Us</Link>
 
             </div>
 
@@ -463,9 +464,9 @@ export const Navbar = () => {
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-48 pl-10 pr-4 py-2 border border-gray-200 rounded-full w text-sm focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 shadow-sm"
+                  className="w-48 pl-10 pr-4 py-2 border-2 border-telemons-blue-200 rounded-full text-sm focus:outline-none focus:border-telemons-orange-primary focus:ring-2 focus:ring-telemons-orange-primary/20 shadow-sm transition-all duration-300"
                 />
-                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-telemons-blue-400" />
               </div>
 
               {/* Auth Buttons */}
@@ -476,13 +477,13 @@ export const Navbar = () => {
                   <div className="flex space-x-3">
                     <Link
                       href="/login"
-                      className="px-5 py-2 text-sm font-medium text-white bg-gradient-to-br from-gray-900 to-blue-300 rounded-lg hover:from-gray-200 hover:to-blue-400 transition-all shadow"
+                      className="btn-primary"
                     >
                       Login
                     </Link>
                     <Link
                       href="/signup"
-                      className="px-5 py-2 text-sm font-medium text-blue-600 bg-white border border-blue-600 rounded-lg hover:bg-blue-100 transition-colors shadow"
+                      className="btn-outline-orange"
                     >
                       Sign Up
                     </Link>
@@ -491,25 +492,27 @@ export const Navbar = () => {
               </div>
             </div>
           </div>
+          {/* =====================================================================================================================================================================================*/}
 
           {/* Mobile Navigation Menu with Products Dropdown */}
-          <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} pb-4`}>
+          <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} pb-4 bg-white border-t border-telemons-blue-100`}>
             <div className="flex flex-col space-y-3">
+
               {/* Mobile Products Dropdown */}
               <div className="py-2">
                 <button
                   onClick={() => setIsProductsOpen(!isProductsOpen)}
-                  className="flex items-center justify-between w-full text-gray-600 hover:text-yellow-600"
+                  className="flex items-center justify-between w-full text-telemons-blue-primary hover:text-telemons-orange-primary transition-colors duration-300"
                 >
-                  <span>Products</span>
-                  <FaChevronDown className={`h-3 w-3 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
+                  <span>Copper Systems</span>
+                  <FaChevronDown className={`h-3 w-3 transition-transform duration-300 ${isProductsOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {isProductsOpen && (
                   <div className="pl-4 mt-2 space-y-2">
                     {productMenuItems.map((item) => (
                       <div key={item?.name} className="space-y-2">
-                        <Link href={item?.href} className="block text-gray-600 hover:text-yellow-600 py-1">
+                        <Link href={item?.href} className="block text-telemons-blue-600 hover:text-telemons-orange-primary py-1 transition-colors duration-300">
                           {item?.name}
                         </Link>
                         {item?.subItems && (
@@ -518,7 +521,7 @@ export const Navbar = () => {
                               <Link
                                 key={subItem?.name}
                                 href={subItem?.href}
-                                className="block text-gray-500 hover:text-yellow-600 py-1 text-sm"
+                                className="block text-telemons-blue-500 hover:text-telemons-orange-primary py-1 text-sm transition-colors duration-300"
                               >
                                 {subItem?.name}
                               </Link>
@@ -531,14 +534,89 @@ export const Navbar = () => {
                 )}
               </div>
 
+
+
+              {/* Mobile Fibre Networking Dropdown */}
+              <div className="py-2">
+                <button
+                  onClick={() => setIsFibreNetworkingOpen(!isFibreNetworkingOpen)}
+                  className="flex items-center justify-between w-full text-telemons-blue-primary hover:text-telemons-orange-primary transition-colors duration-300"
+                >
+                  <span>Fibre Networking</span>
+                  <FaChevronDown className={`h-3 w-3 transition-transform duration-300 ${isFibreNetworkingOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isFibreNetworkingOpen && (
+                  <div className="pl-4 mt-2 space-y-2">
+                    {fibreNetworkingMenuItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="block text-telemons-blue-600 hover:text-telemons-orange-primary py-1 transition-colors duration-300"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Mobile Power & Data Dropdown */}
+              <div className="py-2">
+                <button
+                  onClick={() => setIsPowerAndDataOpen(!isPowerAndDataOpen)}
+                  className="flex items-center justify-between w-full text-telemons-blue-primary hover:text-telemons-orange-primary transition-colors duration-300"
+                >
+                  <span>Power & Data</span>
+                  <FaChevronDown className={`h-3 w-3 transition-transform duration-300 ${isPowerAndDataOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isPowerAndDataOpen && (
+                  <div className="pl-4 mt-2 space-y-2">
+                    {powerAndDataMenuItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="block text-telemons-blue-600 hover:text-telemons-orange-primary py-1 transition-colors duration-300"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Mobile Racks & Cabinets Dropdown */}
+              <div className="py-2">
+                <button
+                  onClick={() => setIsRacksAndCabinetsOpen(!isRacksAndCabinetsOpen)}
+                  className="flex items-center justify-between w-full text-telemons-blue-primary hover:text-telemons-orange-primary transition-colors duration-300"
+                >
+                  <span>Racks & Cabinets</span>
+                  <FaChevronDown className={`h-3 w-3 transition-transform duration-300 ${isRacksAndCabinetsOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isRacksAndCabinetsOpen && (
+                  <div className="pl-4 mt-2 space-y-2">
+                    {racksAndCabinetsMenuItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="block text-telemons-blue-600 hover:text-telemons-orange-primary py-1 transition-colors duration-300"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+
               {/* Mobile Markets Dropdown */}
               <div className="py-2">
                 <button
                   onClick={() => setIsMarketsOpen(!isMarketsOpen)}
-                  className="flex items-center justify-between w-full text-gray-600 hover:text-yellow-600"
+                  className="flex items-center justify-between w-full text-telemons-blue-primary hover:text-telemons-orange-primary transition-colors duration-300"
                 >
                   <span>Markets</span>
-                  <FaChevronDown className={`h-3 w-3 transition-transform ${isMarketsOpen ? 'rotate-180' : ''}`} />
+                  <FaChevronDown className={`h-3 w-3 transition-transform duration-300 ${isMarketsOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {isMarketsOpen && (
@@ -547,7 +625,7 @@ export const Navbar = () => {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="block text-gray-600 hover:text-yellow-600 py-1"
+                        className="block text-telemons-blue-600 hover:text-telemons-orange-primary py-1 transition-colors duration-300"
                         onClick={() => {
                           setIsMarketsOpen(false);
                           setIsMobileMenuOpen(false);
@@ -560,55 +638,7 @@ export const Navbar = () => {
                 )}
               </div>
 
-              <div className="py-2">
-                <button
-                  onClick={() => setIsFibreNetworkingOpen(!isFibreNetworkingOpen)}
-                  className="flex items-center justify-between w-full text-gray-600 hover:text-yellow-600"
-                >
-                  <span>Fibre Networking</span>
-                  <FaChevronDown className={`h-3 w-3 transition-transform ${isFibreNetworkingOpen ? 'rotate-180' : ''}`} />
-                </button>
-                {isFibreNetworkingOpen && (
-                  <div className="pl-4 mt-2 space-y-2">
-                    {fibreNetworkingMenuItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="block text-gray-600 hover:text-yellow-600 py-1"
-                        onClick={() => setIsFibreNetworkingOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <div className="py-2">
-                <button
-                  onClick={() => setIsPowerAndDataOpen(!isPowerAndDataOpen)}
-                  className="flex items-center justify-between w-full text-gray-600 hover:text-yellow-600"
-                >
-                  <span>Power & Data</span>
-                  <FaChevronDown className={`h-3 w-3 transition-transform ${isPowerAndDataOpen ? 'rotate-180' : ''}`} />
-                </button>
-                {isPowerAndDataOpen && (
-                  <div className="pl-4 mt-2 space-y-2">
-                    {powerAndDataMenuItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="block text-gray-600 hover:text-yellow-600 py-1"
-                        onClick={() => setIsPowerAndDataOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <Link href="/about-us" className="text-gray-600 hover:text-yellow-600 font-medium transition-colors">About Us</Link>
+              <Link href="/about-us" className="text-telemons-blue-primary hover:text-telemons-orange-primary font-semibold transition-colors duration-300">About Us</Link>
 
               {/* Mobile Search */}
               <div className="relative mt-2">
@@ -617,9 +647,9 @@ export const Navbar = () => {
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-full text-sm"
+                  className="w-full pl-10 pr-4 py-2 border-2 border-telemons-blue-200 rounded-full text-sm focus:outline-none focus:border-telemons-orange-primary focus:ring-2 focus:ring-telemons-orange-primary/20 transition-all duration-300"
                 />
-                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-telemons-blue-400" />
               </div>
 
               {/* Mobile Auth Buttons */}
@@ -627,13 +657,13 @@ export const Navbar = () => {
                 <div className="flex flex-col space-y-2 mt-2">
                   <Link
                     href="/login"
-                    className="w-full text-center px-4 py-2 text-sm font-medium text-white bg-yellow-600 rounded-md hover:bg-yellow-700"
+                    className="w-full text-center px-4 py-3 text-sm font-semibold text-white bg-telemons-blue-primary hover:bg-telemons-blue-dark rounded-lg transition-all duration-300"
                   >
                     Login
                   </Link>
                   <Link
                     href="/signup"
-                    className="w-full text-center px-4 py-2 text-sm font-medium text-yellow-600 border border-yellow-600 rounded-md hover:bg-yellow-50"
+                    className="w-full text-center px-4 py-3 text-sm font-semibold text-telemons-orange-primary border-2 border-telemons-orange-primary rounded-lg hover:bg-telemons-orange-primary hover:text-white transition-all duration-300"
                   >
                     Sign Up
                   </Link>

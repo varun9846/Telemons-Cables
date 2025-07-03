@@ -7,6 +7,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { Navbar } from '@/components/common/Navbar';
 import { Footer } from '@/components/common/Footer';
 import EnterpriseCables from '@/components/products/EnterpriseCables';
+import EnterpriseCopperCables from '@/components/products/EnterpriseCopperCables';
 import CopperPatchPanels from '../../../components/products/CopperPatchPanels';
 import KeystoneJacks from '../../../components/products/KeystoneJacks';
 import ModulesFaceplates from '@/components/products/ModulesFaceplates';
@@ -17,6 +18,7 @@ import { Backbox } from '@/types/backbox';
 import TelephoneNetworking from '@/components/products/TelephoneNetworking';
 import type { TelephoneNetworking as TelephoneNetworkingType } from '@/types/telephone-networking';
 import FloorStandingRacks from '@/components/RacksCabinets/FloorStandingRacks';
+import { EnterpriseCopperCable } from '@/types/enterprise-copper-cables';
 
 // Product category interface for type safety
 interface ProductCategory {
@@ -115,7 +117,7 @@ export default function CategoryPage() {
     const [items, setItems] = useState<TelephoneNetworkingType[]>([]);
     const [floorStandingRacks, setFloorStandingRacks] = useState<any[]>([]);
     const [error, setError] = useState(null);
-
+    const [enterpriseCopperCables, setEnterpriseCopperCables] = useState<EnterpriseCopperCable[]>([]);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -130,6 +132,9 @@ export default function CategoryPage() {
                     if (response.data.length > 0) {
                         setSelectedDefaultCategory(response.data[0]);
                     }
+                } else if (category === 'enterprise-copper-cables') {
+                    const response = await axios.get('/api/enterprise-copper-cables');
+                    setEnterpriseCopperCables(response.data);
                 } else if (category === 'copper-patch-panels-frames') {
                     const response = await axios.get('/data/copperPatchPanels.json');
                     setProductData(response.data);
@@ -520,6 +525,39 @@ export default function CategoryPage() {
                 </div>
                 <Footer />
             </div>
+        );
+    }
+
+    // Handle enterprise copper cables view
+    if (category === 'enterprise-copper-cables') {
+        return (
+            <div className="min-h-screen bg-gray-50 font-inter">
+            <Navbar />
+            <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
+                <div className="absolute inset-0 bg-black opacity-40"></div>
+                <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
+                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                        Enterprise Copper Cables
+                    </h1>
+                    <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                        High-quality enterprise copper cables for secure network installations.
+                    </p>
+                </div>
+            </section>
+            <div className="pt-0">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <button
+                        onClick={handleBack}
+                        className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+                    >
+                        <FaArrowLeft />
+                        <span>Back to Products</span>
+                    </button>
+                    <EnterpriseCopperCables cables={enterpriseCopperCables} />
+                </div>
+            </div>
+            <Footer />
+        </div>
         );
     }
 
