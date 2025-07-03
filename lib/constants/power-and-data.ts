@@ -7,6 +7,7 @@ import { MpoChassis } from '@/types/mpo-chassis';
 import { FibreDuct } from '@/types/fibre-duct';
 import { DataCentreRack } from '@/types/data-centre-racks';
 import { LiquidCooling } from '@/types/liquid-cooling';
+import { EnterpriseCopperCable } from '@/types/enterprise-copper-cables';
 
 // API Endpoints
 export const API_ENDPOINTS = {
@@ -19,6 +20,7 @@ export const API_ENDPOINTS = {
     DATA_CENTRE_RACKS: '/api/data-centre-racks',
     KEYSTONE_JACKS: '/api/keystone-jacks',
     LIQUID_COOLING: '/api/liquid-cooling',
+    ENTERPRISE_COPPER_CABLES: '/api/enterprise-copper-cables',
 };
 
 // Category Titles
@@ -33,6 +35,7 @@ export const CATEGORY_TITLES = {
     'aisle-containment': 'Aisle Containment',
     'liquid-cooling': 'Liquid Cooling',
     'intelligent-power': 'Intelligent Power',
+    'enterprise-copper-cables': 'Enterprise Copper Cables',
 } as const;
 
 // API Functions
@@ -71,10 +74,13 @@ export const fetchDataCentreRacks = async (): Promise<DataCentreRack[]> => {
     return response.data;
 };
 
-
-
 export const fetchLiquidCooling = async (): Promise<LiquidCooling[]> => {
     const response = await axios.get(API_ENDPOINTS.LIQUID_COOLING);
+    return response.data;
+};
+
+export const fetchEnterpriseCopperCables = async (): Promise<EnterpriseCopperCable[]> => {
+    const response = await axios.get(API_ENDPOINTS.ENTERPRISE_COPPER_CABLES);
     return response.data;
 };
 
@@ -88,4 +94,5 @@ export const CATEGORY_API_MAP = {
     'fibre-duct': fetchFibreDuct,
     'data-centre-racks': fetchDataCentreRacks,
     'liquid-cooling': fetchLiquidCooling,
+    'enterprise-copper-cables': fetchEnterpriseCopperCables,
 } as const; 

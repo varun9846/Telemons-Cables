@@ -13,14 +13,14 @@ import {
   FaPhone,
   FaEnvelope
 } from 'react-icons/fa';
-import { FibreConnectorCoupler } from '@/types/fibre-connector-coupler';
+import { EnterpriseCopperCable } from '@/types/enterprise-copper-cables';
 
-interface FibreConnectorCouplerDetailProps {
-  product: FibreConnectorCoupler;
+interface EnterpriseCopperCableDetailProps {
+  product: EnterpriseCopperCable;
   onBack: () => void;
 }
 
-const FibreConnectorCouplerDetail: React.FC<FibreConnectorCouplerDetailProps> = ({ product, onBack }) => {
+const EnterpriseCopperCableDetail: React.FC<EnterpriseCopperCableDetailProps> = ({ product, onBack }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState('overview');
 
@@ -74,7 +74,7 @@ const FibreConnectorCouplerDetail: React.FC<FibreConnectorCouplerDetailProps> = 
               <div>
                 <div className="flex items-center space-x-2 mb-4">
                   <span className="px-3 py-1 bg-telemons-blue-100 text-telemons-blue-primary rounded-full text-sm font-medium">
-                    Professional Grade
+                    Enterprise Grade
                   </span>
                   <span className="px-3 py-1 bg-telemons-orange-100 text-telemons-orange-primary rounded-full text-sm font-medium">
                     In Stock
@@ -93,12 +93,12 @@ const FibreConnectorCouplerDetail: React.FC<FibreConnectorCouplerDetailProps> = 
               {/* Quick Stats */}
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-center p-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-telemons-blue-100 shadow-sm">
-                  <div className="text-2xl font-bold text-telemons-blue-primary mb-1">{product.partNumber || 'N/A'}</div>
-                  <div className="text-sm text-gray-500">Part Code</div>
+                  <div className="text-2xl font-bold text-telemons-blue-primary mb-1">{product.specifications.performanceLevel}</div>
+                  <div className="text-sm text-gray-500">Performance</div>
                 </div>
                 <div className="text-center p-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-telemons-blue-100 shadow-sm">
-                  <div className="text-2xl font-bold text-telemons-orange-primary mb-1">1U</div>
-                  <div className="text-sm text-gray-500">Rack Size</div>
+                  <div className="text-2xl font-bold text-telemons-orange-primary mb-1">{product.specifications.cableConstruction}</div>
+                  <div className="text-sm text-gray-500">Construction</div>
                 </div>
                 <div className="text-center p-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-telemons-blue-100 shadow-sm">
                   <div className="text-2xl font-bold text-telemons-blue-primary mb-1">ISO</div>
@@ -167,7 +167,7 @@ const FibreConnectorCouplerDetail: React.FC<FibreConnectorCouplerDetailProps> = 
                       Product Overview
                     </h2>
                     <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                      {product.detailedDescription}
+                      {product.detailedDescription || product.description}
                     </p>
                     
                     {/* Key Benefits Grid */}
@@ -175,17 +175,17 @@ const FibreConnectorCouplerDetail: React.FC<FibreConnectorCouplerDetailProps> = 
                       <div className="group p-6 bg-gradient-to-br from-telemons-blue-50 to-telemons-blue-100 rounded-2xl border border-telemons-blue-200 hover:shadow-lg transition-all duration-300">
                         <FaShieldAlt className="text-3xl text-telemons-blue-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
                         <h4 className="font-bold text-telemons-blue-primary mb-2">Reliability</h4>
-                        <p className="text-gray-600 text-sm">Engineered for consistent performance in demanding environments</p>
+                        <p className="text-gray-600 text-sm">Engineered for consistent performance in demanding enterprise environments</p>
                       </div>
                       <div className="group p-6 bg-gradient-to-br from-telemons-orange-50 to-telemons-orange-100 rounded-2xl border border-telemons-orange-200 hover:shadow-lg transition-all duration-300">
                         <FaBolt className="text-3xl text-telemons-orange-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
                         <h4 className="font-bold text-telemons-orange-primary mb-2">Performance</h4>
-                        <p className="text-gray-600 text-sm">Optimal performance with precision engineering</p>
+                        <p className="text-gray-600 text-sm">High-speed data transmission with optimal signal integrity</p>
                       </div>
                       <div className="group p-6 bg-gradient-to-br from-telemons-blue-50 to-telemons-orange-50 rounded-2xl border border-telemons-blue-200 hover:shadow-lg transition-all duration-300">
                         <FaLeaf className="text-3xl text-telemons-blue-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
                         <h4 className="font-bold text-telemons-blue-primary mb-2">Quality</h4>
-                        <p className="text-gray-600 text-sm">Premium materials and expert craftsmanship</p>
+                        <p className="text-gray-600 text-sm">Premium materials and expert craftsmanship for long-term reliability</p>
                       </div>
                     </div>
                   </div>
@@ -223,43 +223,57 @@ const FibreConnectorCouplerDetail: React.FC<FibreConnectorCouplerDetailProps> = 
                     </h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      <div className="space-y-6">
-                        <div className="bg-gradient-to-br from-gray-50 to-telemons-blue-50 p-6 rounded-2xl border border-telemons-blue-100">
-                          <h4 className="text-xl font-bold text-telemons-blue-primary mb-4 flex items-center">
-                            <FaCertificate className="text-telemons-blue-primary mr-2" />
-                            Product Details
-                          </h4>
-                          <div className="space-y-4">
-                            <div className="flex justify-between items-center py-3 border-b border-telemons-blue-100">
-                              <span className="text-gray-600 font-medium">Part Code</span>
-                              <span className="text-telemons-blue-primary font-bold">{product.partNumber || 'N/A'}</span>
-                            </div>
-                            <div className="flex justify-between items-center py-3 border-b border-telemons-blue-100">
-                              <span className="text-gray-600 font-medium">Model</span>
-                              <span className="text-telemons-blue-primary text-sm ml-8 font-bold">{product.title}</span>
-                            </div>
-                            <div className="flex justify-between items-center py-3">
-                              <span className="text-gray-600 font-medium">Type</span>
-                              <span className="text-telemons-blue-primary font-bold">Connector Coupler</span>
-                            </div>
+                      <div className="space-y-4">
+                        <h3 className="text-xl font-semibold text-telemons-blue-primary mb-4">Physical Specifications</h3>
+                        <div className="space-y-3">
+                          <div className="flex justify-between py-2 border-b border-telemons-blue-100">
+                            <span className="font-medium text-gray-700">Performance Level</span>
+                            <span className="text-telemons-blue-primary">{product.specifications.performanceLevel}</span>
+                          </div>
+                          <div className="flex justify-between py-2 border-b border-telemons-blue-100">
+                            <span className="font-medium text-gray-700">Cable Construction</span>
+                            <span className="text-telemons-blue-primary">{product.specifications.cableConstruction}</span>
+                          </div>
+                          <div className="flex justify-between py-2 border-b border-telemons-blue-100">
+                            <span className="font-medium text-gray-700">Conductor Gauge</span>
+                            <span className="text-telemons-blue-primary">{product.specifications.conductorGauge}</span>
+                          </div>
+                          <div className="flex justify-between py-2 border-b border-telemons-blue-100">
+                            <span className="font-medium text-gray-700">Conductor Type</span>
+                            <span className="text-telemons-blue-primary">{product.specifications.conductorType}</span>
+                          </div>
+                          <div className="flex justify-between py-2 border-b border-telemons-blue-100">
+                            <span className="font-medium text-gray-700">Overall Length</span>
+                            <span className="text-telemons-blue-primary">{product.specifications.overallLength}</span>
                           </div>
                         </div>
                       </div>
                       
-                      <div className="space-y-6">
-                        <div className="bg-gradient-to-br from-gray-50 to-telemons-orange-50 p-6 rounded-2xl border border-telemons-orange-100">
-                          <h4 className="text-xl font-bold text-telemons-orange-primary mb-4 flex items-center">
-                            <FaAward className="text-telemons-orange-primary mr-2" />
-                            Certifications
-                          </h4>
-                          <div className="space-y-3">
-                            {['CE Certified', 'RoHS Compliant', 'ISO 9001 Standard', 'Safety Tested'].map((cert, idx) => (
-                              <div key={idx} className="flex items-center space-x-3">
-                                <div className="w-3 h-3 bg-telemons-orange-primary rounded-full shadow-sm"></div>
-                                <span className="text-gray-700 font-medium">{cert}</span>
-                              </div>
-                            ))}
+                      <div className="space-y-4">
+                        <h3 className="text-xl font-semibold text-telemons-blue-primary mb-4">Compliance & Ratings</h3>
+                        <div className="space-y-3">
+                          <div className="flex justify-between py-2 border-b border-telemons-blue-100">
+                            <span className="font-medium text-gray-700">Euro Class Flame Rating</span>
+                            <span className="text-telemons-blue-primary">{product.specifications.euroClassFlameRating}</span>
                           </div>
+                          {product.specifications.flammabilityRating && product.specifications.flammabilityRating.length > 0 && (
+                            <div className="flex justify-between py-2 border-b border-telemons-blue-100">
+                              <span className="font-medium text-gray-700">Flammability Rating</span>
+                              <span className="text-telemons-blue-primary">{product.specifications.flammabilityRating.join(', ')}</span>
+                            </div>
+                          )}
+                          {product.specifications.availableColors && product.specifications.availableColors.length > 0 && (
+                            <div className="flex justify-between py-2 border-b border-telemons-blue-100">
+                              <span className="font-medium text-gray-700">Available Colors</span>
+                              <span className="text-telemons-blue-primary">{product.specifications.availableColors.join(', ')}</span>
+                            </div>
+                          )}
+                          {product.specifications.numberOfPairs && product.specifications.numberOfPairs.length > 0 && (
+                            <div className="flex justify-between py-2 border-b border-telemons-blue-100">
+                              <span className="font-medium text-gray-700">Number of Pairs</span>
+                              <span className="text-telemons-blue-primary">{product.specifications.numberOfPairs.join(', ')}</span>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -314,15 +328,15 @@ const FibreConnectorCouplerDetail: React.FC<FibreConnectorCouplerDetailProps> = 
                 <div className="space-y-3">
                   <div className="flex items-center space-x-2 p-2 bg-green-50 rounded-lg">
                     <FaCheck className="text-green-500" />
-                    <span className="text-sm text-gray-700">CE Certified</span>
+                    <span className="text-sm text-gray-700">ISO 11801 Compliant</span>
+                  </div>
+                  <div className="flex items-center space-x-2 p-2 bg-green-50 rounded-lg">
+                    <FaCheck className="text-green-500" />
+                    <span className="text-sm text-gray-700">TIA/EIA Standards</span>
                   </div>
                   <div className="flex items-center space-x-2 p-2 bg-green-50 rounded-lg">
                     <FaCheck className="text-green-500" />
                     <span className="text-sm text-gray-700">RoHS Compliant</span>
-                  </div>
-                  <div className="flex items-center space-x-2 p-2 bg-green-50 rounded-lg">
-                    <FaCheck className="text-green-500" />
-                    <span className="text-sm text-gray-700">ISO 9001 Standard</span>
                   </div>
                 </div>
               </div>
@@ -330,24 +344,8 @@ const FibreConnectorCouplerDetail: React.FC<FibreConnectorCouplerDetailProps> = 
           </div>
         </div>
       </section>
-
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fade-in {
-          animation: fade-in 0.6s ease-out;
-        }
-      `}</style>
     </div>
   );
 };
 
-export default FibreConnectorCouplerDetail; 
+export default EnterpriseCopperCableDetail; 
