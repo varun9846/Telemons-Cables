@@ -19,6 +19,7 @@ datasource db {
 
 
 
+
 model StructuredModules {
   // Unique identifier for each record
   id                      Int      @id @default(autoincrement())
@@ -32,8 +33,8 @@ model StructuredModules {
   indepthPartCode         String?  @map("Indepth PartCode") // Corrected field name
   indepthDescription      String?  @map("Indepth Description") // Corrected field name
   indepthKeyFeatures      String?  @map("Indepth Key Features") // Corrected field name
+  indepthImage            String?  @map("Indepth Image SRC-src") // Corrected field name
 }
-
 model StructuredBackboxes {
   // Unique identifier for each record
   id                      Int      @id @default(autoincrement())
