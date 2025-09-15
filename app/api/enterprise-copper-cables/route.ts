@@ -54,7 +54,7 @@ export async function GET(request: NextRequest) {
       status: 200,
       headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600' // Cache for 5 minutes, stale for 10 minutes
+        'Cache-Control': 'no-cache, no-store, must-revalidate' // Prevent caching to ensure updated images are served
       }
     });
 

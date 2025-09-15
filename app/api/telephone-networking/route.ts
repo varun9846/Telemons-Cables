@@ -16,21 +16,31 @@ export async function GET() {
     
     // Transform the data to match the required format
     const transformedData = telephoneNetworking.map((item) => {
-      const imageFileName = formatImageName(item.titleHead || '');
+      // Prioritize database image field, fallback to generated path
+      const imageFromDb = item.indepthImage;
+      const fallbackImageFileName = formatImageName(item.titleHead || '');
+      const imageSrc = imageFromDb || `/images/telephone-networking/${fallbackImageFileName}.jpg`;
+      
       return {
         id: item.id.toString(),
         title: item.titleHead || '',
         partNumber: item.indepthPartCode || '',
         description: item.description || '',
-        image: `/images/telephone-networking/${imageFileName}.jpg`,
+        image: imageSrc,
         specifications: item.indepthKeyFeatures ? item.indepthKeyFeatures.split('\n').filter(Boolean) : [],
         features: item.indepthKeyFeatures ? item.indepthKeyFeatures.split('\n').filter(Boolean) : [],
         detailedDescription: item.indepthDescription || '',
-        additionalImages: [`/images/telephone-networking/${imageFileName}.jpg`]
+        additionalImages: imageFromDb ? [imageFromDb] : [`/images/telephone-networking/${fallbackImageFileName}.jpg`]
       }
     });
 
-    return NextResponse.json(transformedData);
+    return NextResponse.json(transformedData, {
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    });
   } catch (error) {
     console.error('Error fetching telephone networking data:', error);
     return NextResponse.json(

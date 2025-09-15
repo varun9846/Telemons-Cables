@@ -16,22 +16,31 @@ export async function GET() {
     
     // Transform the data to match the required format
     const transformedData = modules.map((module) => {
-      const imageFileName = formatImageName(module.titleHead || '');
+      // Prioritize database image field, fallback to generated path
+      const imageFromDb = module.indepthImage;
+      const fallbackImageFileName = formatImageName(module.titleHead || '');
+      const imageSrc = imageFromDb || `/images/modules-faceplates/${fallbackImageFileName}.jpg`;
       
       return {
         id: module.id.toString(),
         title: module.titleHead || '',
         partNumber: module.indepthPartCode || '',
         description: module.description || '',
-        image: `/images/modules-faceplates/${imageFileName}.jpg`,
+        image: imageSrc,
         specifications: module.indepthKeyFeatures ? module.indepthKeyFeatures.split('\n').filter(Boolean) : [],
         features: module.indepthKeyFeatures ? module.indepthKeyFeatures.split('\n').filter(Boolean) : [],
         detailedDescription: module.indepthDescription || '',
-        additionalImages: [`/images/modules-faceplates/${imageFileName}.jpg`]
+        additionalImages: imageFromDb ? [imageFromDb] : [`/images/modules-faceplates/${fallbackImageFileName}.jpg`]
       };
     });
 
-    return NextResponse.json(transformedData);
+    return NextResponse.json(transformedData, {
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    });
   } catch (error) {
     console.error('Error fetching modules and faceplates:', error);
     return NextResponse.json(
