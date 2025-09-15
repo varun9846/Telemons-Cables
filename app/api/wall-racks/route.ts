@@ -23,7 +23,13 @@ export async function GET() {
       }
     });
 
-    return NextResponse.json(transformedData);
+    return NextResponse.json(transformedData, {
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    });
   } catch (error) {
     console.error('Error fetching wall racks:', error);
     return NextResponse.json(
