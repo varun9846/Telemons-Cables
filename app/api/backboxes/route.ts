@@ -15,21 +15,31 @@ export async function GET() {
 
     // Transform the data to match the required format
     const transformedData = backboxes.map((backbox) => {
-      const imageFileName = formatImageName(backbox.titleHead || '');
+      // Prioritize database image field, fallback to generated path
+      const imageFromDb = backbox.indepthImage;
+      const fallbackImageFileName = formatImageName(backbox.titleHead || '');
+      const imageSrc = imageFromDb || `/images/Backbox-floorboxes/${fallbackImageFileName}.jpg`;
+      
       return {
         id: backbox.id.toString(),
         title: backbox.titleHead || '',
         partNumber: backbox.indepthPartCode || '',
         description: backbox.description || '',
-        image: `/images/Backbox-floorboxes/${imageFileName}.jpg`,
+        image: imageSrc,
         specifications: backbox.indepthKeyFeatures ? backbox.indepthKeyFeatures.split('\n').filter(Boolean) : [],
         features: backbox.indepthKeyFeatures ? backbox.indepthKeyFeatures.split('\n').filter(Boolean) : [],
         detailedDescription: backbox.indepthDescription || '',
-        additionalImages: [`/images/Backbox-floorboxes/${imageFileName}.jpg`]
+        additionalImages: imageFromDb ? [imageFromDb] : [`/images/Backbox-floorboxes/${fallbackImageFileName}.jpg`]
       }
     });
 
-    return NextResponse.json(transformedData);
+    return NextResponse.json(transformedData, {
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    });
   } catch (error) {
     console.error('Error fetching backboxes:', error);
     return NextResponse.json(
