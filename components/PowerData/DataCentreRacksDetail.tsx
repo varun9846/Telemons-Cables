@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import {
-  FaArrowLeft,
-  FaCheck,
-  FaQuoteRight,
-  FaShieldAlt,
-  FaBolt,
+import { 
+  FaArrowLeft, 
+  FaCheck, 
+  FaQuoteRight, 
+  FaShieldAlt, 
+  FaBolt, 
   FaLeaf,
   FaStar,
   FaCertificate,
@@ -13,6 +13,7 @@ import {
   FaPhone,
   FaEnvelope
 } from 'react-icons/fa';
+import { PDFDownloadButton } from '@/components/common/PDFDownloadButton';
 import { DataCentreRack } from '@/types/data-centre-racks';
 
 interface DataCentreRacksDetailProps {
@@ -110,9 +111,12 @@ const DataCentreRacksDetail: React.FC<DataCentreRacksDetailProps> = ({ product, 
                 <button className="flex-1 bg-gradient-to-r from-telemons-blue-primary to-telemons-blue-dark text-white py-4 px-8 rounded-2xl font-bold text-lg hover:from-telemons-blue-dark hover:to-telemons-blue-primary transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
                   Request Quote
                 </button>
-                <button className="flex-1 bg-white text-gray-700 py-4 px-8 rounded-2xl font-bold text-lg border-2 border-telemons-blue-200 hover:border-telemons-blue-primary hover:text-telemons-blue-primary transition-all duration-300">
-                  Download Specs
-                </button>
+                <PDFDownloadButton 
+                  product={product}
+                  className="flex-1"
+                  variant="secondary"
+                  showError={true}
+                />
               </div>
             </div>
           </div>
