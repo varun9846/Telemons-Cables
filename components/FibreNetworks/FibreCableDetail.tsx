@@ -14,6 +14,7 @@ import {
   FaEnvelope
 } from 'react-icons/fa';
 import { FibreCable } from '@/types/fibre-cable';
+import { PDFDownloadButton } from '@/components/common/PDFDownloadButton';
 
 interface FibreCableDetailProps {
   product: FibreCable;
@@ -111,9 +112,12 @@ const FibreCableDetail: React.FC<FibreCableDetailProps> = ({ product, onBack }) 
                 <button className="flex-1 bg-gradient-to-r from-telemons-blue-primary to-telemons-blue-dark text-white py-4 px-8 rounded-2xl font-bold text-lg hover:from-telemons-blue-dark hover:to-telemons-blue-primary transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
                   Request Quote
                 </button>
-                <button className="flex-1 bg-white text-gray-700 py-4 px-8 rounded-2xl font-bold text-lg border-2 border-telemons-blue-200 hover:border-telemons-blue-primary hover:text-telemons-blue-primary transition-all duration-300">
-                  Download Specs
-                </button>
+                <PDFDownloadButton 
+                  product={product}
+                  className="flex-1"
+                  variant="secondary"
+                  showError={true}
+                />
               </div>
             </div>
           </div>
