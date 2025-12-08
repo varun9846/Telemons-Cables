@@ -42,30 +42,21 @@ const productMenuItems: ProductMenuItem[] = [
 
   },
   {
-    name: 'Keystone Jacks & Shutters',
-    href: '/products/keystone-jacks-shutters',
-  },
-  {
-    name: 'Connectors,Products & Enterprises',
-    href: '/products/products-enterprises',
-  },
-  {
-    name: 'Copper Patch Panels & Frames',
-    href: '/products/copper-patch-panels-frames',
-  }
+    name: 'Keystone Jacks & Shutters VDS',
+    href: '/products/keystones-jacks-shutters',
 
-  // {
-  //   name: 'Cable Management',
-  //   href: '/products/cable-management',
-  // },
-  // {
-  //   name: 'Tools',
-  //   href: '/products/tools',
-  // },
-  // {
-  //   name: 'Accessories',
-  //   href: '/products/accessories',
-  // }
+  },
+  {
+    name: 'Connectors,Products & Enterprises VDS',
+    href: '/products/connectors-products-enterprises',
+
+  },
+  {
+    name: 'Copper Patch Panels & Frames VDS',
+    href: '/products/copper-patch-panels-frames',
+
+  },
+
 ];
 
 // Market menu interface
