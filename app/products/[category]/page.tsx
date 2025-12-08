@@ -19,6 +19,7 @@ import TelephoneNetworking from '@/components/products/TelephoneNetworking';
 import type { TelephoneNetworking as TelephoneNetworkingType } from '@/types/telephone-networking';
 import FloorStandingRacks from '@/components/RacksCabinets/FloorStandingRacks';
 import { EnterpriseCopperCable } from '@/types/enterprise-copper-cables';
+import { KeystoneJack } from '@/types/keystone';
 
 // Product category interface for type safety
 interface ProductCategory {
@@ -82,25 +83,6 @@ interface DefaultCategory {
     additionalImages: string[];
 }
 
-// Add interface for KeystoneJack
-interface KeystoneJack {
-    id: string;
-    title: string;
-    partNumber: string;
-    description: string;
-    image: string;
-    specifications: {
-        model: string;
-        connectorType: string;
-        shielded: string;
-        category: string;
-        requiresTerminationTool: string;
-        suitableForRoundCable: string;
-    };
-    features: string[];
-    detailedDescription: string;
-}
-
 export default function CategoryPage() {
     const params = useParams();
     const router = useRouter();
@@ -112,6 +94,8 @@ export default function CategoryPage() {
     const [selectedDefaultCategory, setSelectedDefaultCategory] = useState<DefaultCategory | null>(null);
     const [showSelectedCategory, setShowSelectedCategory] = useState(false);
     const [keystoneJacks, setKeystoneJacks] = useState<KeystoneJack[]>([]);
+    const [connectorsProducts, setConnectorsProducts] = useState<KeystoneJack[]>([]);
+    const [copperCables, setCopperCables] = useState<KeystoneJack[]>([]);
     const [modules, setModules] = useState<ModuleFaceplate[]>([]);
     const [backboxes, setBackboxes] = useState<Backbox[]>([]);
     const [items, setItems] = useState<TelephoneNetworkingType[]>([]);
@@ -135,12 +119,17 @@ export default function CategoryPage() {
                 } else if (category === 'enterprise-copper-cables') {
                     const response = await axios.get('/api/enterprise-copper-cables');
                     setEnterpriseCopperCables(response.data);
-                } else if (category === 'copper-patch-panels-frames') {
-                    const response = await axios.get('/data/copperPatchPanels.json');
-                    setProductData(response.data);
-                } else if (category === 'keystone-jacks-shutters') {
-                    const response = await axios.get('/data/keyStone.json');
+                }  else if (category === 'keystones-jacks-shutters') {
+                    const response = await axios.get('/api/keystone-jackshutters');
+                    console.log('Fetched keystone jacks and shutters----',response.data);
                     setKeystoneJacks(response.data);
+                } else if (category === 'connectors-products-enterprises') {
+                    const response = await axios.get('/api/connectors-products-enterprises');
+                    setConnectorsProducts(response.data);
+                } else if (category === 'copper-patch-panels-frames') {
+                    const response = await axios.get('/api/copper-cables');
+                    console.log('Fetched copper cables----',response.data);
+                    setCopperCables(response.data);
                 } else if (category === 'modules-faceplates') {
                     const response = await axios.get('/api/modules-faceplates');
                     setModules(response.data);
@@ -396,41 +385,9 @@ export default function CategoryPage() {
         );
     }
 
-    // Handle copper patch panels & frames view
-    if (category === 'copper-patch-panels-frames' && productData) {
-        return (
-            <div className="min-h-screen bg-gray-50 font-inter">
-                <Navbar />
-                <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
-                    <div className="absolute inset-0 bg-black opacity-40"></div>
-                    <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
-                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                            Copper Patch Panels & Frames
-                        </h1>
-                        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            Discover high-performance patch panels and frames for structured cabling systems.
-                        </p>
-                    </div>
-                </section>
-                <div className="pt-0">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <button
-                            onClick={handleBack}
-                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
-                        >
-                            <FaArrowLeft />
-                            <span>Back to Products</span>
-                        </button>
-                        {productData.frames && <CopperPatchPanels frames={productData.frames} />}
-                    </div>
-                </div>
-                <Footer />
-            </div>
-        );
-    }
 
     // Handle keystone jacks view
-    if (category === 'keystone-jacks-shutters') {
+    if (category === 'keystones-jacks-shutters') {
         return (
             <div className="min-h-screen bg-gray-50 font-inter">
                 <Navbar />
@@ -461,6 +418,141 @@ export default function CategoryPage() {
             </div>
         );
     }
+
+    
+    // Handle keystone jacks view
+    if (category === 'copper-patch-panels-frames') {
+        return (
+            <div className="min-h-screen bg-gray-50 font-inter">
+                <Navbar />
+                <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
+                    <div className="absolute inset-0 bg-black opacity-40"></div>
+                    <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
+                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                            Copper Patch Panels & Frames
+                        </h1>
+                        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            High-quality copper patch panels and frames for reliable network connectivity.
+                        </p>
+                    </div>
+                </section>
+                <div className="pt-0">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <button
+                            onClick={handleBack}
+                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+                        >
+                            <FaArrowLeft />
+                            <span>Back to Products</span>
+                        </button>
+                        <KeystoneJacks jacks={copperCables} />                
+
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        );
+    }
+
+    // Handle connectors products & enterprises view
+    if (category === 'connectors-products-enterprises') {
+        return (
+            <div className="min-h-screen bg-gray-50 font-inter">
+                <Navbar />
+                <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
+                    <div className="absolute inset-0 bg-black opacity-40"></div>
+                    <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
+                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                            Connectors, Products & Enterprises
+                        </h1>
+                        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            High-quality connectors and enterprise solutions for reliable networking.
+                        </p>
+                    </div>
+                </section>
+                <div className="pt-0">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <button
+                            onClick={handleBack}
+                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+                        >
+                            <FaArrowLeft />
+                            <span>Back to Products</span>
+                        </button>
+                        <KeystoneJacks jacks={connectorsProducts} />
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        );
+    }
+
+    // Handle copper cables view
+    if (category === 'copper-cables') {
+        return (
+            <div className="min-h-screen bg-gray-50 font-inter">
+                <Navbar />
+                <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
+                    <div className="absolute inset-0 bg-black opacity-40"></div>
+                    <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
+                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                            Copper Cables
+                        </h1>
+                        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            Reliable copper cabling solutions for structured networks.
+                        </p>
+                    </div>
+                </section>
+                <div className="pt-0">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <button
+                            onClick={handleBack}
+                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+                        >
+                            <FaArrowLeft />
+                            <span>Back to Products</span>
+                        </button>
+                        <KeystoneJacks jacks={copperCables} />
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        );
+    }
+
+    // Handle copper cables view
+    if (category === 'copper-cables') {
+        return (
+            <div className="min-h-screen bg-gray-50 font-inter">
+                <Navbar />
+                <section className="relative h-[275px] bg-gradient-to-r from-blue-900 to-blue-600 text-white flex items-center justify-center mb-12">
+                    <div className="absolute inset-0 bg-black opacity-40"></div>
+                    <div className="relative z-10 mt-[2rem] text-center px-4 animate-fade-in">
+                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                            Copper Cables
+                        </h1>
+                        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            Reliable copper cabling solutions for structured networks.
+                        </p>
+                    </div>
+                </section>
+                <div className="pt-0">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <button
+                            onClick={handleBack}
+                            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors mb-8"
+                        >
+                            <FaArrowLeft />
+                            <span>Back to Products</span>
+                        </button>
+                        <KeystoneJacks jacks={copperCables} />
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        );
+    }
+
 
     // Handle modules & faceplates view
     if (category === 'modules-faceplates') {
