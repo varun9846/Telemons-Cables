@@ -32,7 +32,7 @@ export const ImageCarousel = () => {
   }, [])
 
   return (
-    <div className="relative h-[600px] overflow-hidden">
+    <div className="relative h-screen w-full overflow-hidden">
       {carouselImages.map((image, index) => (
         <div
           key={index}

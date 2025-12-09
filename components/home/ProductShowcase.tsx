@@ -9,7 +9,7 @@ const products = [
     image: '/images/products/enterprise-cables.jpg',
     link: '/products/enterprise-cables',
     category: 'Structured Cabling',
-    icon: '🔌',
+    // icon: '🔌',
     color: 'from-telemons-blue-primary to-telemons-blue-dark'
   },
   {
@@ -18,7 +18,7 @@ const products = [
     image: '/images/products/patch-panels.jpg',
     link: '/products/copper-patch-panels',
     category: 'Network Management',
-    icon: '🔧',
+    // icon: '🔧',
     color: 'from-telemons-orange-primary to-telemons-orange-dark'
   },
   {
@@ -27,7 +27,7 @@ const products = [
     image: '/images/products/keystone-jacks.jpg',
     link: '/products/keystone-jacks',
     category: 'Connectivity',
-    icon: '🔌',
+    // icon: '🔌',
     color: 'from-telemons-blue-primary to-telemons-blue-600'
   },
   {
@@ -36,7 +36,7 @@ const products = [
     image: '/images/products/modules-faceplates.jpg',
     link: '/products/modules-faceplates',
     category: 'Installation',
-    icon: '🔨',
+        // icon: '🔨',
     color: 'from-telemons-orange-primary to-telemons-orange-600'
   }
 ];
@@ -97,7 +97,7 @@ const ProductShowcase: React.FC = () => {
               className="group relative"
             >
               <div className={`bg-gradient-to-br ${product.color} backdrop-blur-lg rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-white/10`}>
-                <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">{product.icon}</div>
+                {/* <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">{product.icon}</div> */}
                 <h3 className="text-2xl font-semibold text-white mb-4 group-hover:text-telemons-orange-100 transition-colors duration-300">{product.title}</h3>
                 <p className="text-telemons-blue-100 mb-6">{product.description}</p>
                 
