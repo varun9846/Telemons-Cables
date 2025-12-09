@@ -1,7 +1,6 @@
 /**
- * PDF Generation Service
- * A comprehensive, reusable service for generating product specification PDFs
- * Supports all product categories with consistent branding and layout
+ * Enhanced PDF Generation Service
+ * Professional-grade PDF generation with modern design and layout
  */
 
 import jsPDF from 'jspdf';
@@ -30,11 +29,24 @@ export class PDFGenerationService {
     address: 'Professional Network Solutions Provider'
   };
 
+  // Professional color palette
+  private readonly colors = {
+    primary: { r: 41, g: 128, b: 185 },      // Telemons blue
+    primaryDark: { r: 31, g: 97, b: 141 },   // Darker blue
+    lightBlue: { r: 230, g: 242, b: 250 },   // Light blue background
+    text: { r: 44, g: 62, b: 80 },           // Dark text
+    textLight: { r: 108, g: 117, b: 125 },   // Light gray text
+    border: { r: 220, g: 220, b: 220 },      // Border gray
+    white: { r: 255, g: 255, b: 255 }
+  };
+
+  private currentY = 60;
+  private pageHeight = 297;
+  private pageWidth = 210;
+  private margin = 20;
+
   /**
    * Main method to generate PDF for any product type
-   * @param productData - Product data to include in PDF
-   * @param options - PDF generation options
-   * @returns Promise<PDFGenerationResult>
    */
   public async generateProductPDF(
     productData: PDFProductData,
@@ -48,31 +60,39 @@ export class PDFGenerationService {
         format: finalOptions.pageFormat
       });
 
-      // Add branding header
+      this.pageHeight = doc.internal.pageSize.getHeight();
+      this.pageWidth = doc.internal.pageSize.getWidth();
+
+      // Add modern header with branding
       if (finalOptions.includeBranding) {
-        this.addHeader(doc, productData);
+        this.addModernHeader(doc, productData);
       }
 
-      // Add product information
-      this.addProductInfo(doc, productData);
+      // Add product title section with styled background
+      this.addProductTitleSection(doc, productData);
 
-      // Add product image if available and requested
+      // Add product image if available
       if (finalOptions.includeImages && productData.image) {
-        await this.addProductImage(doc, productData.image);
+        await this.addStyledProductImage(doc, productData.image);
       }
 
-      // Add specifications section
+      // Add product description with better formatting
+      if (productData.description || productData.detailedDescription) {
+        this.addDescriptionSection(doc, productData);
+      }
+
+      // Add specifications with modern table design
       if (finalOptions.includeSpecifications && productData.specifications) {
-        this.addSpecifications(doc, productData);
+        this.addModernSpecifications(doc, productData);
       }
 
-      // Add features section
+      // Add features with styled bullets
       if (finalOptions.includeFeatures && productData.features) {
-        this.addFeatures(doc, productData);
+        this.addStyledFeatures(doc, productData);
       }
 
-      // Add footer
-      this.addFooter(doc);
+      // Add professional footer
+      this.addModernFooter(doc);
 
       // Generate blob and prepare result
       const pdfBlob = doc.output('blob');
@@ -94,82 +114,101 @@ export class PDFGenerationService {
   }
 
   /**
-   * Add company header with branding
+   * Add modern header with blue accent bar
    */
-  private addHeader(doc: jsPDF, productData: PDFProductData): void {
-    const pageWidth = doc.internal.pageSize.getWidth();
+  private addModernHeader(doc: jsPDF, productData: PDFProductData): void {
+    // Blue accent bar at top
+    doc.setFillColor(this.colors.primary.r, this.colors.primary.g, this.colors.primary.b);
+    doc.rect(0, 0, this.pageWidth, 8, 'F');
+
+    // Company name
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(28);
+    doc.setTextColor(this.colors.primary.r, this.colors.primary.g, this.colors.primary.b);
+    doc.text(this.brandingInfo.companyName, this.margin, 22);
     
-    // Company name and logo area
-    doc.setFontSize(24);
-    doc.setTextColor(41, 128, 185); // Telemons blue
-    doc.text(this.brandingInfo.companyName, 20, 25);
+    // Tagline
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(11);
+    doc.setTextColor(this.colors.textLight.r, this.colors.textLight.g, this.colors.textLight.b);
+    doc.text(this.brandingInfo.address, this.margin, 29);
     
+    // "Product Specifications" badge
+    const badgeX = this.pageWidth - this.margin - 70;
+    doc.setFillColor(this.colors.lightBlue.r, this.colors.lightBlue.g, this.colors.lightBlue.b);
+    doc.roundedRect(badgeX, 14, 70, 12, 2, 2, 'F');
+    doc.setFont('helvetica', 'bold');
     doc.setFontSize(10);
-    doc.setTextColor(100, 100, 100);
-    doc.text(this.brandingInfo.address, 20, 32);
+    doc.setTextColor(this.colors.primary.r, this.colors.primary.g, this.colors.primary.b);
+    doc.text('SPECIFICATIONS', badgeX + 5, 21.5);
     
-    // Product title
-    doc.setFontSize(18);
-    doc.setTextColor(0, 0, 0);
-    doc.text('Product Specifications', 20, 45);
+    // Horizontal line separator
+    doc.setDrawColor(this.colors.border.r, this.colors.border.g, this.colors.border.b);
+    doc.setLineWidth(0.3);
+    doc.line(this.margin, 36, this.pageWidth - this.margin, 36);
     
-    // Add horizontal line
-    doc.setDrawColor(41, 128, 185);
-    doc.setLineWidth(0.5);
-    doc.line(20, 50, pageWidth - 20, 50);
-    
-    // Set starting Y position for content
-    this.currentY = 60;
+    this.currentY = 45;
   }
 
-  private currentY = 60; // Track vertical position
-
   /**
-   * Add main product information section
+   * Add product title section with background
    */
-  private addProductInfo(doc: jsPDF, productData: PDFProductData): void {
-    const pageWidth = doc.internal.pageSize.getWidth();
+  private addProductTitleSection(doc: jsPDF, productData: PDFProductData): void {
+    // Light blue background box
+    doc.setFillColor(this.colors.lightBlue.r, this.colors.lightBlue.g, this.colors.lightBlue.b);
+    doc.roundedRect(this.margin, this.currentY, this.pageWidth - 2 * this.margin, 20, 3, 3, 'F');
     
     // Product title
+    doc.setFont('helvetica', 'bold');
     doc.setFontSize(16);
-    doc.setTextColor(0, 0, 0);
-    doc.text(productData.title, 20, this.currentY);
-    this.currentY += 10;
+    doc.setTextColor(this.colors.text.r, this.colors.text.g, this.colors.text.b);
+    const titleLines = doc.splitTextToSize(productData.title, this.pageWidth - 2 * this.margin - 10);
+    doc.text(titleLines, this.margin + 5, this.currentY + 8);
     
     // Part number if available
     if (productData.partNumber) {
-      doc.setFontSize(12);
-      doc.setTextColor(100, 100, 100);
-      doc.text(`Part Number: ${productData.partNumber}`, 20, this.currentY);
-      this.currentY += 8;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(10);
+      doc.setTextColor(this.colors.textLight.r, this.colors.textLight.g, this.colors.textLight.b);
+      doc.text(`Part No: ${productData.partNumber}`, this.margin + 5, this.currentY + 16);
     }
     
-    // Product description
-    if (productData.description) {
-      doc.setFontSize(11);
-      doc.setTextColor(60, 60, 60);
-      const splitDescription = doc.splitTextToSize(productData.description, pageWidth - 40);
-      doc.text(splitDescription, 20, this.currentY);
-      this.currentY += splitDescription.length * 5 + 10;
-    }
-    
-    // Detailed description if different from main description
-    if (productData.detailedDescription && 
-        productData.detailedDescription !== productData.description) {
-      doc.setFontSize(11);
-      doc.setTextColor(60, 60, 60);
-      const splitDetailed = doc.splitTextToSize(productData.detailedDescription, pageWidth - 40);
-      doc.text(splitDetailed, 20, this.currentY);
-      this.currentY += splitDetailed.length * 5 + 15;
-    }
+    this.currentY += 28;
   }
 
   /**
-   * Add product image to PDF
+   * Add description section with proper formatting
    */
-  private async addProductImage(doc: jsPDF, imageUrl: string): Promise<void> {
+  private addDescriptionSection(doc: jsPDF, productData: PDFProductData): void {
+    this.checkPageBreak(doc, 40);
+    
+    // Section header with icon-like element
+    doc.setFillColor(this.colors.primary.r, this.colors.primary.g, this.colors.primary.b);
+    doc.circle(this.margin + 2, this.currentY + 1.5, 1.5, 'F');
+    
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(13);
+    doc.setTextColor(this.colors.text.r, this.colors.text.g, this.colors.text.b);
+    doc.text('Product Overview', this.margin + 6, this.currentY + 3);
+    
+    this.currentY += 10;
+    
+    // Description text
+    const description = productData.detailedDescription || productData.description || '';
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.setTextColor(this.colors.text.r, this.colors.text.g, this.colors.text.b);
+    const descLines = doc.splitTextToSize(description, this.pageWidth - 2 * this.margin);
+    doc.text(descLines, this.margin, this.currentY);
+    
+    this.currentY += descLines.length * 5 + 12;
+  }
+
+  /**
+   * Add styled product image with border
+   */
+  private async addStyledProductImage(doc: jsPDF, imageUrl: string): Promise<void> {
     try {
-      // Create a temporary image element
       const img = new Image();
       img.crossOrigin = 'anonymous';
       
@@ -179,16 +218,14 @@ export class PDFGenerationService {
         img.src = imageUrl.startsWith('http') ? imageUrl : `${window.location.origin}${imageUrl}`;
       });
       
-      // Create canvas and draw image
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
       
       if (ctx) {
-        const maxWidth = 120;
-        const maxHeight = 80;
+        const maxWidth = 140;
+        const maxHeight = 100;
         let { width, height } = img;
         
-        // Calculate scaled dimensions
         if (width > maxWidth) {
           height = (height * maxWidth) / width;
           width = maxWidth;
@@ -202,56 +239,100 @@ export class PDFGenerationService {
         canvas.height = height;
         ctx.drawImage(img, 0, 0, width, height);
         
-        // Convert to base64 and add to PDF
-        const imgData = canvas.toDataURL('image/jpeg', 0.8);
-        doc.addImage(imgData, 'JPEG', 20, this.currentY, width, height);
-        this.currentY += height + 15;
+        this.checkPageBreak(doc, height + 20);
+        
+        // Center the image
+        const imgX = (this.pageWidth - width) / 2;
+        
+        // White background for image
+        doc.setFillColor(255, 255, 255);
+        doc.roundedRect(imgX - 5, this.currentY - 5, width + 10, height + 10, 2, 2, 'F');
+        
+        // Border around image
+        doc.setDrawColor(this.colors.border.r, this.colors.border.g, this.colors.border.b);
+        doc.setLineWidth(0.5);
+        doc.roundedRect(imgX - 5, this.currentY - 5, width + 10, height + 10, 2, 2, 'S');
+        
+        const imgData = canvas.toDataURL('image/jpeg', 0.9);
+        doc.addImage(imgData, 'JPEG', imgX, this.currentY, width, height);
+        
+        this.currentY += height + 20;
       }
     } catch (error) {
       console.warn('Failed to load product image:', error);
-      // Continue without image
     }
   }
 
   /**
-   * Add specifications section
+   * Add specifications with modern table design
    */
-  private addSpecifications(doc: jsPDF, productData: PDFProductData): void {
-    const pageWidth = doc.internal.pageSize.getWidth();
+  private addModernSpecifications(doc: jsPDF, productData: PDFProductData): void {
+    this.checkPageBreak(doc, 50);
     
-    // Check if we need a new page
-    if (this.currentY > 250) {
-      doc.addPage();
-      this.currentY = 20;
-    }
+    // Section header
+    doc.setFillColor(this.colors.primary.r, this.colors.primary.g, this.colors.primary.b);
+    doc.circle(this.margin + 2, this.currentY + 1.5, 1.5, 'F');
     
-    // Section title
-    doc.setFontSize(14);
-    doc.setTextColor(41, 128, 185);
-    doc.text('Technical Specifications', 20, this.currentY);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(13);
+    doc.setTextColor(this.colors.text.r, this.colors.text.g, this.colors.text.b);
+    doc.text('Technical Specifications', this.margin + 6, this.currentY + 3);
+    
     this.currentY += 10;
     
-    // Handle different specification formats
+    const tableWidth = this.pageWidth - 2 * this.margin;
+    const col1Width = tableWidth * 0.4;
+    const col2Width = tableWidth * 0.6;
+    
     if (Array.isArray(productData.specifications)) {
-      // Array format
-      productData.specifications.forEach((spec: string) => {
+      // Array format - styled list
+      productData.specifications.forEach((spec: string, index: number) => {
+        this.checkPageBreak(doc, 12);
+        
+        // Alternating row background
+        if (index % 2 === 0) {
+          doc.setFillColor(250, 250, 250);
+          doc.rect(this.margin, this.currentY - 4, tableWidth, 8, 'F');
+        }
+        
+        // Bullet point
+        doc.setFillColor(this.colors.primary.r, this.colors.primary.g, this.colors.primary.b);
+        doc.circle(this.margin + 3, this.currentY - 1, 1, 'F');
+        
+        doc.setFont('helvetica', 'normal');
         doc.setFontSize(10);
-        doc.setTextColor(60, 60, 60);
-        const splitSpec = doc.splitTextToSize(`• ${spec}`, pageWidth - 40);
-        doc.text(splitSpec, 25, this.currentY);
-        this.currentY += splitSpec.length * 4 + 2;
+        doc.setTextColor(this.colors.text.r, this.colors.text.g, this.colors.text.b);
+        const specLines = doc.splitTextToSize(spec, tableWidth - 15);
+        doc.text(specLines, this.margin + 7, this.currentY);
+        
+        this.currentY += Math.max(specLines.length * 5, 8);
       });
     } else if (typeof productData.specifications === 'object') {
-      // Object format
-      Object.entries(productData.specifications).forEach(([key, value]) => {
+      // Object format - two-column table
+      Object.entries(productData.specifications).forEach(([key, value], index) => {
+        this.checkPageBreak(doc, 12);
+        
+        // Alternating row background
+        if (index % 2 === 0) {
+          doc.setFillColor(250, 250, 250);
+          doc.rect(this.margin, this.currentY - 4, tableWidth, 8, 'F');
+        }
+        
+        // Key (label)
+        doc.setFont('helvetica', 'bold');
         doc.setFontSize(10);
-        doc.setTextColor(0, 0, 0);
-        doc.text(`${key}:`, 25, this.currentY);
-        doc.setTextColor(60, 60, 60);
+        doc.setTextColor(this.colors.text.r, this.colors.text.g, this.colors.text.b);
+        const keyLines = doc.splitTextToSize(key, col1Width - 5);
+        doc.text(keyLines, this.margin + 2, this.currentY);
+        
+        // Value
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(this.colors.text.r, this.colors.text.g, this.colors.text.b);
         const valueText = Array.isArray(value) ? value.join(', ') : String(value);
-        const splitValue = doc.splitTextToSize(valueText, pageWidth - 80);
-        doc.text(splitValue, 70, this.currentY);
-        this.currentY += Math.max(splitValue.length * 4, 6);
+        const valueLines = doc.splitTextToSize(valueText, col2Width - 5);
+        doc.text(valueLines, this.margin + col1Width + 2, this.currentY);
+        
+        this.currentY += Math.max(keyLines.length * 5, valueLines.length * 5, 8);
       });
     }
     
@@ -259,61 +340,101 @@ export class PDFGenerationService {
   }
 
   /**
-   * Add features section
+   * Add features with styled bullet points
    */
-  private addFeatures(doc: jsPDF, productData: PDFProductData): void {
-    const pageWidth = doc.internal.pageSize.getWidth();
+  private addStyledFeatures(doc: jsPDF, productData: PDFProductData): void {
+    this.checkPageBreak(doc, 50);
     
-    // Check if we need a new page
-    if (this.currentY > 250) {
-      doc.addPage();
-      this.currentY = 20;
-    }
+    // Section header
+    doc.setFillColor(this.colors.primary.r, this.colors.primary.g, this.colors.primary.b);
+    doc.circle(this.margin + 2, this.currentY + 1.5, 1.5, 'F');
     
-    // Section title
-    doc.setFontSize(14);
-    doc.setTextColor(41, 128, 185);
-    doc.text('Key Features', 20, this.currentY);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(13);
+    doc.setTextColor(this.colors.text.r, this.colors.text.g, this.colors.text.b);
+    doc.text('Key Features', this.margin + 6, this.currentY + 3);
+    
     this.currentY += 10;
     
-    // Add features
-    productData.features!.forEach((feature: string) => {
+    productData.features!.forEach((feature: string, index: number) => {
+      this.checkPageBreak(doc, 12);
+      
+      // Feature box with light background
+      const boxWidth = this.pageWidth - 2 * this.margin;
+      doc.setFillColor(this.colors.lightBlue.r, this.colors.lightBlue.g, this.colors.lightBlue.b);
+      doc.roundedRect(this.margin, this.currentY - 3, boxWidth, 10, 2, 2, 'F');
+      
+      // Check mark icon
+      doc.setFillColor(this.colors.primary.r, this.colors.primary.g, this.colors.primary.b);
+      doc.circle(this.margin + 4, this.currentY + 1, 1.5, 'F');
+      doc.setDrawColor(255, 255, 255);
+      doc.setLineWidth(0.5);
+      doc.line(this.margin + 3, this.currentY + 1, this.margin + 3.7, this.currentY + 1.8);
+      doc.line(this.margin + 3.7, this.currentY + 1.8, this.margin + 5.5, this.currentY - 0.5);
+      
+      // Feature text
+      doc.setFont('helvetica', 'normal');
       doc.setFontSize(10);
-      doc.setTextColor(60, 60, 60);
-      const splitFeature = doc.splitTextToSize(`• ${feature}`, pageWidth - 40);
-      doc.text(splitFeature, 25, this.currentY);
-      this.currentY += splitFeature.length * 4 + 2;
+      doc.setTextColor(this.colors.text.r, this.colors.text.g, this.colors.text.b);
+      const featureLines = doc.splitTextToSize(feature, boxWidth - 20);
+      doc.text(featureLines, this.margin + 10, this.currentY + 2);
+      
+      this.currentY += 13;
     });
     
-    this.currentY += 10;
+    this.currentY += 5;
   }
 
   /**
-   * Add footer with company information
+   * Add modern footer
    */
-  private addFooter(doc: jsPDF): void {
-    const pageHeight = doc.internal.pageSize.getHeight();
-    const pageWidth = doc.internal.pageSize.getWidth();
+  private addModernFooter(doc: jsPDF): void {
+    const footerY = this.pageHeight - 20;
     
-    // Add horizontal line
-    doc.setDrawColor(200, 200, 200);
+    // Blue accent bar
+    doc.setFillColor(this.colors.primary.r, this.colors.primary.g, this.colors.primary.b);
+    doc.rect(0, this.pageHeight - 8, this.pageWidth, 8, 'F');
+    
+    // Footer separator line
+    doc.setDrawColor(this.colors.border.r, this.colors.border.g, this.colors.border.b);
     doc.setLineWidth(0.3);
-    doc.line(20, pageHeight - 25, pageWidth - 20, pageHeight - 25);
+    doc.line(this.margin, footerY, this.pageWidth - this.margin, footerY);
     
-    // Company information
+    // Company info
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9);
+    doc.setTextColor(this.colors.text.r, this.colors.text.g, this.colors.text.b);
+    doc.text(this.brandingInfo.companyName, this.margin, footerY + 6);
+    
+    doc.setFont('helvetica', 'normal');
     doc.setFontSize(8);
-    doc.setTextColor(100, 100, 100);
-    doc.text(this.brandingInfo.companyName, 20, pageHeight - 18);
-    doc.text(this.brandingInfo.website, 20, pageHeight - 13);
-    doc.text(this.brandingInfo.contactInfo, 20, pageHeight - 8);
+    doc.setTextColor(this.colors.textLight.r, this.colors.textLight.g, this.colors.textLight.b);
+    doc.text(this.brandingInfo.website, this.margin, footerY + 10);
+    doc.text(this.brandingInfo.contactInfo, this.margin, footerY + 14);
     
-    // Generation timestamp
-    const timestamp = new Date().toLocaleDateString();
-    doc.text(`Generated: ${timestamp}`, pageWidth - 60, pageHeight - 8);
+    // Generation date
+    const timestamp = new Date().toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+    doc.setFont('helvetica', 'italic');
+    doc.setFontSize(8);
+    doc.text(`Generated: ${timestamp}`, this.pageWidth - this.margin - 40, footerY + 10, { align: 'right' });
   }
 
   /**
-   * Sanitize filename for safe file download
+   * Check if we need a page break
+   */
+  private checkPageBreak(doc: jsPDF, spaceNeeded: number): void {
+    if (this.currentY + spaceNeeded > this.pageHeight - 30) {
+      doc.addPage();
+      this.currentY = this.margin;
+    }
+  }
+
+  /**
+   * Sanitize filename
    */
   private sanitizeFileName(fileName: string): string {
     return fileName
@@ -324,7 +445,7 @@ export class PDFGenerationService {
   }
 
   /**
-   * Trigger file download in browser
+   * Trigger file download
    */
   public downloadPDF(blob: Blob, fileName: string): void {
     const url = window.URL.createObjectURL(blob);
