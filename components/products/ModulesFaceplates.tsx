@@ -56,13 +56,13 @@ const ModulesFaceplates: React.FC<ModulesFaceplatesProps> = ({ modules }) => {
             <p className="text-gray-600 mb-2 text-sm">{module.description}</p>
             <div className="flex flex-wrap gap-2 mb-2">
               <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Part: {module.partNumber}</span>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{module.specifications.category}</span>
-              <span className={`${module.specifications.shielded === 'Yes' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'} px-2 py-1 rounded text-xs font-medium`}>
+              {/* <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{module.specifications.category}</span> */}
+              {/* <span className={`${module.specifications.shielded === 'Yes' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'} px-2 py-1 rounded text-xs font-medium`}>
                 {module.specifications.shielded === 'Yes' ? 'Shielded' : 'Unshielded'}
-              </span>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">
+              </span> */}
+              {/* <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">
                 {module.specifications.requiresTerminationTool === 'No' ? 'Tool-less' : 'Tool Required'}
-              </span>
+              </span> */}
             </div>
             <div className="mt-auto space-y-2">
               <button
@@ -84,7 +84,7 @@ const ModulesFaceplates: React.FC<ModulesFaceplatesProps> = ({ modules }) => {
                   <li><b>Model:</b> {module.specifications.model}</li>
                   <li><b>Connector Type:</b> {module.specifications.connectorType}</li>
                   <li><b>Category:</b> {module.specifications.category}</li>
-                  <li><b>Shielded:</b> {module.specifications.shielded}</li>
+                  {/* <li><b>Shielded:</b> {module.specifications.shielded}</li> */}
                   <li><b>Termination Tool Required:</b> {module.specifications.requiresTerminationTool}</li>
                   <li><b>Suitable for Round Cable:</b> {module.specifications.suitableForRoundCable}</li>
                   {module.specifications.performanceLevel && (

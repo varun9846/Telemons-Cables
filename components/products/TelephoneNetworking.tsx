@@ -57,9 +57,9 @@ const TelephoneNetworking: React.FC<TelephoneNetworkingProps> = ({ items }) => {
             <p className="text-gray-600 mb-2 text-sm">{item.description}</p>
             <div className="flex flex-wrap gap-2 mb-2">
               <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Part: {item.partNumber}</span>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{item.specifications.type}</span>
+              {/* <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{item.specifications.type}</span>
               <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{item.specifications.category}</span>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{item.specifications.material}</span>
+              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{item.specifications.material}</span> */}
             </div>
             <div className="mt-auto space-y-2">
               <button
