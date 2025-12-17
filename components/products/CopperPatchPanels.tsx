@@ -61,7 +61,7 @@ const CopperPatchPanels: React.FC<CopperPatchPanelsProps> = ({ frames }) => {
               <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs font-medium border border-gray-200">
                 {frame?.colour}
               </span>
-              {frame?.shielded && (
+              {/* {frame?.shielded && (
                 <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium border border-green-200">
                   Shielded
                 </span>
@@ -70,7 +70,7 @@ const CopperPatchPanels: React.FC<CopperPatchPanelsProps> = ({ frames }) => {
                 <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-medium border border-yellow-200">
                   Unshielded
                 </span>
-              )}
+              )} */}
             </div>
             <button
               onClick={() => handleToggle(idx)}
@@ -128,10 +128,10 @@ const CopperPatchPanels: React.FC<CopperPatchPanelsProps> = ({ frames }) => {
                     </li>
                   )}
                   <li className="flex justify-between">
-                    <span className="font-semibold text-telemons-blue-primary">Shielded:</span>
-                    <span className={frame.shielded ? 'text-green-600 font-medium' : 'text-yellow-600 font-medium'}>
+                    {/* <span className="font-semibold text-telemons-blue-primary">Shielded:</span> */}
+                    {/* <span className={frame.shielded ? 'text-green-600 font-medium' : 'text-yellow-600 font-medium'}>
                       {frame.shielded ? 'Yes' : 'No'}
-                    </span>
+                    </span> */}
                   </li>
                 </ul>
               </div>

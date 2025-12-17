@@ -56,13 +56,13 @@ const EnterpriseCopperCables: React.FC<EnterpriseCopperCablesProps> = ({ cables 
             <p className="text-gray-600 mb-2 text-sm">{cable.description}</p>
             <div className="flex flex-wrap gap-2 mb-2">
               <span className="bg-telemons-blue-50 text-telemons-blue-primary px-2 py-1 rounded text-xs font-medium">Part: {cable.partNumber}</span>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{cable.specifications.performanceLevel}</span>
+              {/* <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{cable.specifications.performanceLevel}</span>
               <span className="bg-telemons-orange-50 text-telemons-orange-primary px-2 py-1 rounded text-xs font-medium">
                 {cable.specifications.cableConstruction}
               </span>
               <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">
                 {cable.specifications.conductorType}
-              </span>
+              </span> */}
             </div>
             <div className="mt-auto space-y-2">
               <button

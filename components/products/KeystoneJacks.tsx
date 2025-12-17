@@ -56,13 +56,13 @@ const KeystoneJacks: React.FC<KeystoneJacksProps> = ({ jacks }) => {
             <p className="text-gray-600 mb-2 text-sm">{jack.description}</p>
             <div className="flex flex-wrap gap-2 mb-2">
               <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Part: {jack.partNumber}</span>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{jack.specifications.category}</span>
+              {/* <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{jack.specifications.category}</span>
               <span className={`${jack.specifications.shielded === 'Yes' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'} px-2 py-1 rounded text-xs font-medium`}>
                 {jack.specifications.shielded === 'Yes' ? 'Shielded' : 'Unshielded'}
-              </span>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">
+              </span> */}
+              {/* <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">
                 {jack.specifications.requiresTerminationTool === 'No' ? 'Tool-less' : 'Tool Required'}
-              </span>
+              </span> */}
             </div>
             <div className="mt-auto space-y-2">
               <button
@@ -84,7 +84,7 @@ const KeystoneJacks: React.FC<KeystoneJacksProps> = ({ jacks }) => {
                   <li><b>Model:</b> {jack.specifications.model}</li>
                   <li><b>Connector Type:</b> {jack.specifications.connectorType}</li>
                   <li><b>Category:</b> {jack.specifications.category}</li>
-                  <li><b>Shielded:</b> {jack.specifications.shielded}</li>
+                  {/* <li><b>Shielded:</b> {jack.specifications.shielded}</li> */}
                   <li><b>Termination Tool Required:</b> {jack.specifications.requiresTerminationTool}</li>
                   <li><b>Suitable for Round Cable:</b> {jack.specifications.suitableForRoundCable}</li>
                   {jack.specifications.performanceLevel && (
