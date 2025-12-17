@@ -57,9 +57,9 @@ const Backboxes: React.FC<BackboxesProps> = ({ backboxes }) => {
             <p className="text-gray-600 mb-2 text-sm">{backbox.description}</p>
             <div className="flex flex-wrap gap-2 mb-2">
               <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Part: {backbox.partNumber}</span>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{backbox.specifications.type}</span>
+              {/* <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{backbox.specifications.type}</span>
               <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{backbox.specifications.depth}</span>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{backbox.specifications.material}</span>
+              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{backbox.specifications.material}</span> */}
             </div>
             <div className="mt-auto space-y-2">
               <button

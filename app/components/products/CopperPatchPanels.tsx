@@ -42,8 +42,8 @@ export const CopperPatchPanels: React.FC<CopperPatchPanelsProps> = ({ frames }) 
               <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Part Code: {frame.partCode}</span>
               <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{frame.rackUnits} Rack Unit</span>
               <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium">{frame.colour}</span>
-              {frame.shielded && <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">Shielded</span>}
-              {!frame.shielded && <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium">Unshielded</span>}
+              {/* {frame.shielded && <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">Shielded</span>}
+              {!frame.shielded && <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium">Unshielded</span>} */}
             </div>
             <button
               onClick={() => handleToggle(idx)}
@@ -63,7 +63,7 @@ export const CopperPatchPanels: React.FC<CopperPatchPanelsProps> = ({ frames }) 
                   <li><b>Colour:</b> {frame.colour}</li>
                   <li><b>Mounting:</b> {frame.mounting}</li>
                   {frame.height && <li><b>Height:</b> {frame.height}</li>}
-                  <li><b>Shielded:</b> {frame.shielded ? 'Yes' : 'No'}</li>
+                  {/* <li><b>Shielded:</b> {frame.shielded ? 'Yes' : 'No'}</li> */}
                 </ul>
               </div>
             )}
